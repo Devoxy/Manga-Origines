@@ -1,0 +1,46 @@
+body {
+  background-color: #191919;
+}
+
+.recent {
+  padding: 2rem 0;
+}
+.recent__top {
+  display: flex;
+  justify-content: space-between;
+  margin: 2rem 5rem;
+}
+.recent__top__title {
+  font-size: 24px;
+  font-weight: 800;
+  color: white;
+}
+.recent__top__controls {
+  display: flex;
+}
+.recent__top__controls i {
+  color: white;
+}
+.recent__slider__slides {
+  position: relative;
+  height: 310px;
+  margin: 0 2rem;
+}
+.recent__slider__slides__text {
+  position: absolute;
+  bottom: 2rem;
+  left: 2rem;
+  z-index: 1;
+  color: white;
+}
+.recent__slider__slides__text__title {
+  font-size: 20px;
+  font-weight: 500;
+}
+.recent__slider__slides img {
+  height: 100%;
+  width: 100%;
+  -o-object-fit: cover;
+  object-fit: cover;
+  border-radius: 35px;
+}

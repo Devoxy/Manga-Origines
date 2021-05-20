@@ -1,0 +1,50 @@
+@import "variables";
+
+body {
+    background-color: $background;
+}
+
+.recent {
+    padding: 2rem 0;
+    &__top {
+        display: flex;
+        justify-content: space-between;
+        margin: 2rem 5rem;
+        &__title {
+            font-size: 24px;
+            font-weight: 800;
+            color: white;
+        }
+        &__controls {
+            display: flex;
+            i {
+                color: white;
+            }
+        }
+    }
+    &__slider {
+        &__slides {
+            position: relative;
+            height: 310px;
+            margin: 0 2rem;
+            &__text {
+                position: absolute;
+                bottom: 2rem;
+                left: 2rem;
+                z-index: 1;
+                color: white;
+                &__title {
+                    font-size: 20px;
+                    font-weight: 500;
+                }
+            }
+            img {
+                height: 100%;
+                width: 100%;
+                -o-object-fit: cover;
+                object-fit: cover;
+                border-radius: 35px;
+            }
+        }
+    }
+}

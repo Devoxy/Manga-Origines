@@ -10,7 +10,7 @@ Route::prefix('admin')->middleware(['web', 'auth'])->group(function () {
 
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('static.home');
 });
 
 Auth::routes();
