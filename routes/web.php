@@ -11,7 +11,7 @@ Route::prefix('admin')->middleware(['web', 'auth'])->group(function () {
 
 Route::get('/', function () {
     return view('static.home');
-});
+})->name('home');
 
 Auth::routes();
 Route::get('/logout', [App\Http\Controllers\Auth\LoginController::class, 'logout'])->name('auth.logout');

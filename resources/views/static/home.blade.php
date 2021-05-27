@@ -20,7 +20,11 @@
 
 <body>
     <header class="header">
-
+        <div class="header__logo">
+            <a href="{{ route('home') }}">
+                <img src="/images/static/logo.png">
+            </a>
+        </div>
     </header>
     <div class="recent" id="recent">
         <div class="recent__top">

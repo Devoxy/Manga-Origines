@@ -1,0 +1,16 @@
+.header {
+    height: 70px;
+    background: #22252D 0% 0% no-repeat padding-box;
+    box-shadow: 0px 12px 13px #111111BD;
+    opacity: 1;
+    display: flex;
+    align-items: center;
+
+    &__logo {
+        color: red;
+
+        img {
+            height: 45px;
+        }
+    }
+}
