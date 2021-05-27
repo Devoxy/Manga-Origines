@@ -35,17 +35,19 @@
             </a>
         </nav>
         <div class="header__tools">
-            <div class="header__tools_search">
-                sdfssdfd
+            <div class="header__tools__search">
+                <div class="header__tools__search__form">
+                </div>
+                <a href="#" class="fa fa-search"></a>
             </div>
-            <div class="header__tools_notifications">
-                sdfssdfd
+            <div class="header__tools__notifications">
+                <a href="#" class="fa fa-bell"></a>
             </div>
             <div class="header__tools__account">
                 <img src="/images/static/login.png">
-                <div class="header__tools__account__panel">
+                {{-- <div class="header__tools__account__panel">
                     <a href="#">tesst</a>
-                </div>
+                </div> --}}
             </div>
         </div>
     </header>

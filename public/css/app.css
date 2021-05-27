@@ -40,15 +40,34 @@
   width: 30%;
   text-align: right;
   padding-right: 15px;
+  height: 26px;
 }
-.header__tools div {
+.header__tools__search {
   display: inline-block;
+}
+.header__tools__search a {
+  font-size: 25px;
+  color: #fff;
+}
+.header__tools__notifications {
+  display: inline-block;
+  height: 26px;
+}
+.header__tools__notifications a {
+  font-size: 25px;
+  color: #fff;
+  padding: 0 15px;
+}
+.header__tools__account {
+  display: inline-block;
+  position: relative;
 }
 .header__tools__account img {
   width: 35px;
   height: 35px;
   border-radius: 50%;
   cursor: pointer;
+  margin-top: -10px;
 }
 .header__tools__account__panel {
   background: red;
