@@ -19,24 +19,27 @@
 </head>
 
 <body>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-6">
-                Test
-            </div>
-            <div class="col-md-2">Test</div>
-            <div class="col-md-4">test</div>
-        </div>
-    </div>
+    <header class="header">
 
-    <div class="recent">
+    </header>
+    <div class="recent" id="recent">
         <div class="recent__top">
             <div class="recent__top__title">
                 Lecture récente
             </div>
             <div class="recent__top__controls">
-                <div class="recent__top__controls__prev"><i class="fa fa-4x fa-angle-left"></i></div>
-                <div class="recent__top__controls__next"><i class="fa fa-4x fa-angle-right"></i></div>
+                <div class="recent__top__controls__prev">
+                    <span class="fa-stack fa-2x">
+                        <i class="fa fa-circle fa-stack-2x c-white"></i>
+                        <i class="fa fa-angle-left fa-stack-1x c-black"></i>
+                    </span>
+                </div>
+                <div class="recent__top__controls__next">
+                    <span class="fa-stack fa-2x">
+                        <i class="fa fa-circle fa-stack-2x c-white"></i>
+                        <i class="fa fa-angle-right fa-stack-1x c-black"></i>
+                    </span>
+                </div>
 
             </div>
         </div>
@@ -176,6 +179,49 @@
         </div>
     </div>
 
+    <div class="discover">
+        <div class="discover__left">
+            <div class="discover__left__top">
+                <h3>Découvrir</h3>
+            </div>
+            <div class="discover__left__title">
+                <h2>Tokyo Ghoul</h2>
+            </div>
+            <div class="discover__left__text">
+                <p>Dans la ville de Tokyo, des créatures nommées goules sont apparues et se nourrissent de chair humaine pour survivre. Un jour, Ken Kaneki, jeune étudiant, se fait attaquer par l'une d'entre elles et subit une grave blessure. Pour rester en vie, il reçoit une greffe de la goule qui l'a attaqué et devient un hybride, mi-humain mi-goule (borgne artificielle). Rapidement, il se rend compte qu'il ne peut plus manger les mêmes aliments qu'auparavant. Il entre alors au service du café « L’Antique », un repaire de goules, où il apprend à se nourrir sans faire de mal aux humains. Mais il va bien vite se retrouver au cœur d'une guerre sanglante entre le CCG (Centre de Contrôle des Goules), déterminé à retrouver et exterminer celles-ci jusqu'à la dernière et l'Arbre Aogiri, une organisation de goules sans merci. Il découvre que les goules ne sont pas si différentes des humains, et peu à peu il va commencer à s'adapter.</p>
+            </div>
+        </div>
+        <div class="discover__right">
+            <div class="discover__right__image">
+                <img src="/images/front/tokyo-ghoul.png">
+            </div>
+        </div>
+    </div>
+
+    <div class="top-mangas" id="top-mangas">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12 col-md-6">
+                    <div class="top-mangas__image">
+                        <img src="/images/front/top-1.png">
+                    </div>
+                </div>
+                <div class="col-12 col-md-3">
+                    <div class="top-mangas__image max">
+                        <img src="/images/front/top-2.png">
+                    </div>
+                </div>
+                <div class="col-12 col-md-3 d-flex flex-column">
+                    <div class="top-mangas__image">
+                        <img src="/images/front/top-3.png">
+                    </div>
+                    <div class="top-mangas__image">
+                        <img src="/images/front/top-4.png">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <script src="/js/jquery-2.1.4.min.js"></script>
     <script type="text/javascript">

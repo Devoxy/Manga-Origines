@@ -1,5 +1,15 @@
+@import url(https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap);
+.c-black {
+  color: black;
+}
+
+.c-white {
+  color: white;
+}
+
 body {
   background-color: #191919;
+  font-family: "Roboto", sans-serif;
 }
 
 .recent {
@@ -18,8 +28,8 @@ body {
 .recent__top__controls {
   display: flex;
 }
-.recent__top__controls i {
-  color: white;
+.recent__top__controls__prev {
+  margin-right: 3rem;
 }
 .recent__slider__slides {
   position: relative;
@@ -43,4 +53,34 @@ body {
   -o-object-fit: cover;
   object-fit: cover;
   border-radius: 35px;
+}
+
+.discover {
+  padding: 2rem;
+}
+.discover__left {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
+  background: white;
+  border-radius: 44px 0 0 44px;
+}
+
+.top-mangas {
+  padding: 2rem;
+}
+.top-mangas__image {
+  width: 100%;
+  height: 100%;
+}
+.top-mangas__image.max {
+  min-height: 430px;
+  max-height: 430px;
+}
+.top-mangas__image img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
