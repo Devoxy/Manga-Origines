@@ -44,7 +44,12 @@
                 <a href="#" class="fa fa-bell"></a>
             </div>
             <div class="header__tools__account">
-                <img src="/images/static/login.png">
+                @if(Auth::guest())
+                    <a href="{{ route('login') }}">
+                        <img src="/images/static/login.png">
+                    </a>
+                @endif
+               
                 {{-- <div class="header__tools__account__panel">
                     <a href="#">tesst</a>
                 </div> --}}
