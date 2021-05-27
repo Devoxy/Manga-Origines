@@ -8,9 +8,29 @@
 
     &__logo {
         color: red;
+        width: 30%;
 
         img {
-            height: 45px;
+            height: 40px;
         }
+    }
+    &__menu {
+        width: 40%;
+        text-align: center;
+
+        &__link {
+            color: #fff;
+            text-decoration: none;
+            font-size: 25px;
+            padding: 0 15px;
+        }
+        &__link:hover {
+            color: yellow;
+            text-decoration: none;
+        }
+    }
+    &__tools {
+        width: 30%;
+        text-align: right;
     }
 }

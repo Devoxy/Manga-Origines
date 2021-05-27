@@ -17,9 +17,28 @@
 }
 .header__logo {
   color: red;
+  width: 30%;
 }
 .header__logo img {
-  height: 45px;
+  height: 40px;
+}
+.header__menu {
+  width: 40%;
+  text-align: center;
+}
+.header__menu__link {
+  color: #fff;
+  text-decoration: none;
+  font-size: 25px;
+  padding: 0 15px;
+}
+.header__menu__link:hover {
+  color: yellow;
+  text-decoration: none;
+}
+.header__tools {
+  width: 30%;
+  text-align: right;
 }
 
 body {

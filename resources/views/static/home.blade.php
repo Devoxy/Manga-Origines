@@ -22,8 +22,20 @@
     <header class="header">
         <div class="header__logo">
             <a href="{{ route('home') }}">
-                <img src="/images/static/logo.png">
+                <img src="/images/static/logo.png" alt="Manga Origine">
             </a>
+        </div>
+        <nav class="header__menu">
+            <a href="#" class="header__menu__link fa fa-home">
+
+            </a>
+            <a href="#" class="header__menu__link fa fa-compass">
+            </a>
+            <a href="#" class="header__menu__link fa fa-book">
+            </a>
+        </nav>
+        <div class="header__tools">
+            sdjfldjsfsjdfkdl
         </div>
     </header>
     <div class="recent" id="recent">
