@@ -39,6 +39,19 @@
 .header__tools {
   width: 30%;
   text-align: right;
+  padding-right: 15px;
+}
+.header__tools div {
+  display: inline-block;
+}
+.header__tools__account img {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+.header__tools__account__panel {
+  background: red;
 }
 
 body {
@@ -99,22 +112,4 @@ body {
   padding: 2rem;
   background: white;
   border-radius: 44px 0 0 44px;
-}
-
-.top-mangas {
-  padding: 2rem;
-}
-.top-mangas__image {
-  width: 100%;
-  height: 100%;
-}
-.top-mangas__image.max {
-  min-height: 430px;
-  max-height: 430px;
-}
-.top-mangas__image img {
-  width: 100%;
-  height: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
 }
