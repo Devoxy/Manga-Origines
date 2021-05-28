@@ -5,6 +5,9 @@
     opacity: 1;
     display: flex;
     align-items: center;
+    position: fixed;
+    width: 100%;
+    z-index: 9999;
 
     &__logo {
         color: red;
