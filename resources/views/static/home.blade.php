@@ -59,8 +59,25 @@
     </header>
     <!-- end block header  -->
 
+
+    <div class="header-spacer"></div>
+
+
+    <!-- start slider  -->
+    <section id="home-slider" class="home-slider">
+        @for($i = 0; $i < 15; $i++) 
+            <div class="home-slider__slide">
+                {{ $i }}
+            </div>
+        @endfor
+        <div class="home-slider__slide">
+    </section>
+    <!-- end slider  -->
+
+
+
     <!-- start block lecture recente  -->
-    <div class="block recent" id="recent">
+    <section class="block recent" id="recent">
         <div class="block__title recent">
             <h3>Lecture récente</h3>
             <div class="block__title__controls">
@@ -93,10 +110,10 @@
                 </div>
             @endfor
         </div>
-    </div>
+    </section>
     <!-- end block lecture recente  -->
 
-    <div class="discover">
+    <section class="discover">
         <div class="discover__left">
             <div class="discover__left__top">
                 <h3>Découvrir</h3>
@@ -113,12 +130,12 @@
                 <img src="/images/front/tokyo-ghoul.png">
             </div>
         </div>
-    </div>
+    </section>
 
 
 
     <!-- start block top 4  -->
-    <div class="block top-mangas" id="top-mangas">
+    <section class="block top-mangas" id="top-mangas">
         <div class="block__title top-4">
             <h3>Top 4</h3>
         </div>
@@ -159,13 +176,13 @@
                 </a>
             </div>
         </div>
-    </div>
+    </section>
     <!-- end block top 4  -->
 
 
 
     <!-- start block sorties recentes  -->
-    <div class="block recent" id="new">
+    <section class="block recent" id="new">
         <div class="block__title new">
             <h3>Sorties récentes</h3>
             <div class="block__title__controls">
@@ -198,13 +215,13 @@
                 </div>
             @endfor
         </div>
-
-        <footer class="footer">
-            <img class="footer__logo" src="/images/static/logo.png" alt="Manga Origine">
-            <p class="footer__copyright">@2021 Origines Corporation, tous droits réservés.</p>
-        </footer>
-    </div>
+    </section>
     <!-- end block sorties recentes  -->
+
+    <footer class="footer">
+        <img class="footer__logo" src="/images/static/logo.png" alt="Manga Origine">
+        <p class="footer__copyright">@2021 Origines Corporation, tous droits réservés.</p>
+    </footer>
 
     <script src="/js/jquery-2.1.4.min.js"></script>
     <script type="text/javascript">
@@ -223,6 +240,17 @@
             prevArrow: $("#recent .block__title__controls__prev"),
             nextArrow: $("#recent .block__title__controls__next"),
             dots: false,
+        });
+
+        $("#home-slider").slick({
+            centerMode: true,
+             centerPadding: '0px',
+            infinite: true,
+            slidesToShow: 3,
+            slidesToScroll: 1,
+            prevArrow: $("#recent .block__title__controls__prev"),
+            nextArrow: $("#recent .block__title__controls__next"),
+            dots: true,
         });
     </script>
 

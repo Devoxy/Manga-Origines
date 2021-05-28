@@ -258,3 +258,56 @@ body {
 .block__title.new h3::before {
   background: url(/images/calendar.svg?d560005e74c550883f26f0bf2226a306);
 }
+
+.header-spacer {
+  width: 100%;
+  height: 70px;
+  clear: both;
+}
+
+.home-slider {
+  background: red;
+  height: 350px;
+  display: flex;
+  position: relative;
+}
+.home-slider__slide {
+  width: 33%;
+  background: green;
+  height: 350px;
+}
+.home-slider__slide:nth-child(1n) {
+  background: pink;
+}
+.home-slider__slide:nth-child(2n) {
+  background: blue;
+}
+.home-slider__slide:nth-child(3n) {
+  background: yellow;
+}
+.home-slider__slide:nth-child(4n) {
+  background: green;
+}
+.home-slider .slick-dots {
+  position: absolute;
+  bottom: 1px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 0;
+}
+.home-slider .slick-dots li {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #fff;
+  margin: 0 3px;
+  cursor: pointer;
+}
+.home-slider .slick-dots li.slick-active {
+  width: 25px;
+  border-radius: 25px;
+}
+.home-slider .slick-dots li button {
+  display: none;
+}
