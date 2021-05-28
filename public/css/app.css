@@ -205,7 +205,7 @@ body {
 }
 
 .block {
-  padding: 0 40px;
+  padding: 40px 40px;
 }
 .block__title {
   margin-bottom: 40px;
@@ -238,4 +238,7 @@ body {
 }
 .block__title.recent h3::before {
   background: url(/images/processing.svg?d1d2bb45ab78ed1ba9db08f38f5979f0);
+}
+.block__title.new h3::before {
+  background: url(/images/calendar.svg?d560005e74c550883f26f0bf2226a306);
 }

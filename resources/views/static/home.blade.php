@@ -115,6 +115,9 @@
         </div>
     </div>
 
+
+
+    <!-- start block top 4  -->
     <div class="block top-mangas" id="top-mangas">
         <div class="block__title top-4">
             <h3>Top 4</h3>
@@ -157,6 +160,46 @@
             </div>
         </div>
     </div>
+    <!-- end block top 4  -->
+
+
+
+    <!-- start block sorties recentes  -->
+    <div class="block recent" id="new">
+        <div class="block__title new">
+            <h3>Sorties récentes</h3>
+            <div class="block__title__controls">
+                <div class="block__title__controls__prev">
+                    <span class="fa-stack fa-2x">
+                        <i class="fa fa-circle fa-stack-2x c-white"></i>
+                        <i class="fa fa-angle-left fa-stack-1x c-black"></i>
+                    </span>
+                </div>
+                <div class="block__title__controls__next">
+                    <span class="fa-stack fa-2x">
+                        <i class="fa fa-circle fa-stack-2x c-white"></i>
+                        <i class="fa fa-angle-right fa-stack-1x c-black"></i>
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class="recent__slider">
+            @for($i = 0; $i < 15; $i++) 
+                <div class="recent__slider__slides" style="background: url('/images/front/cover.jpg');">
+                    <div class="recent__slider__slides__text">
+                        <div class="recent__slider__slides__text__title">
+                            Solo Leveling
+                        </div>
+                        <div class="recent__slider__slides__text__chapter">
+                            Chapitre {{ $i }}
+                        </div>
+                    </div>
+                    <div class="recent__slider__slides__overlay"></div>
+                </div>
+            @endfor
+        </div>
+    </div>
+    <!-- end block sorties recentes  -->
 
     <script src="/js/jquery-2.1.4.min.js"></script>
     <script type="text/javascript">

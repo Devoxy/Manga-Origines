@@ -70,7 +70,7 @@ body {
 
 .block {
 
-    padding: 0 40px;
+    padding: 40px 40px;
 
     &__title {
         margin-bottom: 40px;
@@ -105,6 +105,9 @@ body {
         }
         &.recent h3::before {
             background: url('../../public/images/static/icons/processing.svg');
+        }
+        &.new h3::before {
+            background: url('../../public/images/static/icons/calendar.svg');
         }
     }
 }
