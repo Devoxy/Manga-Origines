@@ -251,6 +251,12 @@
             prevArrow: $("#recent .block__title__controls__prev"),
             nextArrow: $("#recent .block__title__controls__next"),
             dots: true,
+            autoplay: true,
+            speed: 500,
+            autoplaySpeed: 2000,
+            cssEase: "linear",
+            pauseOnHover: true,
+            swipeToSlide: false,
         });
     </script>
 
