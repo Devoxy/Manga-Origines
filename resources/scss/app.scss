@@ -66,3 +66,31 @@ body {
         border-radius: 44px 0 0 44px;
     }
 }
+
+.block {
+
+    padding: 0 40px;
+
+    &__title {
+
+        h3 {
+            font-size: 24px;
+            font-weight: 500;
+            color: #fff;
+            text-indent: 70px;
+            position: relative;
+        }
+        h3::before {
+            content: "";
+            width: 24px;
+            height: 24px;
+            position: absolute;
+            background-size: 100% 100% !important;
+            left: 0;
+            top: 1px;  
+        }
+        &.top-4 h3::before {
+            background: url('../../public/images/static/icons/top.svg');
+        }
+    }
+}

@@ -1,0 +1,22 @@
+.top-mangas {
+
+    &__list {
+        display: flex;
+        flex-flow: column wrap;
+        align-content: space-between;
+        height: 600px; 
+        background: red;
+    }
+}
+  
+  .item {
+    width:24%;
+    margin-bottom: 2%; /* Optional */
+  }
+  
+  /* Force new columns */
+  .break {
+    flex-basis: 100%;
+    width: 0;
+    margin: 0;
+  }

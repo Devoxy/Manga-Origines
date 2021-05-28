@@ -73,6 +73,27 @@
   background: red;
 }
 
+.top-mangas__list {
+  display: flex;
+  flex-flow: column wrap;
+  align-content: space-between;
+  height: 600px;
+  background: red;
+}
+
+.item {
+  width: 24%;
+  margin-bottom: 2%;
+  /* Optional */
+}
+
+/* Force new columns */
+.break {
+  flex-basis: 100%;
+  width: 0;
+  margin: 0;
+}
+
 body {
   background-color: #191919;
   font-family: "Roboto", sans-serif;
@@ -131,4 +152,27 @@ body {
   padding: 2rem;
   background: white;
   border-radius: 44px 0 0 44px;
+}
+
+.block {
+  padding: 0 40px;
+}
+.block__title h3 {
+  font-size: 24px;
+  font-weight: 500;
+  color: #fff;
+  text-indent: 70px;
+  position: relative;
+}
+.block__title h3::before {
+  content: "";
+  width: 24px;
+  height: 24px;
+  position: absolute;
+  background-size: 100% 100% !important;
+  left: 0;
+  top: 1px;
+}
+.block__title.top-4 h3::before {
+  background: url(/images/top.svg?5ec21c21d06df91e5307ab492e4c8812);
 }
