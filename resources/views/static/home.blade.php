@@ -64,13 +64,20 @@
 
 
     <!-- start slider  -->
-    <section id="home-slider" class="home-slider">
-        @for($i = 0; $i < 15; $i++) 
-            <div class="home-slider__slide">
-                {{ $i }}
-            </div>
-        @endfor
-        <div class="home-slider__slide">
+    <section class="home-slider">
+        <div id="home-slider">
+            @for($i = 0; $i < 15; $i++) 
+                <div class="home-slider__slide">
+                    {{ $i }}
+                </div>
+            @endfor
+        </div> 
+        <span class="home-slider__arrow-prev">
+            <i class="fa fa-angle-left"></i>
+        </span>
+        <span class="home-slider__arrow-next">
+            <i class="fa fa-angle-right"></i>
+        </span>
     </section>
     <!-- end slider  -->
 
@@ -248,8 +255,8 @@
             infinite: true,
             slidesToShow: 3,
             slidesToScroll: 1,
-            prevArrow: $("#recent .block__title__controls__prev"),
-            nextArrow: $("#recent .block__title__controls__next"),
+            prevArrow: $(".home-slider__arrow-prev"),
+            nextArrow: $(".home-slider__arrow-next"),
             dots: true,
             autoplay: true,
             speed: 500,
