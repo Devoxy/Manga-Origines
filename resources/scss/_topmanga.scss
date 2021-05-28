@@ -3,7 +3,6 @@
     &__list {
         display: flex;
         height: 450px; 
-        margin-top: 20px;
 
         &__item {
             background: #fff;
@@ -12,6 +11,8 @@
             position: relative;
             background-size: cover !important;
             background-position: center center !important;
+            border: 1px solid #707070;
+            overflow: hidden;
 
             &__overlay {
                 background: rgb(0,0,0);

@@ -5,30 +5,38 @@
 
     <div class="top-mangas__list">
         <div class="top-mangas__list__collumn">
-            <div class="top-mangas__list__item" style="background: url('/images/front/top-1.jpg');">
-                <span class="top-mangas__list__item__tag first">1</span>
-                <h4 class="top-mangas__list__item__title">THE BEGINNING AFTER THE END</h4>
-                <div class="top-mangas__list__item__overlay"></div>
-            </div>
+            <a href="#">
+                <div class="top-mangas__list__item" style="background: url('/images/front/top-1.jpg');">
+                    <span class="top-mangas__list__item__tag first">1</span>
+                    <h4 class="top-mangas__list__item__title">THE BEGINNING AFTER THE END</h4>
+                    <div class="top-mangas__list__item__overlay"></div>
+                </div>
+            </a>
         </div>
         <div class="top-mangas__list__collumn">
-            <div class="top-mangas__list__item" style="background: url('/images/front/top-1.jpg');">
-                <span class="top-mangas__list__item__tag">2</span>
-                <h4 class="top-mangas__list__item__title">THE BEGINNING AFTER THE END</h4>
-                <div class="top-mangas__list__item__overlay"></div>
-            </div>
+            <a href="#">
+                <div class="top-mangas__list__item" style="background: url('/images/front/top-1.jpg');">
+                    <span class="top-mangas__list__item__tag">2</span>
+                    <h4 class="top-mangas__list__item__title">THE BEGINNING AFTER THE END</h4>
+                    <div class="top-mangas__list__item__overlay"></div>
+                </div>
+            </a>
         </div>
         <div class="top-mangas__list__collumn">
-            <div class="top-mangas__list__item item-egal" style="background: url('/images/front/top-1.jpg');">
-                <span class="top-mangas__list__item__tag">3</span>
-                <h4 class="top-mangas__list__item__title">THE BEGINNING AFTER THE END</h4>
-                <div class="top-mangas__list__item__overlay"></div>
-            </div>
-            <div class="top-mangas__list__item item-egal" style="background: url('/images/front/top-1.jpg');">
-                <span class="top-mangas__list__item__tag">4</span>
-                <h4 class="top-mangas__list__item__title">THE BEGINNING AFTER THE END</h4>
-                <div class="top-mangas__list__item__overlay"></div>
-            </div>
+            <a href="#">
+                <div class="top-mangas__list__item item-egal" style="background: url('/images/front/top-1.jpg');">
+                    <span class="top-mangas__list__item__tag">3</span>
+                    <h4 class="top-mangas__list__item__title">THE BEGINNING AFTER THE END</h4>
+                    <div class="top-mangas__list__item__overlay"></div>
+                </div>
+            </a>
+            <a href="#">
+                <div class="top-mangas__list__item item-egal" style="background: url('/images/front/top-1.jpg');">
+                    <span class="top-mangas__list__item__tag">4</span>
+                    <h4 class="top-mangas__list__item__title">THE BEGINNING AFTER THE END</h4>
+                    <div class="top-mangas__list__item__overlay"></div>
+                </div>
+            </a>
         </div>
     </div>
    
