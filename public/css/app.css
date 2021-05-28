@@ -149,6 +149,19 @@
   padding-right: 0;
 }
 
+.footer {
+  text-align: center;
+  padding-top: 80px;
+}
+.footer__logo {
+  width: 125px;
+}
+.footer__copyright {
+  padding: 10px;
+  color: #fff;
+  font-weight: 100;
+}
+
 body {
   background-color: #191919;
   font-family: "Roboto", sans-serif;

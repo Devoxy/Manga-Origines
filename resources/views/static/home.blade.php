@@ -198,6 +198,11 @@
                 </div>
             @endfor
         </div>
+
+        <footer class="footer">
+            <img class="footer__logo" src="/images/static/logo.png" alt="Manga Origine">
+            <p class="footer__copyright">@2021 Origines Corporation, tous droits réservés.</p>
+        </footer>
     </div>
     <!-- end block sorties recentes  -->
 
