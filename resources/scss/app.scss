@@ -11,28 +11,22 @@ body {
 }
 
 .recent {
-    padding: 2rem 0;
     &__top {
         display: flex;
         justify-content: space-between;
         margin: 2rem 5rem;
-        &__title {
-            font-size: 24px;
-            font-weight: 800;
-            color: white;
-        }
-        &__controls {
-            display: flex;
-            &__prev {
-                margin-right: 3rem;
-            }
-        }
     }
     &__slider {
         &__slides {
+            border: 1px solid #707070;
+            border-radius: 40px;
+            overflow: hidden;
             position: relative;
-            height: 310px;
+            height: 270px;
             margin: 0 2rem;
+            background-size: cover !important;
+            background-position: center center !important;
+
             &__text {
                 position: absolute;
                 bottom: 2rem;
@@ -50,6 +44,13 @@ body {
                 -o-object-fit: cover;
                 object-fit: cover;
                 border-radius: 35px;
+            }
+            &__overlay {
+                background: rgb(0,0,0);
+                background: linear-gradient(0deg, rgba(0,0,0,0.42200630252100846) 42%, rgba(0,0,0,0.06066176470588236) 79%);
+                width: 100%;
+                height: 100%;
+                position: absolute;
             }
         }
     }
@@ -73,6 +74,16 @@ body {
 
     &__title {
         margin-bottom: 40px;
+        display: flex;
+        justify-content: space-between;
+
+        &__controls {
+            display: flex;
+
+            &__prev {
+                margin-right: 3rem;
+            }
+        }
 
         h3 {
             font-size: 24px;
@@ -91,6 +102,9 @@ body {
         }
         &.top-4 h3::before {
             background: url('../../public/images/static/icons/top.svg');
+        }
+        &.recent h3::before {
+            background: url('../../public/images/static/icons/processing.svg');
         }
     }
 }

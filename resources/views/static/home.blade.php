@@ -19,6 +19,7 @@
 </head>
 
 <body>
+    <!-- start block header  -->
     <header class="header">
         <div class="header__logo">
             <a href="{{ route('home') }}">
@@ -56,162 +57,44 @@
             </div>
         </div>
     </header>
-    <div class="recent" id="recent">
-        <div class="recent__top">
-            <div class="recent__top__title">
-                Lecture récente
-            </div>
-            <div class="recent__top__controls">
-                <div class="recent__top__controls__prev">
+    <!-- end block header  -->
+
+    <!-- start block lecture recente  -->
+    <div class="block recent" id="recent">
+        <div class="block__title recent">
+            <h3>Lecture récente</h3>
+            <div class="block__title__controls">
+                <div class="block__title__controls__prev">
                     <span class="fa-stack fa-2x">
                         <i class="fa fa-circle fa-stack-2x c-white"></i>
                         <i class="fa fa-angle-left fa-stack-1x c-black"></i>
                     </span>
                 </div>
-                <div class="recent__top__controls__next">
+                <div class="block__title__controls__next">
                     <span class="fa-stack fa-2x">
                         <i class="fa fa-circle fa-stack-2x c-white"></i>
                         <i class="fa fa-angle-right fa-stack-1x c-black"></i>
                     </span>
                 </div>
-
             </div>
         </div>
         <div class="recent__slider">
-            <div class="recent__slider__slides">
-                <div class="recent__slider__slides__text">
-                    <div class="recent__slider__slides__text__title">
-                        Solo Leveling
+            @for($i = 0; $i < 15; $i++) 
+                <div class="recent__slider__slides" style="background: url('/images/front/cover.jpg');">
+                    <div class="recent__slider__slides__text">
+                        <div class="recent__slider__slides__text__title">
+                            Solo Leveling
+                        </div>
+                        <div class="recent__slider__slides__text__chapter">
+                            Chapitre {{ $i }}
+                        </div>
                     </div>
-                    <div class="recent__slider__slides__text__chapter">
-                        Chapitre 2
-                    </div>
+                    <div class="recent__slider__slides__overlay"></div>
                 </div>
-                <img src="/images/front/cover.jpg">
-            </div>
-            <div class="recent__slider__slides">
-                <div class="recent__slider__slides__text">
-                    <div class="recent__slider__slides__text__title">
-                        Solo Leveling
-                    </div>
-                    <div class="recent__slider__slides__text__chapter">
-                        Chapitre 2
-                    </div>
-                </div>
-                <img src="/images/front/cover.jpg">
-            </div>
-            <div class="recent__slider__slides">
-                <div class="recent__slider__slides__text">
-                    <div class="recent__slider__slides__text__title">
-                        Solo Leveling
-                    </div>
-                    <div class="recent__slider__slides__text__chapter">
-                        Chapitre 2
-                    </div>
-                </div>
-                <img src="/images/front/cover.jpg">
-            </div>
-            <div class="recent__slider__slides">
-                <div class="recent__slider__slides__text">
-                    <div class="recent__slider__slides__text__title">
-                        Solo Leveling
-                    </div>
-                    <div class="recent__slider__slides__text__chapter">
-                        Chapitre 2
-                    </div>
-                </div>
-                <img src="/images/front/cover.jpg">
-            </div>
-            <div class="recent__slider__slides">
-                <div class="recent__slider__slides__text">
-                    <div class="recent__slider__slides__text__title">
-                        Solo Leveling
-                    </div>
-                    <div class="recent__slider__slides__text__chapter">
-                        Chapitre 2
-                    </div>
-                </div>
-                <img src="/images/front/cover.jpg">
-            </div>
-            <div class="recent__slider__slides">
-                <div class="recent__slider__slides__text">
-                    <div class="recent__slider__slides__text__title">
-                        Solo Leveling
-                    </div>
-                    <div class="recent__slider__slides__text__chapter">
-                        Chapitre 2
-                    </div>
-                </div>
-                <img src="/images/front/cover.jpg">
-            </div>
-            <div class="recent__slider__slides">
-                <div class="recent__slider__slides__text">
-                    <div class="recent__slider__slides__text__title">
-                        Solo Leveling
-                    </div>
-                    <div class="recent__slider__slides__text__chapter">
-                        Chapitre 2
-                    </div>
-                </div>
-                <img src="/images/front/cover.jpg">
-            </div>
-            <div class="recent__slider__slides">
-                <div class="recent__slider__slides__text">
-                    <div class="recent__slider__slides__text__title">
-                        Solo Leveling
-                    </div>
-                    <div class="recent__slider__slides__text__chapter">
-                        Chapitre 2
-                    </div>
-                </div>
-                <img src="/images/front/cover.jpg">
-            </div>
-            <div class="recent__slider__slides">
-                <div class="recent__slider__slides__text">
-                    <div class="recent__slider__slides__text__title">
-                        Solo Leveling
-                    </div>
-                    <div class="recent__slider__slides__text__chapter">
-                        Chapitre 2
-                    </div>
-                </div>
-                <img src="/images/front/cover.jpg">
-            </div>
-            <div class="recent__slider__slides">
-                <div class="recent__slider__slides__text">
-                    <div class="recent__slider__slides__text__title">
-                        Solo Leveling
-                    </div>
-                    <div class="recent__slider__slides__text__chapter">
-                        Chapitre 2
-                    </div>
-                </div>
-                <img src="/images/front/cover.jpg">
-            </div>
-            <div class="recent__slider__slides">
-                <div class="recent__slider__slides__text">
-                    <div class="recent__slider__slides__text__title">
-                        Solo Leveling
-                    </div>
-                    <div class="recent__slider__slides__text__chapter">
-                        Chapitre 2
-                    </div>
-                </div>
-                <img src="/images/front/cover.jpg">
-            </div>
-            <div class="recent__slider__slides">
-                <div class="recent__slider__slides__text">
-                    <div class="recent__slider__slides__text__title">
-                        Solo Leveling
-                    </div>
-                    <div class="recent__slider__slides__text__chapter">
-                        Chapitre 2
-                    </div>
-                </div>
-                <img src="/images/front/cover.jpg">
-            </div>
+            @endfor
         </div>
     </div>
+    <!-- end block lecture recente  -->
 
     <div class="discover">
         <div class="discover__left">
@@ -232,7 +115,48 @@
         </div>
     </div>
 
-    @include('static/topmanga')
+    <div class="block top-mangas" id="top-mangas">
+        <div class="block__title top-4">
+            <h3>Top 4</h3>
+        </div>
+
+        <div class="top-mangas__list">
+            <div class="top-mangas__list__collumn">
+                <a href="#">
+                    <div class="top-mangas__list__item" style="background: url('/images/front/top-1.jpg');">
+                        <span class="top-mangas__list__item__tag first">1</span>
+                        <h4 class="top-mangas__list__item__title">THE BEGINNING AFTER THE END</h4>
+                        <div class="top-mangas__list__item__overlay"></div>
+                    </div>
+                </a>
+            </div>
+            <div class="top-mangas__list__collumn">
+                <a href="#">
+                    <div class="top-mangas__list__item" style="background: url('/images/front/top-1.jpg');">
+                        <span class="top-mangas__list__item__tag">2</span>
+                        <h4 class="top-mangas__list__item__title">THE BEGINNING AFTER THE END</h4>
+                        <div class="top-mangas__list__item__overlay"></div>
+                    </div>
+                </a>
+            </div>
+            <div class="top-mangas__list__collumn">
+                <a href="#">
+                    <div class="top-mangas__list__item item-egal" style="background: url('/images/front/top-1.jpg');">
+                        <span class="top-mangas__list__item__tag">3</span>
+                        <h4 class="top-mangas__list__item__title">THE BEGINNING AFTER THE END</h4>
+                        <div class="top-mangas__list__item__overlay"></div>
+                    </div>
+                </a>
+                <a href="#">
+                    <div class="top-mangas__list__item item-egal" style="background: url('/images/front/top-1.jpg');">
+                        <span class="top-mangas__list__item__tag">4</span>
+                        <h4 class="top-mangas__list__item__title">THE BEGINNING AFTER THE END</h4>
+                        <div class="top-mangas__list__item__overlay"></div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
 
     <script src="/js/jquery-2.1.4.min.js"></script>
     <script type="text/javascript">
@@ -248,8 +172,8 @@
             infinite: true,
             slidesToShow: 7,
             slidesToScroll: 1,
-            prevArrow: $('.recent__top__controls__prev'),
-            nextArrow: $('.recent__top__controls__next'),
+            prevArrow: $("#recent .block__title__controls__prev"),
+            nextArrow: $("#recent .block__title__controls__next"),
             dots: false,
         });
     </script>
