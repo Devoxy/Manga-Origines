@@ -29,7 +29,7 @@
                 <ul>
                     <li class="header__menu__link">
                         <span class="header__menu__link__icon home"></span>
-                        <a href="#">Accueil</a>
+                        <a href="{{ route('home') }}">Accueil</a>
                     </li>
                     <li class="header__menu__link">
                         <span class="header__menu__link__icon menu"></span>
