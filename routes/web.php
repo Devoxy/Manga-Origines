@@ -13,9 +13,12 @@ Route::get('/', function () {
     return view('static.home');
 })->name('home');
 
-Route::get('/vip', function(){
-    return view('static.vip');
-})->name('vip');
+
+Route::prefix('static')->group(function() {
+    Route::get('/vip', [App\Http\Controllers\Front\StaticController::class, 'vip'])->name('static.vip');
+});
+
+
 
 Auth::routes();
 Route::get('/logout', [App\Http\Controllers\Auth\LoginController::class, 'logout'])->name('auth.logout');
