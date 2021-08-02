@@ -41,7 +41,7 @@
                     </li>
                     <li class="header__menu__link">
                         <span class="header__menu__link__icon contact"></span>
-                        <a href="#">Nous contacter</a>
+                        <a href="{{ route('static.contact') }}">Nous contacter</a>
                     </li>
                 </ul>
             </nav>
@@ -70,9 +70,9 @@
         <img class="footer__logo" src="/images/static/logo.png" alt="Manga Origine">
         <div class="footer__infos">
             <ul>
-                <li><a href="#">Accueil</a></li>
+                <li><a href="{{ route('home') }}">Accueil</a></li>
                 <li><a href="#">Catalogue</a></li>
-                <li><a href="#">Nous contacter</a></li>
+                <li><a href="{{ route('static.contact') }}">Nous contacter</a></li>
                 <li><a href="#">Politique de confidentialité</a></li>
                 <li><a href="#">Discord</a></li>
             </ul>

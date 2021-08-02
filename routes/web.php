@@ -16,6 +16,7 @@ Route::get('/', function () {
 
 Route::prefix('static')->group(function() {
     Route::get('/vip', [App\Http\Controllers\Front\StaticController::class, 'vip'])->name('static.vip');
+    Route::get('/contact', [App\Http\Controllers\Front\StaticController::class, 'contact'])->name('static.contact');
 });
 
 
