@@ -90,45 +90,43 @@
                 <li><a href="#" class="text-warning"><span class="menu-icon"></span> Catégories</a></li>
             </ul>
         </div>    
+
+        <div class="block tendances" id="tendances" style="margin-top: 50px;">
+            <div class="block__title tendances">
+                <h3>Tendances</h3>
+                <div class="block__title__controls">
+                    <a href="#" class="block__title__controls__more">Voir plus</a>
+                    <div class="block__title__controls__prev">
+                        <i class="fa fa-angle-left"></i>
+                    </div>
+                    <div class="block__title__controls__next">
+                        <i class="fa fa-angle-right"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="tendances__slider">
+                @for($i = 0; $i < 15; $i++) 
+                    <div class="tendances__slider__slides" style="background: url('/images/front/cover.jpg');">
+
+                        <div class="tendances__slider__slides__overlay"></div>
+                        <div class="tendances__slider__slides__text">
+                            <div class="tendances__slider__slides__text__title">
+                                Solo Leveling
+                            </div>
+                            <div class="tendances__slider__slides__text__chapter">
+                                Il y a {{ $i }} minutes
+                            </div>
+                        </div>
+                    </div>
+                @endfor
+            </div>
+        </div>
     </div>
 
 
 
     <!-- start block lecture recente  -->
-    <section class="block recent" id="recent">
-        <div class="block__title recent">
-            <h3>Lecture récente</h3>
-            <div class="block__title__controls">
-                <div class="block__title__controls__prev">
-                    <span class="fa-stack fa-2x">
-                        <i class="fa fa-circle fa-stack-2x c-white"></i>
-                        <i class="fa fa-angle-left fa-stack-1x c-black"></i>
-                    </span>
-                </div>
-                <div class="block__title__controls__next">
-                    <span class="fa-stack fa-2x">
-                        <i class="fa fa-circle fa-stack-2x c-white"></i>
-                        <i class="fa fa-angle-right fa-stack-1x c-black"></i>
-                    </span>
-                </div>
-            </div>
-        </div>
-        <div class="recent__slider">
-            @for($i = 0; $i < 15; $i++) 
-                <div class="recent__slider__slides" style="background: url('/images/front/cover.jpg');">
-                    <div class="recent__slider__slides__text">
-                        <div class="recent__slider__slides__text__title">
-                            Solo Leveling
-                        </div>
-                        <div class="recent__slider__slides__text__chapter">
-                            Chapitre {{ $i }}
-                        </div>
-                    </div>
-                    <div class="recent__slider__slides__overlay"></div>
-                </div>
-            @endfor
-        </div>
-    </section>
+    
     <!-- end block lecture recente  -->
 
     <section class="discover">
@@ -249,14 +247,13 @@
     <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 
     <script>
-        $('.recent__slider').slick({
+        $('.tendances__slider').slick({
             centerMode: true,
-            centerPadding: '40px',
             infinite: true,
-            slidesToShow: 7,
+            slidesToShow: 6,
             slidesToScroll: 1,
-            prevArrow: $("#recent .block__title__controls__prev"),
-            nextArrow: $("#recent .block__title__controls__next"),
+            prevArrow: $(".block__title__controls__prev"),
+            nextArrow: $(".block__title__controls__next"),
             dots: false,
         });
 
