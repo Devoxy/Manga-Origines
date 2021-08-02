@@ -271,12 +271,12 @@ a {
   padding: 0 200px 0 200px;
 }
 
-.tendances__top {
+.tendances__top, .recents__top {
   display: flex;
   justify-content: space-between;
   margin: 2rem 5rem;
 }
-.tendances__slider__slides {
+.tendances__slider__slides, .recents__slider__slides {
   border: 1px solid #707070;
   border-radius: 10px;
   overflow: hidden;
@@ -286,31 +286,31 @@ a {
   background-size: cover !important;
   background-position: center center !important;
 }
-.tendances__slider__slides__text {
+.tendances__slider__slides__text, .recents__slider__slides__text {
   position: absolute;
   bottom: 2rem;
   left: 2rem;
   z-index: 1;
   color: white;
 }
-.tendances__slider__slides__text__title {
+.tendances__slider__slides__text__title, .recents__slider__slides__text__title {
   font-size: 18px;
   font-weight: 700;
   font-family: "Josefin Sans", sans-serif;
   text-transform: uppercase;
 }
-.tendances__slider__slides__text__chapter {
+.tendances__slider__slides__text__chapter, .recents__slider__slides__text__chapter {
   text-transform: uppercase;
   font-size: 12px;
 }
-.tendances__slider__slides img {
+.tendances__slider__slides img, .recents__slider__slides img {
   height: 100%;
   width: 100%;
   -o-object-fit: cover;
   object-fit: cover;
   border-radius: 35px;
 }
-.tendances__slider__slides__overlay {
+.tendances__slider__slides__overlay, .recents__slider__slides__overlay {
   background: black;
   background: linear-gradient(0deg, rgba(0, 0, 0, 0.6320903361) 42%, rgba(0, 0, 0, 0.043855042) 79%);
   width: 100%;
@@ -387,8 +387,8 @@ a {
   left: 0;
   margin-top: -10px;
 }
-.block__title.top-4 h3::before {
-  background: url(/images/top.svg?5ec21c21d06df91e5307ab492e4c8812);
+.block__title.recents h3::before {
+  background: url(/images/recents.png?38d92eb4f75234ebdb09b4fce8dc122c);
 }
 .block__title.tendances h3::before {
   background: url(/images/bonfire.png?82ba030cb94517b6ab0a4c5055e3e3d5);

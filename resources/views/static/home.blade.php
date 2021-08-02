@@ -106,14 +106,36 @@
             </div>
             <div class="tendances__slider">
                 @for($i = 0; $i < 15; $i++) 
-                    <div class="tendances__slider__slides" style="background: url('/images/front/cover.jpg');">
+                    <div class="tendances__slider__slides" style="background: url('/images/front/cover.jpg');"></div>
+                @endfor
+            </div>
+        </div>
 
-                        <div class="tendances__slider__slides__overlay"></div>
-                        <div class="tendances__slider__slides__text">
-                            <div class="tendances__slider__slides__text__title">
+        <img src="./images/static/ad.png" style="width: 100%; padding: 40px 0px;">
+
+        <div class="block recents" id="recents">
+            <div class="block__title recents">
+                <h3>Derniers Ajouts</h3>
+                <div class="block__title__controls">
+                    <a href="#" class="block__title__controls__more">Voir plus</a>
+                    <div class="block__title__controls__prev">
+                        <i class="fa fa-angle-left"></i>
+                    </div>
+                    <div class="block__title__controls__next">
+                        <i class="fa fa-angle-right"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="recents__slider">
+                @for($i = 0; $i < 15; $i++) 
+                    <div class="recents__slider__slides" style="background: url('/images/front/cover.jpg');">
+
+                        <div class="recents__slider__slides__overlay"></div>
+                        <div class="recents__slider__slides__text">
+                            <div class="recents__slider__slides__text__title">
                                 Solo Leveling
                             </div>
-                            <div class="tendances__slider__slides__text__chapter">
+                            <div class="recents__slider__slides__text__chapter">
                                 Il y a {{ $i }} minutes
                             </div>
                         </div>
@@ -250,6 +272,16 @@
 
     <script>
         $('.tendances__slider').slick({
+            centerMode: true,
+            infinite: true,
+            slidesToShow: 6,
+            slidesToScroll: 1,
+            prevArrow: $(".block__title__controls__prev"),
+            nextArrow: $(".block__title__controls__next"),
+            dots: false,
+        });
+
+         $('.recents__slider').slick({
             centerMode: true,
             infinite: true,
             slidesToShow: 6,
