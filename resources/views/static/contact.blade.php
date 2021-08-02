@@ -13,7 +13,27 @@
                 <div class="block__content">
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut neque ante, commodo non aliquam vel, fermentum in ante. Nam accumsan enim eu odio posuere tincidunt. Integer imperdiet ac enim in rhoncus. Ut at facilisis quam. Quisque lacus quam, tempor quis libero ac, tincidunt placerat sapien.</p>
                     <div class="contact">
-                        sdfsdf
+                        <div class="contact__socials">
+                            <h5>Suivez-nous sur les réseaux !</h5>
+                            <ul>
+                                <li>
+                                    <i class="contact__socials__icon twitter"></i>
+                                    <span>@filsdepute</span>
+                                </li>
+                                <li>
+                                    <i class="contact__socials__icon instagram"></i>
+                                    <span>@filsdepute</span>
+                                </li>
+                                <li>
+                                    <i class="contact__socials__icon discord"></i>
+                                    <span>@filsdepute</span>
+                                </li>
+                            </ul>
+                        </div>
+                        
+                        <div class="contact__form">
+                            <h5>Ecrivez-nous</h5>
+                        </div>
                     </div>
                 </div>
             </div>

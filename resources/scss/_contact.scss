@@ -1,3 +1,54 @@
 .contact {
     display: flex;
+
+    h5 {
+        font-size: 18px;
+        padding: 0;
+        margin: 0;
+        margin-bottom: 10px;
+    }
+
+    &__socials {
+
+        ul {
+            li {
+                padding: 5px 0;
+                height: 40px;
+                display: flex;
+    
+                span {
+                    float: right;
+                    margin-top: 10px;
+                    margin-left: 10px;
+                    font-style: italic;
+                    color: #0984e3;
+                    cursor: pointer;
+
+                    &:hover {
+                        color: #74b9ff;
+                    }
+                }
+            }
+        }
+       
+
+        &__icon {
+            width: 40px;
+            height: 40px;
+            display: block;
+            border: 2px solid #FF750C;
+            border-radius: 40px;
+            box-shadow: 0px 0px 11px -2px #ababab;
+
+            &.twitter {
+                background: url('../../public/images/static/icons/twitter.svg');
+            }
+            &.instagram {
+                background: url('../../public/images/static/icons/instagram.svg');
+            }
+            &.discord {
+                background: url('../../public/images/static/icons/discord.svg');
+            }
+        }
+    }
 }
