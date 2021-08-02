@@ -36,14 +36,27 @@ a {
     padding: 0 200px 0 200px;
 }
 
-.container-sidebar {
+.container-sidebar {
     display: flex;
 
     .home-content {
-        width: 60%;
+        width: 70%;
     }
-    .home-sidebar {
-        width: 40%;
+    .home-sidebar {
+        width: 30%;
+        box-shadow: 0px 0px 11px -2px #ababab;
+        padding: 15px;
+        border-radius: 15px;
+
+        .ladder {
+
+            h3 {
+                font-family: $title-family;
+                text-transform: uppercase;
+                text-align: center;
+                font-family: 24px;
+            }
+        }
     }
 }
 

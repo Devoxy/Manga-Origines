@@ -151,121 +151,13 @@
                 dfdsddsfds
             </div>
             <aside class="home-sidebar">
-                dfd
+                <div class="ladder">
+                    <h3>Classement</h3>
+                </div>
+                <iframe src="https://discord.com/widget?id=749473022821400596&theme=dark" width="350" height="500" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
             </aside>
         </div>
     </div>
-
-
-
-    <!-- start block lecture recente  -->
-    
-    <!-- end block lecture recente  -->
-
-    <section class="discover">
-        <div class="discover__left">
-            <div class="discover__left__top">
-                <h3>Découvrir</h3>
-            </div>
-            <div class="discover__left__title">
-                <h2>Tokyo Ghoul</h2>
-            </div>
-            <div class="discover__left__text">
-                <p>Dans la ville de Tokyo, des créatures nommées goules sont apparues et se nourrissent de chair humaine pour survivre. Un jour, Ken Kaneki, jeune étudiant, se fait attaquer par l'une d'entre elles et subit une grave blessure. Pour rester en vie, il reçoit une greffe de la goule qui l'a attaqué et devient un hybride, mi-humain mi-goule (borgne artificielle). Rapidement, il se rend compte qu'il ne peut plus manger les mêmes aliments qu'auparavant. Il entre alors au service du café « L’Antique », un repaire de goules, où il apprend à se nourrir sans faire de mal aux humains. Mais il va bien vite se retrouver au cœur d'une guerre sanglante entre le CCG (Centre de Contrôle des Goules), déterminé à retrouver et exterminer celles-ci jusqu'à la dernière et l'Arbre Aogiri, une organisation de goules sans merci. Il découvre que les goules ne sont pas si différentes des humains, et peu à peu il va commencer à s'adapter.</p>
-            </div>
-        </div>
-        <div class="discover__right">
-            <div class="discover__right__image">
-                <img src="/images/front/tokyo-ghoul.png">
-            </div>
-        </div>
-    </section>
-
-
-
-    <!-- start block top 4  -->
-    <section class="block top-mangas" id="top-mangas">
-        <div class="block__title top-4">
-            <h3>Top 4</h3>
-        </div>
-
-        <div class="top-mangas__list">
-            <div class="top-mangas__list__collumn">
-                <a href="#">
-                    <div class="top-mangas__list__item" style="background: url('/images/front/top-1.jpg');">
-                        <span class="top-mangas__list__item__tag first">1</span>
-                        <h4 class="top-mangas__list__item__title">THE BEGINNING AFTER THE END</h4>
-                        <div class="top-mangas__list__item__overlay"></div>
-                    </div>
-                </a>
-            </div>
-            <div class="top-mangas__list__collumn">
-                <a href="#">
-                    <div class="top-mangas__list__item" style="background: url('/images/front/top-1.jpg');">
-                        <span class="top-mangas__list__item__tag">2</span>
-                        <h4 class="top-mangas__list__item__title">THE BEGINNING AFTER THE END</h4>
-                        <div class="top-mangas__list__item__overlay"></div>
-                    </div>
-                </a>
-            </div>
-            <div class="top-mangas__list__collumn">
-                <a href="#">
-                    <div class="top-mangas__list__item item-egal" style="background: url('/images/front/top-1.jpg');">
-                        <span class="top-mangas__list__item__tag">3</span>
-                        <h4 class="top-mangas__list__item__title">THE BEGINNING AFTER THE END</h4>
-                        <div class="top-mangas__list__item__overlay"></div>
-                    </div>
-                </a>
-                <a href="#">
-                    <div class="top-mangas__list__item item-egal" style="background: url('/images/front/top-1.jpg');">
-                        <span class="top-mangas__list__item__tag">4</span>
-                        <h4 class="top-mangas__list__item__title">THE BEGINNING AFTER THE END</h4>
-                        <div class="top-mangas__list__item__overlay"></div>
-                    </div>
-                </a>
-            </div>
-        </div>
-    </section>
-    <!-- end block top 4  -->
-
-
-
-    <!-- start block sorties recentes  -->
-    <section class="block recent" id="new">
-        <div class="block__title new">
-            <h3>Sorties récentes</h3>
-            <div class="block__title__controls">
-                <div class="block__title__controls__prev">
-                    <span class="fa-stack fa-2x">
-                        <i class="fa fa-circle fa-stack-2x c-white"></i>
-                        <i class="fa fa-angle-left fa-stack-1x c-black"></i>
-                    </span>
-                </div>
-                <div class="block__title__controls__next">
-                    <span class="fa-stack fa-2x">
-                        <i class="fa fa-circle fa-stack-2x c-white"></i>
-                        <i class="fa fa-angle-right fa-stack-1x c-black"></i>
-                    </span>
-                </div>
-            </div>
-        </div>
-        <div class="recent__slider">
-            @for($i = 0; $i < 15; $i++) 
-                <div class="recent__slider__slides" style="background: url('/images/front/cover.jpg');">
-                    <div class="recent__slider__slides__text">
-                        <div class="recent__slider__slides__text__title">
-                            Solo Leveling
-                        </div>
-                        <div class="recent__slider__slides__text__chapter">
-                            Chapitre {{ $i }}
-                        </div>
-                    </div>
-                    <div class="recent__slider__slides__overlay"></div>
-                </div>
-            @endfor
-        </div>
-    </section>
-    <!-- end block sorties recentes  -->
 
     <footer class="footer">
         <img class="footer__logo" src="/images/static/logo.png" alt="Manga Origine">

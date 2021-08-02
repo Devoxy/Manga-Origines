@@ -1,6 +1,5 @@
 @import url(https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap);
 @import url(https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap);
-@charset "UTF-8";
 .c-black {
   color: black;
 }
@@ -272,14 +271,23 @@ a {
   padding: 0 200px 0 200px;
 }
 
-.container-sidebar  {
+.container-sidebar {
   display: flex;
 }
-.container-sidebar  .home-content {
-  width: 60%;
+.container-sidebar .home-content {
+  width: 70%;
 }
-.container-sidebar  .home-sidebar  {
-  width: 40%;
+.container-sidebar .home-sidebar {
+  width: 30%;
+  box-shadow: 0px 0px 11px -2px #ababab;
+  padding: 15px;
+  border-radius: 15px;
+}
+.container-sidebar .home-sidebar .ladder h3 {
+  font-family: "Josefin Sans", sans-serif;
+  text-transform: uppercase;
+  text-align: center;
+  font-family: 24px;
 }
 
 .tendances__top, .recents__top {
