@@ -121,6 +121,8 @@
                 @endfor
             </div>
         </div>
+
+        <img src="./images/static/ad.png" style="width: 100%; padding: 40px 0px;">
     </div>
 
 
