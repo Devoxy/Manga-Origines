@@ -11,4 +11,9 @@ class StaticController extends Controller
 
         return view('static.vip');
     }
+
+    public function contact() {
+
+        return view('static.contact');
+    }
 }
