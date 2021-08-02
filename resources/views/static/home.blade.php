@@ -66,7 +66,7 @@
 
 
     <div class="container">
-        <section class="home-slider">
+        <div class="home-slider">
             <div id="home-slider">
                 @for($i = 0; $i < 5; $i++) 
                     <div class="home-slider__slide">
@@ -74,10 +74,23 @@
                     </div>
                 @endfor
             </div>
-        </section>    
-    </div>
+        </div>
 
-    <!-- end slider  -->
+        <div class="home-categories">
+            <ul>
+                <li><a href="#" class="text-warning"><span class="hot-icon"></span> Hot</a></li>
+                <li><a href="#" class="text-success">Webconic</a></li>
+                <li><a href="#">Manhwa</a></li>
+                <li><a href="#">Manhua</a></li>
+                <li><a href="#">Mangas</a></li>
+                <li><a href="#">Shonen</a></li>
+                <li><a href="#">Fantasy</a></li>
+                <li><a href="#">Adulte</a></li> 
+                <li><a href="#">Romance</a></li>
+                <li><a href="#" class="text-warning"><span class="menu-icon"></span> Catégories</a></li>
+            </ul>
+        </div>    
+    </div>
 
 
 
