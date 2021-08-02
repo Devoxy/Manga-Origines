@@ -288,6 +288,23 @@ a {
   text-transform: uppercase;
   text-align: center;
   font-family: 24px;
+  font-weight: 700;
+}
+.container-sidebar .home-sidebar .ladder ul li {
+  font-weight: 500;
+  text-transform: uppercase;
+  text-align: center;
+  height: 35px;
+  line-height: 35px;
+  margin-bottom: 5px;
+}
+.container-sidebar .home-sidebar .ladder ul li::before {
+  width: 35px;
+  height: 35px;
+  content: "";
+  float: left;
+  background: red;
+  border-radius: 35px;
 }
 
 .tendances__top, .recents__top {
