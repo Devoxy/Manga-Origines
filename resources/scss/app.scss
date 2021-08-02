@@ -36,6 +36,17 @@ a {
     padding: 0 200px 0 200px;
 }
 
+.container-sidebar {
+    display: flex;
+
+    .home-content {
+        width: 60%;
+    }
+    .home-sidebar {
+        width: 40%;
+    }
+}
+
 .tendances, .recents {
     &__top {
         display: flex;

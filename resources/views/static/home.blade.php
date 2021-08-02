@@ -145,6 +145,15 @@
         </div>
 
         <img src="./images/static/ad.png" style="width: 100%; padding: 40px 0px;">
+
+        <div class="container-sidebar">
+            <div class="home-content">
+                dfdsddsfds
+            </div>
+            <aside class="home-sidebar">
+                dfd
+            </aside>
+        </div>
     </div>
 
 
