@@ -294,6 +294,16 @@ a {
 .container-sidebar {
   display: flex;
 }
+.container-sidebar__content {
+  width: 70%;
+  padding-right: 25px;
+}
+.container-sidebar__sidebar {
+  width: 30%;
+  box-shadow: 0px 0px 11px -2px #ababab;
+  padding: 15px;
+  border-radius: 15px;
+}
 .container-sidebar .home-content {
   width: 70%;
   padding-right: 25px;
@@ -495,6 +505,9 @@ a {
 }
 .block__title.exclusives h3::before {
   background: url(/images/exclusives.png?b427fe2f3d5459ffd68bf82902b032b2);
+}
+.block__title.contact h3::before {
+  background: url(/images/contact.png?bb2f53ec9ace17a3b711d2624bee6c02);
 }
 
 .header-spacer {

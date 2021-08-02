@@ -39,6 +39,17 @@ a {
 .container-sidebar {
     display: flex;
 
+    &__content {
+        width: 70%;
+        padding-right: 25px;
+    }
+    &__sidebar {
+        width: 30%;
+        box-shadow: 0px 0px 11px -2px #ababab;
+        padding: 15px;
+        border-radius: 15px;
+    }
+
     .home-content {
         width: 70%;
         padding-right: 25px;
@@ -271,6 +282,9 @@ a {
         }
         &.exclusives h3::before {
             background: url('../../public/images/static/icons/exclusives.png');
+        }
+        &.contact h3::before {
+            background: url('../../public/images/static/icons/contact.png');
         }
     }
 }
