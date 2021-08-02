@@ -245,6 +245,7 @@ body {
   margin: 0;
   padding: 0;
   color: #212121;
+  counter-reset: ladder;
 }
 
 ul {
@@ -301,10 +302,11 @@ a {
 .container-sidebar .home-sidebar .ladder ul li::before {
   width: 35px;
   height: 35px;
-  content: "";
   float: left;
   background: red;
   border-radius: 35px;
+  counter-increment: ladder;
+  content: counter(ladder);
 }
 
 .tendances__top, .recents__top {
