@@ -4,6 +4,8 @@
 
 @section('content')
 <div class="container">
-    petite bite
+    <div class="vip-banner">
+        <img src="./images/static/ad.png" style="width: 100%; padding: 40px 0px;">
+    </div>
 </div>
 @endsection
