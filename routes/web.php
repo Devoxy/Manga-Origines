@@ -13,5 +13,9 @@ Route::get('/', function () {
     return view('static.home');
 })->name('home');
 
+Route::get('/vip', function(){
+    return view('static.vip');
+})->name('vip');
+
 Auth::routes();
 Route::get('/logout', [App\Http\Controllers\Auth\LoginController::class, 'logout'])->name('auth.logout');
