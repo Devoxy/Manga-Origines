@@ -55,28 +55,54 @@ a {
                 font-family: $title-family;
                 text-transform: uppercase;
                 text-align: center;
-                font-family: 24px;
-                font-weight: 700;
+                font-size: 25px ;
+                font-weight: 800;
+                
+                &::before {
+                    content: '';
+                    background: url('../../public/images/static/icons/award.svg');
+                    display: inline-block;
+                    width: 20px;
+                    height: 20px;
+                    margin-right: 10px;
+                }
             }
 
             ul {
 
                 li {
-                    font-weight: 500;
+                    font-weight: 700;
                     text-transform: uppercase;
                     text-align: center;
                     height: 35px;
                     line-height: 35px;
                     margin-bottom: 5px;
+                    font-family: $title-family;
 
                     &::before {
                         width: 35px;
                         height: 35px;
                         float: left;
-                        background: red;
+                        background: #f1f2f6;
                         border-radius: 35px;
                         counter-increment: ladder;
                         content: counter(ladder);
+                    }
+
+                    &:nth-child(1) {
+                        &::before {
+                            background: #ffb142;
+                        }
+                    }
+                    &:nth-child(2) {
+                        &::before {
+                            background: #d1ccc0;
+                        }
+                    }
+                    &:nth-child(3) {
+                        &::before {
+                            background: #cc8e35;
+                        }
                     }
                     
                     &.up {

@@ -288,25 +288,43 @@ a {
   font-family: "Josefin Sans", sans-serif;
   text-transform: uppercase;
   text-align: center;
-  font-family: 24px;
-  font-weight: 700;
+  font-size: 25px;
+  font-weight: 800;
+}
+.container-sidebar .home-sidebar .ladder h3::before {
+  content: "";
+  background: url(/images/award.svg?2c99a3062708a9a53bf83ffe512b3c48);
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
 }
 .container-sidebar .home-sidebar .ladder ul li {
-  font-weight: 500;
+  font-weight: 700;
   text-transform: uppercase;
   text-align: center;
   height: 35px;
   line-height: 35px;
   margin-bottom: 5px;
+  font-family: "Josefin Sans", sans-serif;
 }
 .container-sidebar .home-sidebar .ladder ul li::before {
   width: 35px;
   height: 35px;
   float: left;
-  background: red;
+  background: #f1f2f6;
   border-radius: 35px;
   counter-increment: ladder;
   content: counter(ladder);
+}
+.container-sidebar .home-sidebar .ladder ul li:nth-child(1)::before {
+  background: #ffb142;
+}
+.container-sidebar .home-sidebar .ladder ul li:nth-child(2)::before {
+  background: #d1ccc0;
+}
+.container-sidebar .home-sidebar .ladder ul li:nth-child(3)::before {
+  background: #cc8e35;
 }
 .container-sidebar .home-sidebar .ladder ul li.up::after {
   content: "";
