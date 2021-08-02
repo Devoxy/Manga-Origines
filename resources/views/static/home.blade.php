@@ -148,12 +148,76 @@
 
         <div class="container-sidebar">
             <div class="home-content">
-                dfdsddsfds
+                <div class="block news" id="news">
+                    <div class="block__title news">
+                        <h3>Mis à jour récemment</h3>
+                        <div class="block__title__controls">
+                            <a href="#" class="block__title__controls__more">Voir plus</a>
+                            <div class="block__title__controls__prev">
+                                <i class="fa fa-angle-left"></i>
+                            </div>
+                            <div class="block__title__controls__next">
+                                <i class="fa fa-angle-right"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="news__slider">
+                        @for($i = 0; $i < 15; $i++) 
+                            <div class="news__slider__slides" style="background: url('/images/front/cover.jpg');">
+
+                                <div class="news__slider__slides__overlay"></div>
+                                <div class="news__slider__slides__text">
+                                    <div class="news__slider__slides__text__title">
+                                        Solo Leveling
+                                    </div>
+                                </div>
+                            </div>
+                        @endfor
+                    </div>
+                </div>
+
+                <div class="block exclusives" id="exclusives" style="margin-top: 20px">
+                    <div class="block__title exclusives">
+                        <h3>Oeuvres exclusives</h3>
+                        <div class="block__title__controls">
+                            <a href="#" class="block__title__controls__more">Voir plus</a>
+                            <div class="block__title__controls__prev">
+                                <i class="fa fa-angle-left"></i>
+                            </div>
+                            <div class="block__title__controls__next">
+                                <i class="fa fa-angle-right"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="exclusives__slider">
+                        @for($i = 0; $i < 15; $i++) 
+                            <div class="exclusives__slider__slides" style="background: url('/images/front/cover.jpg');">
+
+                                <div class="exclusives__slider__slides__overlay"></div>
+                                <div class="exclusives__slider__slides__text">
+                                    <div class="exclusives__slider__slides__text__title">
+                                        Solo Leveling
+                                    </div>
+                                </div>
+                            </div>
+                        @endfor
+                    </div>
+                </div>
             </div>
             <aside class="home-sidebar">
                 <div class="ladder">
-                    <h3>Classement</h3>
+                    <h3 class="text-warning">Classement</h3>
                     <ul> 
+                        <li class="up">Ta Grand Mère</li>
+                        <li class="up">Ta Grand Mère</li>
+                        <li class="up">Ta Grand Mère</li>
+                        <li class="up">Ta Grand Mère</li>
+                        <li class="up">Ta Grand Mère</li>
+                        <li class="up">Ta Grand Mère</li>
+                        <li class="up">Ta Grand Mère</li>
+                        <li class="up">Ta Grand Mère</li>
+                        <li class="up">Ta Grand Mère</li>
+                        <li class="up">Ta Grand Mère</li>
                         <li class="up">Ta Grand Mère</li>
                         <li class="up">Ta Grand Mère</li>
                         <li class="up">Ta Grand Mère</li>
@@ -163,11 +227,22 @@
                 </div>
             </aside>
         </div>
+
+        <img src="./images/static/ad.png" style="width: 100%; padding: 40px 0px;">
     </div>
 
     <footer class="footer">
         <img class="footer__logo" src="/images/static/logo.png" alt="Manga Origine">
-        <p class="footer__copyright">@2021 Origines Corporation, tous droits réservés.</p>
+        <div class="footer__infos">
+            <ul>
+                <li><a href="#">Accueil</a></li>
+                <li><a href="#">Catalogue</a></li>
+                <li><a href="#">Nous contacter</a></li>
+                <li><a href="#">Politique de confidentialité</a></li>
+                <li><a href="#">Discord</a></li>
+            </ul>
+            <p class="footer__infos__copyright">2021 | Origines Corporation - tout droits réservés. | Design by <a href="#">King</a> & Code by <a href="Discord::Nitram#1234">Nitram</a></p>
+        </div>
     </footer>
 
     <script src="/js/jquery-2.1.4.min.js"></script>
@@ -192,6 +267,26 @@
             centerMode: true,
             infinite: true,
             slidesToShow: 6,
+            slidesToScroll: 1,
+            prevArrow: $(".block__title__controls__prev"),
+            nextArrow: $(".block__title__controls__next"),
+            dots: false,
+        });
+
+        $('.news__slider').slick({
+            centerMode: true,
+            infinite: true,
+            slidesToShow: 4,
+            slidesToScroll: 1,
+            prevArrow: $(".block__title__controls__prev"),
+            nextArrow: $(".block__title__controls__next"),
+            dots: false,
+        });
+
+        $('.exclusives__slider').slick({
+            centerMode: true,
+            infinite: true,
+            slidesToShow: 4,
             slidesToScroll: 1,
             prevArrow: $(".block__title__controls__prev"),
             nextArrow: $(".block__title__controls__next"),

@@ -42,6 +42,7 @@ a {
 
     .home-content {
         width: 70%;
+        padding-right: 10px;
     }
     .home-sidebar {
         width: 30%;
@@ -50,6 +51,7 @@ a {
         border-radius: 15px;
 
         .ladder {
+            margin-bottom: 30px;
 
             h3 {
                 font-family: $title-family;
@@ -133,7 +135,7 @@ a {
     }
 }
 
-.tendances, .recents {
+.tendances, .recents, .news, .exclusives {
     &__top {
         display: flex;
         justify-content: space-between;
@@ -265,8 +267,11 @@ a {
         &.tendances h3::before {
             background: url('../../public/images/static/icons/bonfire.png');
         }
-        &.new h3::before {
-            background: url('../../public/images/static/icons/calendar.svg');
+        &.news h3::before {
+            background: url('../../public/images/static/icons/news.png');
+        }
+        &.exclusives h3::before {
+            background: url('../../public/images/static/icons/exclusives.png');
         }
     }
 }

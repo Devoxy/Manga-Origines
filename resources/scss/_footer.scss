@@ -1,13 +1,48 @@
 .footer {
-    text-align: center;
-    padding-top: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 130px;
+    background: rgb(218,218,218);
+    background: linear-gradient(0deg, rgba(218,218,218,1) 24%, rgba(218,218,218,0.5340511204481793) 57%, rgba(218,218,218,0) 100%);
+    padding-bottom: 30px;
 
     &__logo {
-        width: 125px;
+        width: 225px;
+        margin-right: 70px;
     }
-    &__copyright {
-        padding: 10px;
-        color: #fff;
-        font-weight: 100;
+    &__infos {
+        text-align: center;
+
+        ul {
+            li {
+                display: inline-block;
+                text-transform: uppercase;
+                font-weight: 700;
+                padding: 0 20px;
+                padding-left: 0;
+
+                &::after {
+                    content: '|';
+                    font-weight: 800;
+                    margin-left: 20px;
+                }
+                &:last-child {
+
+                    &::after {
+                        content: '';
+                    }
+                }
+            }
+        }
+        &__copyright {
+            text-transform: uppercase;
+            font-weight: 300;
+
+            a {
+                font-weight: 400;
+                font-style: italic;
+            }
+        }
     }
 }
