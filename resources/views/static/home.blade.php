@@ -154,11 +154,11 @@
                 <div class="ladder">
                     <h3>Classement</h3>
                     <ul> 
-                        <li>Ta Grand Mère</li>
-                        <li>Ta Grand Mère</li>
-                        <li>Ta Grand Mère</li>
-                        <li>Ta Grand Mère</li>
-                        <li>Ta Grand Mère</li>
+                        <li class="up">Ta Grand Mère</li>
+                        <li class="up">Ta Grand Mère</li>
+                        <li class="up">Ta Grand Mère</li>
+                        <li class="up">Ta Grand Mère</li>
+                        <li class="up">Ta Grand Mère</li>
                     </ul>
                 </div>
             </aside>

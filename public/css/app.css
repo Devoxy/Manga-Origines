@@ -308,6 +308,24 @@ a {
   counter-increment: ladder;
   content: counter(ladder);
 }
+.container-sidebar .home-sidebar .ladder ul li.up::after {
+  content: "";
+  float: right;
+  width: 16px;
+  height: 19px;
+  background: url(/images/ladder-up.png?9570491b4ca86ce61ccfbaef0acb79eb);
+  background-size: 100%;
+  margin-top: 8px;
+}
+.container-sidebar .home-sidebar .ladder ul li.down::after {
+  content: "";
+  float: right;
+  width: 16px;
+  height: 19px;
+  background: url(/images/ladder-down.png?1ae3be46aee2bed99965107ed54c3944);
+  background-size: 100%;
+  margin-top: 8px;
+}
 
 .tendances__top, .recents__top {
   display: flex;

@@ -78,6 +78,29 @@ a {
                         counter-increment: ladder;
                         content: counter(ladder);
                     }
+                    
+                    &.up {
+                        &::after {
+                            content: "";
+                            float: right;
+                            width: 16px;
+                            height: 19px;
+                            background: url('../../public/images/static/icons/ladder-up.png');
+                            background-size: 100%;
+                            margin-top: 8px;
+                        }
+                    }
+                    &.down {
+                        &::after {
+                            content: "";
+                            float: right;
+                            width: 16px;
+                            height: 19px;
+                            background: url('../../public/images/static/icons/ladder-down.png');
+                            background-size: 100%;
+                            margin-top: 8px;
+                        }
+                    }
                 }
             }
         }
