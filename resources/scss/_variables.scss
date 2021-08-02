@@ -1,4 +1,9 @@
-$primary-color: #ff0000;
+$primary-color: #fff;
+
+[data-theme="dark"] {
+    $primary-color: #212121;
+}
+
 $background: #FFFFFF;
 
 $c-black: black;

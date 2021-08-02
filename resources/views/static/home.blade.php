@@ -17,7 +17,7 @@
 
 </head>
 
-<body>
+<body data-theme="dark">
     <header class="header">
         <div class="container">
             <div class="header__logo">

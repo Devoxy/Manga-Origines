@@ -1,6 +1,5 @@
 @import "fonts";
 @import "variables";
-@import "colors";
 @import "header";
 @import "topmanga";
 @import "footer";
@@ -42,7 +41,7 @@ a {
 
     .home-content {
         width: 70%;
-        padding-right: 10px;
+        padding-right: 25px;
     }
     .home-sidebar {
         width: 30%;
