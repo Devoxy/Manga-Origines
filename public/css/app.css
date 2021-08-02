@@ -12,11 +12,13 @@
   height: 70px;
   background: #FFFFFF 0% 0% no-repeat padding-box;
   box-shadow: 0px 2px 6px #0000001A;
-  display: flex;
-  align-items: center;
   position: fixed;
   width: 100%;
   z-index: 9999;
+}
+.header .container {
+  display: flex;
+  align-items: center;
 }
 .header__logo {
   color: red;
@@ -65,30 +67,76 @@
   background-image: url(/images/contact.svg?55049e13b7ad1878356245bf206773ed);
 }
 .header__menu__link:hover {
-  color: yellow;
+  color: #6d6d6d;
   text-decoration: none;
 }
 .header__tools {
   width: 30%;
+  height: 70px;
   text-align: right;
-  padding-right: 15px;
-  height: 26px;
 }
 .header__tools__search {
+  background: #F3F3F3;
+  padding: 10px;
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+  margin-top: 15px;
   display: inline-block;
+  margin-right: 40px;
 }
-.header__tools__search a {
-  font-size: 25px;
+.header__tools__search .search-icon {
+  background-image: url(/images/search.svg?faab95974feae26d342c6e9ab383e383);
+  background-size: 100%;
+  width: 20px;
+  height: 20px;
+  float: left;
+}
+.header__tools__search input {
+  border: none;
+  background: none;
+  margin-left: 5px;
+  font-style: italic;
+  font-size: 15px;
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  outline: none;
+  width: 200px;
+}
+.header__tools__search input::-moz-placeholder {
+  color: #212121;
+  font-size: 15px;
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-style: italic;
+}
+.header__tools__search input:-ms-input-placeholder {
+  color: #212121;
+  font-size: 15px;
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-style: italic;
+}
+.header__tools__search input::placeholder {
+  color: #212121;
+  font-size: 15px;
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-style: italic;
+}
+.header__tools__search .search-submit {
+  position: absolute;
+  right: 0;
+  background: #FF750C;
   color: #fff;
-}
-.header__tools__notifications {
-  display: inline-block;
-  height: 26px;
-}
-.header__tools__notifications a {
-  font-size: 25px;
-  color: #fff;
-  padding: 0 15px;
+  font-family: "Josefin Sans", sans-serif;
+  outline: none;
+  border: none;
+  text-transform: uppercase;
+  top: 0;
+  bottom: 0;
+  font-weight: 900;
+  cursor: pointer;
 }
 .header__tools__account {
   display: inline-block;
@@ -192,16 +240,22 @@
 }
 
 body {
-  background-color: #191919;
+  background-color: #FFFFFF;
   font-family: "Roboto", sans-serif;
   margin: 0;
   padding: 0;
+  color: #212121;
 }
 
 ul {
   padding: 0;
   margin: 0;
   list-style: none;
+}
+
+.container {
+  height: 100%;
+  padding: 0 200px 0 200px;
 }
 
 .recent__top {
@@ -303,9 +357,12 @@ ul {
 }
 
 .home-slider {
-  background: red;
+  margin-top: 75px;
   height: 350px;
   position: relative;
+  box-shadow: 0px 0px 11px -2px #ababab;
+  border-radius: 30px;
+  overflow: hidden;
 }
 .home-slider #home-slider {
   display: flex;
@@ -339,13 +396,14 @@ ul {
   width: 10px;
   height: 10px;
   border-radius: 50%;
-  background: #fff;
+  background: rgba(255, 255, 255, 0.5);
   margin: 0 3px;
   cursor: pointer;
 }
 .home-slider .slick-dots li.slick-active {
   width: 25px;
   border-radius: 25px;
+  background: #FF750C;
 }
 .home-slider .slick-dots li button {
   display: none;

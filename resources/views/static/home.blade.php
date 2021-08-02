@@ -19,75 +19,64 @@
 
 <body>
     <header class="header">
-        <div class="header__logo">
-            <a href="{{ route('home') }}">
-                <img src="/images/static/logo.png" alt="Manga Origine">
-            </a>
-        </div>
-        <nav class="header__menu">
-            <ul>
-                <li class="header__menu__link">
-                    <span class="header__menu__link__icon home"></span>
-                    <a href="#">Accueil</a>
-                </li>
-                <li class="header__menu__link">
-                    <span class="header__menu__link__icon menu"></span>
-                    <a href="#">Catalogue</a>
-                </li>
-                <li class="header__menu__link">
-                    <span class="header__menu__link__icon vip"></span>
-                    <a href="#">Vip</a>
-                </li>
-                <li class="header__menu__link">
-                    <span class="header__menu__link__icon contact"></span>
-                    <a href="#">Nous contacter</a>
-                </li>
-            </ul>
-        </nav>
-        <div class="header__tools">
-            <div class="header__tools__search">
-                <div class="header__tools__search__form">
+        <div class="container">
+            <div class="header__logo">
+                <a href="{{ route('home') }}">
+                    <img src="/images/static/logo.png" alt="Manga Origine">
+                </a>
+            </div>
+            <nav class="header__menu">
+                <ul>
+                    <li class="header__menu__link">
+                        <span class="header__menu__link__icon home"></span>
+                        <a href="#">Accueil</a>
+                    </li>
+                    <li class="header__menu__link">
+                        <span class="header__menu__link__icon menu"></span>
+                        <a href="#">Catalogue</a>
+                    </li>
+                    <li class="header__menu__link">
+                        <span class="header__menu__link__icon vip"></span>
+                        <a href="#">Vip</a>
+                    </li>
+                    <li class="header__menu__link">
+                        <span class="header__menu__link__icon contact"></span>
+                        <a href="#">Nous contacter</a>
+                    </li>
+                </ul>
+            </nav>
+            <div class="header__tools">
+                <div class="header__tools__search">
+                    <span class="search-icon"></span>
+                    <input type="text" placeholder="Tapez votre recherche...">
+                    <button type="submit" class="search-submit">Go</button>
                 </div>
-                <a href="#" class="fa fa-search"></a>
-            </div>
-            <div class="header__tools__notifications">
-                <a href="#" class="fa fa-bell"></a>
-            </div>
-            <div class="header__tools__account">
-                @if(Auth::guest())
-                    <a href="{{ route('login') }}">
-                        <img src="/images/static/login.png">
-                    </a>
-                @endif
-               
-                {{-- <div class="header__tools__account__panel">
-                    <a href="#">tesst</a>
-                </div> --}}
-            </div>
+                <div class="header__tools__account">
+                    @if(Auth::guest())
+                        <a href="{{ route('login') }}">
+                            <img src="/images/static/login.png">
+                        </a>
+                    @endif
+                </div>
+            </div>  
         </div>
     </header>
-    <!-- end block header  -->
-
 
     <div class="header-spacer"></div>
 
 
-    <!-- start slider  -->
-    <section class="home-slider">
-        <div id="home-slider">
-            @for($i = 0; $i < 15; $i++) 
-                <div class="home-slider__slide">
-                    {{ $i }}
-                </div>
-            @endfor
-        </div> 
-        <span class="home-slider__arrow-prev">
-            <i class="fa fa-angle-left"></i>
-        </span>
-        <span class="home-slider__arrow-next">
-            <i class="fa fa-angle-right"></i>
-        </span>
-    </section>
+    <div class="container">
+        <section class="home-slider">
+            <div id="home-slider">
+                @for($i = 0; $i < 5; $i++) 
+                    <div class="home-slider__slide">
+                        {{ $i }}
+                    </div>
+                @endfor
+            </div>
+        </section>    
+    </div>
+
     <!-- end slider  -->
 
 
@@ -262,7 +251,7 @@
             centerMode: true,
              centerPadding: '0px',
             infinite: true,
-            slidesToShow: 3,
+            slidesToShow: 1,
             slidesToScroll: 1,
             prevArrow: $(".home-slider__arrow-prev"),
             nextArrow: $(".home-slider__arrow-next"),
