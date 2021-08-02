@@ -1,9 +1,61 @@
 .vip-title {
     h3 {
         text-align: center;
-        font: normal normal bold 24px/29px Product Sans;
-        letter-spacing: 0px;
-        color: #222225;
-        opacity: 1;
+        font-size: 24px;
+        color: $c-black;
+        font-family: $title-family;
+    }
+}
+
+.vip-bigtitle {
+    h2 {
+        font-size: 46px;
+        font-weight: bold;
+        text-align: center;
+        color: $c-black;
+        font-family: $title-family;
+        span {
+            color: #ffdb0c;
+        }
+    }
+}
+
+.vip-pricing {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    &__table {
+        width: 33%;
+        box-shadow: 0px 0px 6px #00000078;
+        border-radius: 25px;
+        padding: 15px;
+        margin: 10px;
+        &.recommanded {
+            border: 2px solid #FF750C;
+        }
+        &:nth-child(2) {
+            margin-top: -20px;
+        }
+        &__icon {
+            text-align: center;
+            padding: 15px 0;
+            img {
+                width: 70px;
+            }
+        }
+        &__title {
+            font-family: $title-family;
+            font-size: 29px;
+            font-weight: bold;
+            text-align: center;
+            text-transform: uppercase;
+        }
+        &__description {
+            padding: 15px 0;
+            font-family: $title-family;
+            font-size: 19px;
+            text-align: center;
+        }
+
     }
 }
