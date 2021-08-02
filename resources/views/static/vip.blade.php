@@ -5,7 +5,7 @@
 @section('content')
 <div class="container">
     <div class="vip-banner">
-        <img src="./images/static/ad.png" style="width: 100%; padding: 40px 0px;">
+        <img src="/images/static/ad.png" style="width: 100%; padding: 40px 0px;">
     </div>
 </div>
 @endsection

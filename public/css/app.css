@@ -261,6 +261,45 @@
 .contact {
   display: flex;
 }
+.contact h5 {
+  font-size: 18px;
+  padding: 0;
+  margin: 0;
+  margin-bottom: 10px;
+}
+.contact__socials ul li {
+  padding: 5px 0;
+  height: 40px;
+  display: flex;
+}
+.contact__socials ul li span {
+  float: right;
+  margin-top: 10px;
+  margin-left: 10px;
+  font-style: italic;
+  color: #0984e3;
+  cursor: pointer;
+}
+.contact__socials ul li span:hover {
+  color: #74b9ff;
+}
+.contact__socials__icon {
+  width: 40px;
+  height: 40px;
+  display: block;
+  border: 2px solid #FF750C;
+  border-radius: 40px;
+  box-shadow: 0px 0px 11px -2px #ababab;
+}
+.contact__socials__icon.twitter {
+  background: url(/images/twitter.svg?f900554cbc4f4d0e9a8f07a53a6d3555);
+}
+.contact__socials__icon.instagram {
+  background: url(/images/instagram.svg?0b3e8a0c68c61f6f9de668820032ea7d);
+}
+.contact__socials__icon.discord {
+  background: url(/images/discord.svg?0c4e6f7807004021f03d2faf781bd16e);
+}
 
 body {
   background-color: #FFFFFF;
