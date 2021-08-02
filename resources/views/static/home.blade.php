@@ -9,9 +9,8 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
     <link rel="icon" href="/images/static/favicon.ico" type="image/x-icon" />
-    <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="/font-awesome/4.5.0/css/font-awesome.min.css" />
-    <link rel="stylesheet" href="/css/fonts.googleapis.com.css" />
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     @toastr_css
@@ -19,7 +18,6 @@
 </head>
 
 <body>
-    <!-- start block header  -->
     <header class="header">
         <div class="header__logo">
             <a href="{{ route('home') }}">
@@ -27,13 +25,24 @@
             </a>
         </div>
         <nav class="header__menu">
-            <a href="#" class="header__menu__link fa fa-home">
-
-            </a>
-            <a href="#" class="header__menu__link fa fa-compass">
-            </a>
-            <a href="#" class="header__menu__link fa fa-book">
-            </a>
+            <ul>
+                <li class="header__menu__link">
+                    <span class="header__menu__link__icon home"></span>
+                    <a href="#">Accueil</a>
+                </li>
+                <li class="header__menu__link">
+                    <span class="header__menu__link__icon menu"></span>
+                    <a href="#">Catalogue</a>
+                </li>
+                <li class="header__menu__link">
+                    <span class="header__menu__link__icon vip"></span>
+                    <a href="#">Vip</a>
+                </li>
+                <li class="header__menu__link">
+                    <span class="header__menu__link__icon contact"></span>
+                    <a href="#">Nous contacter</a>
+                </li>
+            </ul>
         </nav>
         <div class="header__tools">
             <div class="header__tools__search">
