@@ -258,21 +258,29 @@
   font-style: italic;
 }
 
-.contact {
+.section-contact {
   display: flex;
+  margin-top: 30px;
 }
-.contact h5 {
-  font-size: 18px;
+.section-contact h5 {
+  font-size: 20px;
   padding: 0;
   margin: 0;
   margin-bottom: 10px;
+  text-transform: uppercase;
 }
-.contact__socials ul li {
+.section-contact h5 span {
+  color: #FF750C;
+}
+.section-contact__socials {
+  width: 40%;
+}
+.section-contact__socials ul li {
   padding: 5px 0;
   height: 40px;
   display: flex;
 }
-.contact__socials ul li span {
+.section-contact__socials ul li span {
   float: right;
   margin-top: 10px;
   margin-left: 10px;
@@ -280,10 +288,10 @@
   color: #0984e3;
   cursor: pointer;
 }
-.contact__socials ul li span:hover {
+.section-contact__socials ul li span:hover {
   color: #74b9ff;
 }
-.contact__socials__icon {
+.section-contact__socials__icon {
   width: 40px;
   height: 40px;
   display: block;
@@ -291,14 +299,88 @@
   border-radius: 40px;
   box-shadow: 0px 0px 11px -2px #ababab;
 }
-.contact__socials__icon.twitter {
+.section-contact__socials__icon.twitter {
   background: url(/images/twitter.svg?f900554cbc4f4d0e9a8f07a53a6d3555);
 }
-.contact__socials__icon.instagram {
+.section-contact__socials__icon.instagram {
   background: url(/images/instagram.svg?0b3e8a0c68c61f6f9de668820032ea7d);
 }
-.contact__socials__icon.discord {
+.section-contact__socials__icon.discord {
   background: url(/images/discord.svg?0c4e6f7807004021f03d2faf781bd16e);
+}
+.section-contact__form {
+  width: 60%;
+  padding-right: 25px;
+}
+
+.form-group {
+  width: 100%;
+}
+.form-group label {
+  display: block;
+  width: 100%;
+}
+.form-group input[type=text] {
+  display: block;
+  width: 100%;
+  padding: 10px 5px;
+}
+
+.vip-title h3 {
+  text-align: center;
+  font-size: 24px;
+  color: black;
+  font-family: "Josefin Sans", sans-serif;
+}
+
+.vip-bigtitle h2 {
+  font-size: 46px;
+  font-weight: bold;
+  text-align: center;
+  color: black;
+  font-family: "Josefin Sans", sans-serif;
+}
+.vip-bigtitle h2 span {
+  color: #ffdb0c;
+}
+
+.vip-pricing {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.vip-pricing__table {
+  width: 33%;
+  box-shadow: 0px 0px 6px #00000078;
+  border-radius: 25px;
+  padding: 15px;
+  margin: 10px;
+}
+.vip-pricing__table.recommanded {
+  border: 2px solid #FF750C;
+}
+.vip-pricing__table:nth-child(2) {
+  margin-top: -20px;
+}
+.vip-pricing__table__icon {
+  text-align: center;
+  padding: 15px 0;
+}
+.vip-pricing__table__icon img {
+  width: 70px;
+}
+.vip-pricing__table__title {
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 29px;
+  font-weight: bold;
+  text-align: center;
+  text-transform: uppercase;
+}
+.vip-pricing__table__description {
+  padding: 15px 0;
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 19px;
+  text-align: center;
 }
 
 body {

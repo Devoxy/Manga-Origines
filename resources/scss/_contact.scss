@@ -1,14 +1,21 @@
-.contact {
+.section-contact {
     display: flex;
+    margin-top: 30px;
 
     h5 {
-        font-size: 18px;
+        font-size: 20px;
         padding: 0;
         margin: 0;
         margin-bottom: 10px;
+        text-transform: uppercase;
+
+        span {
+            color: #FF750C;
+        }
     }
 
     &__socials {
+        width: 40%;
 
         ul {
             li {
@@ -50,5 +57,24 @@
                 background: url('../../public/images/static/icons/discord.svg');
             }
         }
+    }
+    &__form {
+        width: 60%;
+        padding-right: 25px;
+    }
+}
+
+.form-group {
+    width: 100%;
+
+    label {
+        display: block;
+        width: 100%;
+    }
+
+    input[type="text"] {
+        display: block;
+        width: 100%;
+        padding: 10px 5px;
     }
 }
