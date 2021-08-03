@@ -11,9 +11,9 @@
 
         @csrf
 
-        <span class="login100-form-title p-b-53">
+        {{-- <span class="login100-form-title p-b-53">
             Connexion
-        </span>
+        </span> --}}
 
         <a href="#" class="btn-face m-b-20">
             <i class="fa fa-facebook-official"></i>

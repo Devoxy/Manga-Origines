@@ -16,7 +16,7 @@
 	<link rel="stylesheet" type="text/css" href="/auth/css/util.css">
 	<link rel="stylesheet" type="text/css" href="/auth/css/main.css">
 </head>
-<body>
+<body class="{{ Cookie::get('theme-mode') }}">
 	
 	<div class="limiter">
 		<div class="container-login100">
