@@ -34,6 +34,26 @@ a {
     color: #FF750C;
 }
 
+.btn {
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    font-weight: 800;
+    font-size: 18px;
+    font-family: $title-family;
+    cursor: pointer;
+
+    &.btn-warning {
+        background: #FF750C;
+        border-bottom: 3px solid #e67e22;
+        color: #fff;
+
+        &:active {
+            border-bottom: none;
+        }
+    }
+}
+
 .container {
     height: 100%;
     padding: 0 200px 0 200px;
@@ -218,6 +238,7 @@ a {
         margin-bottom: 40px;
         display: flex;
         justify-content: space-between;
+        font-family: $title-family;
 
         &__controls {
             display: flex;

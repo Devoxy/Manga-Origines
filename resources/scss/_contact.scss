@@ -3,11 +3,12 @@
     margin-top: 30px;
 
     h5 {
-        font-size: 20px;
+        font-size: 22px;
         padding: 0;
         margin: 0;
-        margin-bottom: 10px;
+        margin-bottom: 20px;
         text-transform: uppercase;
+        font-family: $title-family;
 
         span {
             color: #FF750C;
@@ -61,20 +62,44 @@
     &__form {
         width: 60%;
         padding-right: 25px;
+
+        form {
+            box-shadow: 0px 0px 11px -2px #ababab;
+            padding: 10px;
+            border-radius: 15px;
+            display: flex;
+            flex-direction: column;
+        }
     }
 }
 
 .form-group {
     width: 100%;
+    margin: 10px 0;
+
+    &:first-child {
+        margin-top: 0;
+    }
 
     label {
         display: block;
         width: 100%;
+        margin-bottom: 5px;
     }
 
-    input[type="text"] {
-        display: block;
+    input[type="text"], textarea {
+        display: table-cell;
         width: 100%;
         padding: 10px 5px;
+        border: none;
+        border-bottom: 1px solid #FF750C;
+        background: #f7f7f7;
+        border-radius: 5px;
+        box-sizing: border-box;
+        outline: none;
+
+        &:focus {
+            border-bottom: 2px solid #FF750C;
+        }
     }
 }

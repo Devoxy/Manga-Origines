@@ -25,15 +25,17 @@
                                     <input type="text" class="form-control" required>
                                 </div>
 
-                                 <div class="form-group">
+                                <div class="form-group">
                                     <label>Votre email</label>
                                     <input type="text" class="form-control" required>
                                 </div>
 
-                                 <div class="form-group">
+                                <div class="form-group">
                                     <label>Votre message</label>
                                     <textarea class="form-control" required></textarea>
                                 </div>
+
+                                <button type="submit" class="btn btn-warning">Envoyer</button>
                             </form>
                         </div>
                         <div class="section-contact__socials">
