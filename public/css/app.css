@@ -727,6 +727,9 @@ a {
 .block__title.contact h3::before {
   background: url(/images/contact.png?bb2f53ec9ace17a3b711d2624bee6c02);
 }
+.block__title.secure h3::before {
+  background: url(/images/secure.png?0f1f1fdcc43706267c4980eb7092b4d0);
+}
 
 .header-spacer {
   width: 100%;

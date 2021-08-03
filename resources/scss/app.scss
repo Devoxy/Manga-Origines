@@ -370,6 +370,9 @@ a {
         &.contact h3::before {
             background: url('../../public/images/static/icons/contact.png');
         }
+        &.secure h3::before {
+            background: url('../../public/images/static/icons/secure.png');
+        }
     }
 }
 
