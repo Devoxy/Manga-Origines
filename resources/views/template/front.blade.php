@@ -17,7 +17,7 @@
 
 </head>
 
-<body data-theme="dark">
+<body class="{{ Cookie::get('theme-mode') }}">
     <header class="header">
         <div class="container">
             <div class="header__logo">
@@ -51,6 +51,7 @@
                     <input type="text" placeholder="Tapez votre recherche...">
                     <button type="submit" class="search-submit">Go</button>
                 </div>
+                <button id="change-mode">go</button>
                 <div class="header__tools__account">
                     @if(Auth::guest())
                         <a href="{{ route('login') }}">
@@ -143,6 +144,11 @@
             cssEase: "linear",
             pauseOnHover: true,
             swipeToSlide: false,
+        });
+
+        $("#change-mode").click(function() {
+            
+            $("body").toggleClass('dark');
         });
     </script>
 

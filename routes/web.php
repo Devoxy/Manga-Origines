@@ -24,6 +24,8 @@ Route::prefix('static')->group(function() {
     });
 });
 
+Route::get('/cookie/change-mode/{mode}', [App\Http\Controllers\Front\CookieController::class, 'changeMode']);
+
 
 
 
