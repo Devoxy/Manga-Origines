@@ -11,6 +11,29 @@
         <h5 class="text-warning">Classement</h5>
     </div>
     <div class="container-sidebar__sidebar__block__content">
-        dd
+        <div class="ladder">
+            <ul> 
+                <li class="up" style="background: url('/images/front/cover.jpg'); background-position: center; background-size: cover;">
+                    <div class="ladder__overlay"></div>
+                    <span class="ladder__title">Ta Grand Mère</span>
+                </li>
+                <li class="up" style="background: url('/images/front/cover.jpg'); background-position: center; background-size: cover;">
+                    <div class="ladder__overlay"></div>
+                    <span class="ladder__title">Ta Grand Mère</span>
+                </li>
+                <li class="down" style="background: url('/images/front/cover.jpg'); background-position: center; background-size: cover;">
+                    <div class="ladder__overlay"></div>
+                    <span class="ladder__title">Ta Grand Mère</span>
+                </li>
+                <li class="up" style="background: url('/images/front/cover.jpg'); background-position: center; background-size: cover;">
+                    <div class="ladder__overlay"></div>
+                    <span class="ladder__title">Ta Grand Mère</span>
+                </li>
+                <li class="down" style="background: url('/images/front/cover.jpg'); background-position: center; background-size: cover;">
+                    <div class="ladder__overlay"></div>
+                    <span class="ladder__title">Ta Grand Mère</span>
+                </li>
+            </ul>
+        </div>
     </div>
 </div>

@@ -121,6 +121,24 @@ a {
         .ladder {
             margin-bottom: 30px;
 
+
+            &__title {
+                color: #fff;
+                position: absolute;
+                left: 50px;
+                bottom: -12px;
+                font-size: 12px;
+            }
+
+            &__overlay {
+                background: rgba(0,0,0, .4);
+                width: calc(100% - 90px);
+                height: 100%;
+                position: absolute;
+                left: 50%;
+                transform: translateX(-50%);
+            }
+
             h3 {
                 font-family: $title-family;
                 text-transform: uppercase;
@@ -144,24 +162,25 @@ a {
                     font-weight: 700;
                     text-transform: uppercase;
                     text-align: center;
-                    height: 35px;
-                    line-height: 35px;
+                    height: 45px;
+                    line-height: 45px;
                     margin-bottom: 5px;
+                    background: rgb(0, 0, 0);
                     font-family: $title-family;
+                    position: relative;
 
                     &::before {
-                        width: 35px;
-                        height: 35px;
+                        width: 45px;
+                        height: 45px;
                         float: left;
                         background: #f1f2f6;
-                        border-radius: 35px;
                         counter-increment: ladder;
                         content: counter(ladder);
                     }
 
                     &:nth-child(1) {
                         &::before {
-                            background: #ffb142;
+                            background: #fbc531;
                         }
                     }
                     &:nth-child(2) {
@@ -179,22 +198,24 @@ a {
                         &::after {
                             content: "";
                             float: right;
-                            width: 16px;
-                            height: 19px;
-                            background: url('../../public/images/static/icons/ladder-up.png');
-                            background-size: 100%;
-                            margin-top: 8px;
+                            width: 45px;
+                            height: 45px;
+                            background: url('../../public/images/static/icons/ladder-up.png') #212121;
+                            background-size: 35%;
+                            background-repeat: no-repeat;
+                            background-position: center;
                         }
                     }
                     &.down {
                         &::after {
                             content: "";
                             float: right;
-                            width: 16px;
-                            height: 19px;
-                            background: url('../../public/images/static/icons/ladder-down.png');
-                            background-size: 100%;
-                            margin-top: 8px;
+                            width: 45px;
+                            height: 45px;
+                            background: url('../../public/images/static/icons/ladder-down.png') #212121;
+                            background-size: 35%;
+                            background-repeat: no-repeat;
+                            background-position: center;
                         }
                     }
                 }
