@@ -57,6 +57,13 @@
                         <a href="{{ route('login') }}">
                             <img src="/images/static/login.png">
                         </a>
+                    @else 
+                        <a id="account" href="#">
+                            <img src="/images/static/login.png">
+                        </a>
+                        <div class="account">
+                            dfd
+                        </div>
                     @endif
                 </div>
             </div>  
@@ -151,6 +158,11 @@
             var value = $("body").hasClass("light") ? "dark" : "light";
             $("body").toggleClass("dark");
             $.get("/cookie/change-mode/" + value);
+        });
+
+        $("#account").click(function() {
+
+            $(".account").toggleClass("show");
         });
     </script>
 
