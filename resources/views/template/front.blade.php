@@ -51,7 +51,7 @@
                     <input type="text" placeholder="Tapez votre recherche...">
                     <button type="submit" class="search-submit">Go</button>
                 </div>
-                <button id="change-mode">go</button>
+                <span id="change-mode" class="change-mode {{ Cookie::get('theme-mode') }}"></span>
                 <div class="header__tools__account">
                     @if(Auth::guest())
                         <a href="{{ route('login') }}">
@@ -148,15 +148,8 @@
 
         $("#change-mode").click(function() {
             
-            var value = "light";
-
-            if($("body").hasClass("light"))
-                value = "dark";
-            else
-                value = "light";
-
-            $("body").toggleClass('dark');
-
+            var value = $("body").hasClass("light") ? "dark" : "light";
+            $("body").toggleClass("dark");
             $.get("/cookie/change-mode/" + value);
         });
     </script>
