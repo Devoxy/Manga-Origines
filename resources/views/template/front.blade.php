@@ -73,8 +73,8 @@
                 <li><a href="{{ route('home') }}">Accueil</a></li>
                 <li><a href="#">Catalogue</a></li>
                 <li><a href="{{ route('static.contact') }}">Nous contacter</a></li>
-                <li><a href="#">Politique de confidentialité</a></li>
-                <li><a href="#">Discord</a></li>
+                <li><a href="{{ route('static.legal.privacy') }}">Politique de confidentialité</a></li>
+                <li><a href="{{ route('static.discord') }}">Discord</a></li>
             </ul>
             <p class="footer__infos__copyright">2021 | Origines Corporation - tout droits réservés. | Design by <a href="#">King</a> & Code by <a href="Discord::Nitram#1234">Nitram</a></p>
         </div>

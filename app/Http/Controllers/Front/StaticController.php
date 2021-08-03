@@ -12,8 +12,22 @@ class StaticController extends Controller
         return view('static.vip');
     }
 
-    public function contact() {
+    public function contact(Request $request) {
+
+        if($request->isMethod('post')) {
+
+        }
 
         return view('static.contact');
+    }
+
+    public function discord() {
+
+        return redirect()->to(config('app.discord'));
+    }
+
+    public function privacy() {
+        
+        return view('static.legal.privacy');
     }
 }

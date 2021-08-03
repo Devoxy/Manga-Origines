@@ -15,6 +15,11 @@ return [
 
     'name' => env('APP_NAME', 'Laravel'),
 
+
+
+
+    'discord' => 'https://youtube.com',
+
     /*
     |--------------------------------------------------------------------------
     | Application Environment
