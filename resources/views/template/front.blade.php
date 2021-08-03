@@ -62,7 +62,13 @@
                             <img src="/images/static/login.png">
                         </a>
                         <div class="account">
-                            dfd
+                            <div class="account__profile">
+                                <img src="/images/static/login.png" class="account__profile__avatar" alt="{{ Auth::user()->username }}">
+                                <ul class="account__profile__infos">    
+                                    <li>{{ Auth::user()->username }}</li>
+                                    <li>Administrateur</li>
+                                </ul>
+                            </div>
                         </div>
                     @endif
                 </div>

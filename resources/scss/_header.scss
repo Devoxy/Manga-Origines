@@ -166,6 +166,7 @@
     min-height: 250px;
     border-radius: 10px;
     display: none;
+    padding-top: 10px;
 
     &.show {
         display: block;
@@ -181,5 +182,39 @@
         border-color: transparent transparent #ffffff transparent;
         top: -17px;
         right: 35px;
+    }
+
+    &__profile {
+        
+        display: flex;
+        align-items: center;
+        padding-bottom: 10px;
+        border-bottom: 1px solid #F3F3F3;
+        padding: 5px;
+        
+        &__avatar {
+            width: 40px !important;
+            height: 40px !important;
+            border: 3px solid #FF750C;
+            margin-right: 10px;
+        }
+        &__infos {
+            margin-top: -10px;
+
+            li {
+                color: #212121;
+                text-align: left;
+                font-size: 14px;
+
+                &:nth-child(1) {
+                    font-weight: bold;
+                }
+
+                &:nth-child(2) {
+                    font-style: italic;
+                    color: red;
+                }
+            }
+        }
     }
 }

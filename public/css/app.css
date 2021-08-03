@@ -173,6 +173,7 @@
   min-height: 250px;
   border-radius: 10px;
   display: none;
+  padding-top: 10px;
 }
 .account.show {
   display: block;
@@ -187,6 +188,34 @@
   border-color: transparent transparent #ffffff transparent;
   top: -17px;
   right: 35px;
+}
+.account__profile {
+  display: flex;
+  align-items: center;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #F3F3F3;
+  padding: 5px;
+}
+.account__profile__avatar {
+  width: 40px !important;
+  height: 40px !important;
+  border: 3px solid #FF750C;
+  margin-right: 10px;
+}
+.account__profile__infos {
+  margin-top: -10px;
+}
+.account__profile__infos li {
+  color: #212121;
+  text-align: left;
+  font-size: 14px;
+}
+.account__profile__infos li:nth-child(1) {
+  font-weight: bold;
+}
+.account__profile__infos li:nth-child(2) {
+  font-style: italic;
+  color: red;
 }
 
 .top-mangas__list {
