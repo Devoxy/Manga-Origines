@@ -8,6 +8,10 @@
   position: fixed;
   width: 100%;
   z-index: 9999;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
 }
 .header .container {
   display: flex;
