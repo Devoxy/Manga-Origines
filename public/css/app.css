@@ -580,6 +580,18 @@ body.dark .session-contact__form form {
   background: #191919;
   box-shadow: none;
 }
+body.dark .account__logout, body.dark .account__menu {
+  background: #191919;
+}
+body.dark .account__profile {
+  border-bottom: 1px solid #222225;
+}
+body.dark .account__logout {
+  border-top: 1px solid #222225;
+}
+body.dark .account__logout:hover  {
+  background: #2b2b2e;
+}
 
 body {
   background-color: #FFFFFF;
