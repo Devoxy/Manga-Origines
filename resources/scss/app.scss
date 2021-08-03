@@ -83,6 +83,10 @@ a {
                     background: url('../../public/images/static/banners/sidebar-discord.jpg');
                     background-size: cover;
                 }
+                &.ladder {
+                    background: url('../../public/images/static/banners/sidebar-ladder.jpg');
+                    background-size: cover;
+                }
 
                 h5 {
                     padding: 0;
@@ -111,7 +115,6 @@ a {
     .home-sidebar {
         width: 30%;
         box-shadow: 0px 0px 11px -2px #ababab;
-        padding: 15px;
         border-radius: 15px;
 
         .ladder {

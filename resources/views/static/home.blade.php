@@ -143,26 +143,7 @@
             </div>
         </div>
         <aside class="home-sidebar">
-            <div class="ladder">
-                <h3 class="text-warning">Classement</h3>
-                <ul> 
-                    <li class="up">Ta Grand Mère</li>
-                    <li class="up">Ta Grand Mère</li>
-                    <li class="up">Ta Grand Mère</li>
-                    <li class="up">Ta Grand Mère</li>
-                    <li class="up">Ta Grand Mère</li>
-                    <li class="up">Ta Grand Mère</li>
-                    <li class="up">Ta Grand Mère</li>
-                    <li class="up">Ta Grand Mère</li>
-                    <li class="up">Ta Grand Mère</li>
-                    <li class="up">Ta Grand Mère</li>
-                    <li class="up">Ta Grand Mère</li>
-                    <li class="up">Ta Grand Mère</li>
-                    <li class="up">Ta Grand Mère</li>
-                    <li class="up">Ta Grand Mère</li>
-                    <li class="up">Ta Grand Mère</li>
-                </ul>
-            </div>
+            @include('template.sidebar')
         </aside>
     </div>
 

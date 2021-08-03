@@ -480,6 +480,10 @@ a {
   background: url(/images/sidebar-discord.jpg?72eaf2036ecacf23aa1efdb5b8865c46);
   background-size: cover;
 }
+.container-sidebar__sidebar__block__title.ladder {
+  background: url(/images/sidebar-ladder.jpg?1f3213025ba4f8c65eb925bb9e540236);
+  background-size: cover;
+}
 .container-sidebar__sidebar__block__title h5 {
   padding: 0;
   margin: 0;
@@ -502,7 +506,6 @@ a {
 .container-sidebar .home-sidebar {
   width: 30%;
   box-shadow: 0px 0px 11px -2px #ababab;
-  padding: 15px;
   border-radius: 15px;
 }
 .container-sidebar .home-sidebar .ladder {
