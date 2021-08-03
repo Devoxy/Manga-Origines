@@ -69,6 +69,33 @@
                                     <li>Administrateur</li>
                                 </ul>
                             </div>
+                            <ul class="account__menu">
+                                <li>
+                                    <a href="#">
+                                        <i class="fa fa-user"></i>
+                                        <span>Mon compte</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <i class="fa fa-bookmark"></i>
+                                        <span>Mes favoris</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <i class="fa fa-history"></i>
+                                        <span>Historique</span>
+                                    </a>
+                                </li>
+                                {{-- <li>
+                                    <a href="#">
+                                        <i class="fa fa-user"></i>
+                                        <span>ACP</span>
+                                    </a>
+                                </li> --}}
+                            </ul>
+                            <a href="{{ route('auth.logout') }}" class="account__logout"><i class="fa fa-lock"></i> Se déconnecter</a>
                         </div>
                     @endif
                 </div>

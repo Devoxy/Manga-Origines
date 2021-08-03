@@ -28,7 +28,8 @@ Route::get('/cookie/change-mode/{mode}', [App\Http\Controllers\Front\CookieContr
 
 Route::prefix('auth')->group(function() {
     Auth::routes();
+    Route::get('/logout', [App\Http\Controllers\Auth\LoginController::class, 'logout'])->name('auth.logout');
 });
 
 
-Route::get('/logout', [App\Http\Controllers\Auth\LoginController::class, 'logout'])->name('auth.logout');
+
