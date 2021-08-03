@@ -148,7 +148,16 @@
 
         $("#change-mode").click(function() {
             
+            var value = "light";
+
+            if($("body").hasClass("light"))
+                value = "dark";
+            else
+                value = "light";
+
             $("body").toggleClass('dark');
+
+            $.get("/cookie/change-mode/" + value);
         });
     </script>
 
