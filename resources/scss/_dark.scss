@@ -3,6 +3,7 @@ body {
     &.dark {
 
         background: #222225;
+        color: rgb(230, 230, 230);
 
         a {
             color: #fff;
@@ -60,6 +61,11 @@ body {
 
         .container-sidebar {
 
+            &__sidebar {
+                background: #191919;
+                box-shadow: none;
+            }
+            
             .home-sidebar {
                 background: #191919;
                 box-shadow: none;
@@ -89,6 +95,17 @@ body {
             
             background: none;
             color: #fff;
+        }
+
+        .session-contact {
+
+            &__form {
+
+                form {
+                    background: #191919;
+                    box-shadow: none;  
+                }
+            }
         }
     }
 }

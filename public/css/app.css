@@ -422,6 +422,7 @@
 
 body.dark {
   background: #222225;
+  color: #e6e6e6;
 }
 body.dark a {
   color: #fff;
@@ -462,6 +463,10 @@ body.dark .block__title__controls__more {
 body.dark .block__title__controls__prev, body.dark .block__title__controls__next {
   background: #474747;
 }
+body.dark .container-sidebar__sidebar {
+  background: #191919;
+  box-shadow: none;
+}
 body.dark .container-sidebar .home-sidebar {
   background: #191919;
   box-shadow: none;
@@ -479,6 +484,10 @@ body.dark .home-slider  {
 body.dark .footer {
   background: none;
   color: #fff;
+}
+body.dark .session-contact__form form {
+  background: #191919;
+  box-shadow: none;
 }
 
 body {

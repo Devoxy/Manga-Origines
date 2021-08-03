@@ -26,8 +26,9 @@ Route::prefix('static')->group(function() {
 
 Route::get('/cookie/change-mode/{mode}', [App\Http\Controllers\Front\CookieController::class, 'changeMode']);
 
+Route::prefix('auth')->group(function() {
+    Auth::routes();
+});
 
 
-
-Auth::routes();
 Route::get('/logout', [App\Http\Controllers\Auth\LoginController::class, 'logout'])->name('auth.logout');
