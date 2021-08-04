@@ -52,16 +52,16 @@
   margin-right: 5px;
 }
 .header__menu__link__icon.home {
-  background-image: url(/images/home.svg?1d4d2b6b0820f657a3fbad9d4f9757e6);
+  background-image: url(/images/home.svg?1ed01c10abdfb041c514d33df973911c);
 }
 .header__menu__link__icon.menu {
-  background-image: url(/images/menu.svg?411b8eb69fedbca0da56296d06361fba);
+  background-image: url(/images/menu.svg?c2230be256a02c95a513bdf1984efa92);
 }
 .header__menu__link__icon.vip {
-  background-image: url(/images/vip.svg?71ec127acac0287acd424da91125ca1e);
+  background-image: url(/images/vip.svg?201624c227b9b6c79ea88864cb0a78bd);
 }
 .header__menu__link__icon.contact {
-  background-image: url(/images/contact.svg?55049e13b7ad1878356245bf206773ed);
+  background-image: url(/images/contact.svg?bda5820ddc13879b62725b373640f7b5);
 }
 .header__menu__link:hover {
   color: #6d6d6d;
@@ -96,7 +96,7 @@
   margin-right: 40px;
 }
 .header__tools__search .search-icon {
-  background-image: url(/images/search.svg?faab95974feae26d342c6e9ab383e383);
+  background-image: url(/images/search.svg?f311f6aa5341ba6262e8005907628908);
   background-size: 100%;
   width: 20px;
   height: 20px;
@@ -410,7 +410,7 @@
   background: url(/images/twitter.svg?f900554cbc4f4d0e9a8f07a53a6d3555);
 }
 .section-contact__socials__icon.instagram {
-  background: url(/images/instagram.svg?0b3e8a0c68c61f6f9de668820032ea7d);
+  background: url(/images/instagram.svg?c1b71427bb98d0acaf705aef574e2eba);
 }
 .section-contact__socials__icon.discord {
   background: url(/images/discord.svg?0c4e6f7807004021f03d2faf781bd16e);
@@ -485,7 +485,7 @@
   margin: 10px;
 }
 .vip-pricing__table.recommanded {
-  border: 2px solid #FF750C;
+  border: 2px solid #ff750c;
 }
 .vip-pricing__table:nth-child(2) {
   margin-top: -20px;
@@ -509,6 +509,47 @@
   font-family: "Josefin Sans", sans-serif;
   font-size: 19px;
   text-align: center;
+}
+.vip-pricing__table__list {
+  font-family: "Josefin Sans", sans-serif;
+}
+.vip-pricing__table__list__title {
+  font-size: 19px;
+  color: #ff750c;
+}
+.vip-pricing__table__list__text {
+  margin-top: 10px;
+  font-size: 15px;
+  color: #22222599;
+  font-weight: bold;
+  font-style: italic;
+}
+.vip-pricing__table__list ul {
+  padding: 0 60px;
+}
+.vip-pricing__table__list ul li {
+  margin-top: 30px;
+  position: relative;
+}
+.vip-pricing__table__list ul li:before {
+  width: 12px;
+  height: 12px;
+  border-radius: 15px;
+  position: absolute;
+  left: -50px;
+  top: 10px;
+  background: #ff750c;
+  content: "";
+}
+.vip-pricing__table__price {
+  font-weight: bold;
+  font-size: 25px;
+  text-align: center;
+  margin-top: 60px;
+}
+.vip-pricing__table__button {
+  text-align: center;
+  margin: 35px 0;
 }
 
 body.dark {
@@ -540,7 +581,7 @@ body.dark .header__tools__search input::placeholder {
   color: #FFF;
 }
 body.dark .header__tools .change-mode {
-  background: url(/images/sun.svg?ebb090350e806993f1d0b4333115cdc4) #242424;
+  background: url(/images/sun.svg?4eb912e783e1fab3224c036d805abb10) #242424;
   background-size: 80%;
   background-position: center;
   background-repeat: no-repeat;
@@ -640,6 +681,16 @@ a {
   border-bottom: none;
 }
 
+.primary-button {
+  padding: 9px 21px;
+  border: 1px #FF750C solid;
+  border-radius: 12px;
+  color: #FF750C;
+  font-size: 25px;
+  text-align: center;
+  text-transform: uppercase;
+}
+
 .container {
   height: 100%;
   padding: 0 200px 0 200px;
@@ -721,7 +772,7 @@ a {
 }
 .ladder h3::before {
   content: "";
-  background: url(/images/award.svg?230b211f3b4932c6f9f03447415de82f);
+  background: url(/images/award.svg?38dd93f01cc0ece997071f9721578101);
   display: inline-block;
   width: 20px;
   height: 20px;
@@ -947,7 +998,7 @@ a {
 }
 .home-categories ul li a .menu-icon {
   float: left;
-  background-image: url(/images/menu.svg?411b8eb69fedbca0da56296d06361fba);
+  background-image: url(/images/menu.svg?c2230be256a02c95a513bdf1984efa92);
   width: 23px;
   height: 23px;
   margin-top: 11px;
@@ -955,7 +1006,7 @@ a {
 }
 .home-categories ul li a .hot-icon {
   float: left;
-  background-image: url(/images/hot.svg?87621eeaa559798d31c183f5e75bb247);
+  background-image: url(/images/hot.svg?60c34aa54bd7090a71d1dc6a0c4f4d19);
   width: 23px;
   height: 23px;
   margin-top: 11px;
