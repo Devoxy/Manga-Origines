@@ -126,5 +126,28 @@ body {
                 }
             }
         }
+
+        .vip-title {
+            h3 {
+                color: white;
+            }
+        }
+        
+        .vip-bigtitle {
+            h2 {
+                color: white;
+            }
+        }
+
+        .vip-pricing {
+            &__table {
+                box-shadow: 0px 0px 6px #ffffff78;
+                &__list {
+                    &__text {
+                        color: #ffffff99;
+                    }
+                }
+            }
+        }
     }
 }
