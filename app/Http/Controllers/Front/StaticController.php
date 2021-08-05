@@ -12,6 +12,10 @@ class StaticController extends Controller
         return view('static.vip');
     }
 
+    public function catalog() {
+        return view('static.catalog');
+    }
+
     public function contact(Request $request) {
 
         if($request->isMethod('post')) {
