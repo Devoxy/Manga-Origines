@@ -31,7 +31,7 @@
         padding: 15px;
         margin: 10px;
         &.recommanded {
-            border: 2px solid #ff750c;
+            border: 2px solid $secondary-color;
         }
         &:nth-child(2) {
             margin-top: -20px;
@@ -60,7 +60,7 @@
             font-family: $title-family;
             &__title {
                 font-size: 19px;
-                color: #ff750c;
+                color: $secondary-color;
             }
             &__text {
                 margin-top: 10px;
@@ -81,7 +81,7 @@
                         position: absolute;
                         left: -50px;
                         top: 10px;
-                        background: #ff750c;
+                        background: $secondary-color;
                         content: "";
                     }
                 }
@@ -95,7 +95,7 @@
         }
         &__button {
             text-align: center;
-            margin : 35px 0;
+            margin: 35px 0;
         }
     }
 }

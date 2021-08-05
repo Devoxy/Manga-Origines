@@ -33,7 +33,7 @@
                     </li>
                     <li class="header__menu__link">
                         <span class="header__menu__link__icon menu"></span>
-                        <a href="#">Catalogue</a>
+                        <a href="{{ route('static.catalog') }}">Catalogue</a>
                     </li>
                     <li class="header__menu__link">
                         <span class="header__menu__link__icon vip"></span>
