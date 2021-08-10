@@ -70,7 +70,7 @@
                     </div>
 
                     <div class="form-group">
-                    	<label class="col-sm-3 control-label no-padding-right" for="authors">Auteur(s)</label>
+                    	<label class="col-sm-3 control-label no-padding-right" for="authors">Auteur(s) <sup class="text-danger">*</sup></label>
 
                         <div class="col-sm-9">
                             <input type="text" name="authors" class="form-control @error('authors') is-invalid @enderror" id="authors">
@@ -78,7 +78,7 @@
                     </div>
 
                      <div class="form-group">
-                    	<label class="col-sm-3 control-label no-padding-right" for="artists">Artiste(s)</label>
+                    	<label class="col-sm-3 control-label no-padding-right" for="artists">Artiste(s) <sup class="text-danger">*</sup></label>
 
                         <div class="col-sm-9">
                             <input type="text" name="artists" class="form-control @error('artists') is-invalid @enderror" id="artists">
@@ -214,8 +214,8 @@ $("#cover").ace_file_input({
     before_change:function(files, dropped) {
 
         $("#cover-preview-text").hide();
-
         $("#cover-preview").attr('src', URL.createObjectURL(files[0]));
+        return true;
     }
 });
 
@@ -230,6 +230,7 @@ $("#banner").ace_file_input({
 
         $("#banner-preview-text").hide();
         $("#banner-preview").attr('src', URL.createObjectURL(files[0]));
+        return true;
     }
 });
 

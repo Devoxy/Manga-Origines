@@ -31,17 +31,26 @@ class CatalogController extends Controller
 
         if($request->isMethod('post')) {
 
-            dd($request->all());
-            
             $validator = $request->validate([
                 'name' => 'required|unique:mangas|max:128',
                 'synopsis' => 'required',
+                'artists' => 'required',
+                'authors' => 'required',
+                'cover' => 'image|mimes:jpeg,png,jpg',
+                'tags' => 'required',
             ]);
+
+            $authors = json_encode(explode(',', $request->authors));
+            $artists = json_encode(explode(',', $request->artists));
+
+            $request->request->add(['authors' => $authors]);
+            $request->request->add(['artists' => $artists]);
 
             $slug = Str::slug($request->name, '-');
             $request->request->add(['slug' => $slug]);
 
             $data = Manga::create($request->all());
+            
 
             foreach($request->tags as $tag) {
                 MangaTag::create([
