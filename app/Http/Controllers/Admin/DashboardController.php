@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\Storage;
 use \stdClass;
 
 use App\Models\User;
@@ -31,6 +32,7 @@ class DashboardController extends Controller
     }
 
     public function cloud() {
+
         return view('admin.dashboard.cloud');
     }
 }

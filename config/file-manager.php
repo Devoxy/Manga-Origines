@@ -38,7 +38,7 @@ return [
      *
      * null - auto select the first disk in the disk list
      */
-    'leftDisk' => null,
+    'leftDisk' => 'cloud',
 
     /**
      * Default disk for right manager
