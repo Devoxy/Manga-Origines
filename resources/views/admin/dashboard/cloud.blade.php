@@ -6,6 +6,7 @@
 
 @push('styles')
 <link rel="stylesheet" href="{{ asset('vendor/file-manager/css/file-manager.css') }}">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css">
 @endpush
 <div class="page-header">
     <h1>

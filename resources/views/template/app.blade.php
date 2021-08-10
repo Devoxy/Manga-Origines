@@ -13,7 +13,7 @@
 		<link rel="icon" href="/images/static/favicon.ico" type="image/x-icon" />
 
 		<link rel="stylesheet" href="/css/bootstrap.min.css" />
-		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css">
+		<link rel="stylesheet" href="/font-awesome/4.5.0/css/font-awesome.min.css" />
 		<link rel="stylesheet" href="/css/fonts.googleapis.com.css" />
 		<link rel="stylesheet" href="/css/ace.min.css" class="ace-main-stylesheet" id="main-ace-style" />
 		<link rel="stylesheet" href="/css/ace-skins.min.css" />
@@ -314,7 +314,7 @@
 				<ul class="nav nav-list">
 					<li class="{{ request()->routeIs('admin.dashboard') ? 'active' : '' }} hover">
 						<a href="{{ route('admin.dashboard') }}">
-							<i class="menu-icon fa fa-tachometer"></i>
+							<i class="menu-icon fa fa-home"></i>
 							<span class="menu-text"> Dashboard </span>
 						</a>
 
@@ -365,34 +365,15 @@
 							</li>
 						</ul>
 					</li>
-					<li class="{{ request()->routeIs('admin.mangas*') ? 'active' : '' }} hover">
-						<a href="#" class="dropdown-toggle">
+					<li class="{{ request()->routeIs('admin.cloud') ? 'active' : '' }} hover">
+						<a href="{{ route('admin.cloud') }}">
 							<i class="menu-icon fa fa-folder"></i>
-							<span class="menu-text">Les catégories</span>
-							<b class="arrow fa fa-angle-down"></b>
+							<span class="menu-text"> Cloud </span>
 						</a>
 
 						<b class="arrow"></b>
-
-						<ul class="submenu">
-                            <li class="{{ request()->routeIs('admin.categories.create') ? 'active' : '' }} hover">
-								<a href="#">
-									<i class="menu-icon fa fa-caret-right"></i>
-									Créer une catégorie
-								</a>
-
-								<b class="arrow"></b>
-							</li>
-							<li class="{{ request()->routeIs('admin.categories.listing') ? 'active' : '' }} hover">
-								<a href="#">
-									<i class="menu-icon fa fa-caret-right"></i>
-									Liste des catégories
-								</a>
-
-								<b class="arrow"></b>
-							</li>
-						</ul>
 					</li>
+
 				</ul>
 			</div>
 
