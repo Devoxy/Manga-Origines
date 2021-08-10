@@ -145,7 +145,7 @@
                                                     </div>
 
                                                     <div class="profile-info-row">
-                                                        <div class="profile-info-name"> Nom original </div>
+                                                        <div class="profile-info-name"> Nom alternatif </div>
 
                                                         <div class="profile-info-value">
                                                             <span>{{ $manga->original_name }}</span>

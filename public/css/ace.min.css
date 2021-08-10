@@ -18290,7 +18290,7 @@ input.typeahead.scrollable ~ .tt-menu {
     vertical-align: middle;
     background-color: #fff;
     border: 1px solid #d5d5d5;
-    width: 206px;
+    width: 100%;
 }
 .tags:hover {
     border-color: #b5b5b5;

@@ -30,6 +30,8 @@ class CatalogController extends Controller
     public function create(Request $request) {
 
         if($request->isMethod('post')) {
+
+            dd($request->all());
             
             $validator = $request->validate([
                 'name' => 'required|unique:mangas|max:128',
