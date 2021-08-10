@@ -1879,7 +1879,6 @@ pre.prettyprint {
     vertical-align: sub;
     text-align: center;
     font-size: 18px;
-    font-weight: 400;
 }
 .nav-list > li:before {
     display: none;

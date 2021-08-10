@@ -29,4 +29,8 @@ class DashboardController extends Controller
 
         return view('admin.dashboard.index')->with('stats', $stats);
     }
+
+    public function cloud() {
+        return view('admin.dashboard.cloud');
+    }
 }

@@ -7,19 +7,19 @@ use Illuminate\Support\Facades\Cache;
 use Illuminate\Http\Request;
 
 
-use App\Models\MStatus;
+use App\Models\MTag;
 
 
-class StatusController extends Controller
+class TagController extends Controller
 {
     
     public function index() {
         
-        $status = Cache::remember('admin.mangas_status', 600, function () {
-            return MStatus::orderBy('id', 'DESC')->get();
+        $tags = Cache::remember('admin.mangas_tags', 600, function () {
+            return MTag::orderBy('id', 'DESC')->get();
         });
         
-        return view('admin.catalog.status.index')->with('status', $status);
+        return view('admin.catalog.tags.index')->with('tags', $tags);
     }
 
     public function create(Request $request) {
@@ -27,24 +27,25 @@ class StatusController extends Controller
         if($request->isMethod('post')) {
             
             $validator = $request->validate([
-                'label' => 'required|unique:mangas_status|max:64',
+                'label' => 'required|unique:mangas_tags|max:64',
                 'description' => 'required',
+                'color' => 'required'
             ]);
 
-            $data = MStatus::create($request->all());
+            $data = MTag::create($request->all());
 
-            toastr()->success("Vous avez créé le status : " . $data->label . " !");
+            toastr()->success("Vous avez créé le tag de manga : " . $data->label . " !");
 
-            Cache::forget('admin.mangas_status');
+            Cache::forget('admin.mangas_tags');
             
-            return redirect()->route('admin.catalog.status');
+            return redirect()->route('admin.catalog.tags');
         }
-        return view('admin.catalog.status.create');
+        return view('admin.catalog.tags.create');
     }
 
     public function edit(Request $request, $id) {
 
-        $data = MStatus::find($id);
+        $data = MTag::find($id);
 
         if(!$data) {
 
@@ -57,23 +58,24 @@ class StatusController extends Controller
             $validator = $request->validate([
                 'label' => 'required|max:64',
                 'description' => 'required',
+                'color' => 'required',
             ]);
 
             $data->update($request->all());
 
-            toastr()->success("Vous avez édité le status : " . $data->label . " !");
+            toastr()->success("Vous avez édité le tag de mannga : " . $data->label . " !");
 
-            Cache::forget('admin.mangas_status');
+            Cache::forget('admin.mangas_tags');
             
-            return redirect()->route('admin.catalog.status');
+            return redirect()->route('admin.catalog.tags');
         }
 
-        return view('admin.catalog.status.edit')->with('data', $data);
+        return view('admin.catalog.tags.edit')->with('data', $data);
     }
 
     public function delete($id) {
 
-        $data = MStatus::find($id);
+        $data = MTag::find($id);
 
         if(!$data) {
 
@@ -81,11 +83,11 @@ class StatusController extends Controller
             return redirect()->back();
         }
 
-        toastr()->success("Vous avez supprimé le status : " . $data->label . ".");
+        toastr()->success("Vous avez supprimé le tag : " . $data->label . ".");
 
         $data->delete();
 
-        Cache::forget('admin.mangas_status');
+        Cache::forget('admin.mangas_tags');
 
         return redirect()->back();
     }

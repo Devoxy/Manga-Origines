@@ -51,6 +51,15 @@ return [
             'url' => env('AWS_URL'),
             'endpoint' => env('AWS_ENDPOINT'),
         ],
+        
+       
+        'cloud' => [
+            'driver' => 'ftp',
+            'host' => 'cluster2d.seedbox.fr',
+            'username' => 'NitramDev77',
+            'password' => 'Nanous2403',
+            'port' => 21,
+        ],
 
     ],
 

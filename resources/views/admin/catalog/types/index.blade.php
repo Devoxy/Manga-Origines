@@ -1,12 +1,12 @@
 @extends('template.app')
 
-@section('title', 'Gestion des status')
+@section('title', 'Gestion des types')
 
 @section('content')
 <div class="page-header">
     <h1>
-        Gestion des status
-        <small><i class="ace-icon fa fa-angle-double-right"></i> Liste des status</small>
+        Gestion des types
+        <small><i class="ace-icon fa fa-angle-double-right"></i> Liste des type</small>
     </h1>
 </div>
 
@@ -20,9 +20,9 @@
             <div class="widget-body">
                 <div class="widget-main">
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet.</p>
-                    <a href="{{ route('admin.catalog.status.create') }}" class="btn btn-success btn-block">
+                    <a href="{{ route('admin.catalog.types.create') }}" class="btn btn-success btn-block">
                         <i class="ace-icon fa fa-wrench"></i>
-                        Créer un status
+                        Créer un type
                     </a>
                 </div>
             </div>
@@ -48,7 +48,7 @@
             </thead>
 
             <tbody>
-                @foreach($status as $data)
+                @foreach($types as $data)
                     <tr>
                         <td>{{ $data->id }}</td>
                         <td>{{ $data->label }}</td>
@@ -59,11 +59,11 @@
                                     <i class="ace-icon fa fa-check bigger-120"></i>
                                 </a> --}}
 
-                                <a href="{{ route('admin.catalog.status.edit', ['id' => $data->id]) }}" class="btn btn-xs btn-info">
+                                <a href="{{ route('admin.catalog.types.edit', ['id' => $data->id]) }}" class="btn btn-xs btn-info">
                                     <i class="ace-icon fa fa-pencil bigger-120"></i>
                                 </a>
 
-                                <a href="{{ route('admin.catalog.status.delete', ['id' => $data->id]) }}" class="btn btn-xs btn-danger delete-confirm">
+                                <a href="{{ route('admin.catalog.types.delete', ['id' => $data->id]) }}" class="btn btn-xs btn-danger delete-confirm">
                                     <i class="ace-icon fa fa-trash-o bigger-120"></i>
                                 </a>
 
@@ -87,7 +87,7 @@
         $href = $(this).attr('href');
 
         bootbox.dialog({
-            message: "<span class='bigger-110'>Voulez-vous vraiment supprimer ce status de manga ?</span>",
+            message: "<span class='bigger-110'>Voulez-vous vraiment supprimer ce type de manga ?</span>",
             buttons:
             {
                 "danger" :

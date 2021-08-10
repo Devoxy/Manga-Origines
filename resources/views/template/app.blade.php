@@ -8,16 +8,20 @@
 
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
 
+		<meta name="csrf-token" content="{{ csrf_token() }}">
 
 		<link rel="icon" href="/images/static/favicon.ico" type="image/x-icon" />
 
 		<link rel="stylesheet" href="/css/bootstrap.min.css" />
-		<link rel="stylesheet" href="/font-awesome/4.5.0/css/font-awesome.min.css" />
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css">
 		<link rel="stylesheet" href="/css/fonts.googleapis.com.css" />
 		<link rel="stylesheet" href="/css/ace.min.css" class="ace-main-stylesheet" id="main-ace-style" />
 		<link rel="stylesheet" href="/css/ace-skins.min.css" />
 		<link rel="stylesheet" href="/css/ace-rtl.min.css" />
+		<link rel="stylesheet" href="/css/bootstrap-colorpicker.min.css" />
         @toastr_css
+
+		@stack('styles')
 
 		<script src="/js/ace-extra.min.js"></script>
 	</head>
@@ -327,23 +331,31 @@
 						<b class="arrow"></b>
 
 						<ul class="submenu">
-                            <li class="{{ request()->routeIs('admin.catalg.tags') ? 'active' : '' }} hover">
-								<a href="#">
+							<li class="{{ request()->routeIs('admin.catalog.mangas*') ? 'active' : '' }} hover">
+								<a href="{{ route('admin.catalog.mangas') }}">
+									<i class="menu-icon fa fa-caret-right"></i>
+									Gestion du Catalogue
+								</a>
+
+								<b class="arrow"></b>
+							</li>
+                            <li class="{{ request()->routeIs('admin.catalog.tags*') ? 'active' : '' }} hover">
+								<a href="{{ route('admin.catalog.tags') }}">
 									<i class="menu-icon fa fa-caret-right"></i>
 									Gestion des Tags
 								</a>
 
 								<b class="arrow"></b>
 							</li>
-							<li class="{{ request()->routeIs('admin.catalog.types') ? 'active' : '' }} hover">
-								<a href="#">
+							<li class="{{ request()->routeIs('admin.catalog.types*') ? 'active' : '' }} hover">
+								<a href="{{ route('admin.catalog.types') }}">
 									<i class="menu-icon fa fa-caret-right"></i>
 									Gestion des Types
 								</a>
 
 								<b class="arrow"></b>
 							</li>
-							<li class="{{ request()->routeIs('admin.catalog.status') ? 'active' : '' }} hover">
+							<li class="{{ request()->routeIs('admin.catalog.status*') ? 'active' : '' }} hover">
 								<a href="{{ route('admin.catalog.status') }}">
 									<i class="menu-icon fa fa-caret-right"></i>
 									Gestion des Status
@@ -417,6 +429,7 @@
         <script src="/js/bootbox.js"></script>
 		<script src="/js/ace-elements.min.js"></script>
 		<script src="/js/ace.min.js"></script>
+		<script src="/js/bootstrap-colorpicker.min.js"></script>
 
         @toastr_js
         @toastr_render

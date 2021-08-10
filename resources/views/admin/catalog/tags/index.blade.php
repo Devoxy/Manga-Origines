@@ -1,12 +1,12 @@
 @extends('template.app')
 
-@section('title', 'Gestion des status')
+@section('title', 'Gestion des tags')
 
 @section('content')
 <div class="page-header">
     <h1>
-        Gestion des status
-        <small><i class="ace-icon fa fa-angle-double-right"></i> Liste des status</small>
+        Gestion des tags
+        <small><i class="ace-icon fa fa-angle-double-right"></i> Liste des tags</small>
     </h1>
 </div>
 
@@ -20,9 +20,9 @@
             <div class="widget-body">
                 <div class="widget-main">
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet.</p>
-                    <a href="{{ route('admin.catalog.status.create') }}" class="btn btn-success btn-block">
+                    <a href="{{ route('admin.catalog.tags.create') }}" class="btn btn-success btn-block">
                         <i class="ace-icon fa fa-wrench"></i>
-                        Créer un status
+                        Créer un tag
                     </a>
                 </div>
             </div>
@@ -48,10 +48,10 @@
             </thead>
 
             <tbody>
-                @foreach($status as $data)
+                @foreach($tags as $data)
                     <tr>
                         <td>{{ $data->id }}</td>
-                        <td>{{ $data->label }}</td>
+                        <td><span class="badge" style="background: {{ $data->color }};">{{ $data->label }}</span></td>
                         <td>{{ $data->description }}</td>
                         <td>
                             <div class="hidden-sm hidden-xs btn-group">
@@ -59,11 +59,11 @@
                                     <i class="ace-icon fa fa-check bigger-120"></i>
                                 </a> --}}
 
-                                <a href="{{ route('admin.catalog.status.edit', ['id' => $data->id]) }}" class="btn btn-xs btn-info">
+                                <a href="{{ route('admin.catalog.tags.edit', ['id' => $data->id]) }}" class="btn btn-xs btn-info">
                                     <i class="ace-icon fa fa-pencil bigger-120"></i>
                                 </a>
 
-                                <a href="{{ route('admin.catalog.status.delete', ['id' => $data->id]) }}" class="btn btn-xs btn-danger delete-confirm">
+                                <a href="{{ route('admin.catalog.tags.delete', ['id' => $data->id]) }}" class="btn btn-xs btn-danger delete-confirm">
                                     <i class="ace-icon fa fa-trash-o bigger-120"></i>
                                 </a>
 

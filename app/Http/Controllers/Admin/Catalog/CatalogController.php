@@ -5,21 +5,26 @@ namespace App\Http\Controllers\Admin\Catalog;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 
+use App\Models\Manga;
 use App\Models\MStatus;
+use App\Models\MType;
+use App\Models\MTag;
+use App\Models\MangaTag;
 
-
-class StatusController extends Controller
+class CatalogController extends Controller
 {
     
     public function index() {
         
-        $status = Cache::remember('admin.mangas_status', 600, function () {
-            return MStatus::orderBy('id', 'DESC')->get();
+        $mangas = Cache::remember('admin.mangas', 600, function () {
+            return Manga::orderBy('id', 'DESC')->get();
         });
         
-        return view('admin.catalog.status.index')->with('status', $status);
+        
+        return view('admin.catalog.mangas.index')->with('mangas', $mangas);
     }
 
     public function create(Request $request) {
@@ -27,19 +32,45 @@ class StatusController extends Controller
         if($request->isMethod('post')) {
             
             $validator = $request->validate([
-                'label' => 'required|unique:mangas_status|max:64',
-                'description' => 'required',
+                'name' => 'required|unique:mangas|max:128',
+                'synopsis' => 'required',
             ]);
 
-            $data = MStatus::create($request->all());
+            $slug = Str::slug($request->name, '-');
+            $request->request->add(['slug' => $slug]);
 
-            toastr()->success("Vous avez créé le status : " . $data->label . " !");
+            $data = Manga::create($request->all());
 
-            Cache::forget('admin.mangas_status');
+            foreach($request->tags as $tag) {
+                MangaTag::create([
+                    'manga_id' => $data->id,
+                    'tag_id' => $tag
+                ]);
+            }
+
+            toastr()->success("Vous avez créé le manga : " . $data->name . " !");
+
+            Cache::forget('admin.mangas');
             
-            return redirect()->route('admin.catalog.status');
+            return redirect()->route('admin.catalog.mangas.edit', ['id' => $data->id]);
         }
-        return view('admin.catalog.status.create');
+
+        $types = Cache::remember('admin.mangas_types', 600, function () {
+            return MType::orderBy('id', 'DESC')->get();
+        });
+
+        $status = Cache::remember('admin.mangas_status', 600, function () {
+            return MStatus::orderBy('id', 'DESC')->get();
+        });
+
+        $tags = Cache::remember('admin.mangas_tags', 600, function () {
+            return MTag::orderBy('id', 'DESC')->get();
+        });
+
+        return view('admin.catalog.mangas.create')
+            ->with('types', $types)
+            ->with('tags', $tags)
+            ->with('status', $status);
     }
 
     public function edit(Request $request, $id) {
