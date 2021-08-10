@@ -10,7 +10,15 @@ Route::prefix('admin')->middleware(['web', 'auth'])->group(function () {
     Route::prefix('catalog')->group(function() {
 
         Route::prefix('status')->group(function() {
-            Route::get('/vip', [App\Http\Controllers\Admin\Catalog\StatusController::class, 'index'])->name('admin.catalog.status');
+            Route::get('/', [App\Http\Controllers\Admin\Catalog\StatusController::class, 'index'])->name('admin.catalog.status');
+
+            Route::post('/create', [App\Http\Controllers\Admin\Catalog\StatusController::class, 'create'])->name('admin.catalog.status.create');
+            Route::get('/create', [App\Http\Controllers\Admin\Catalog\StatusController::class, 'create'])->name('admin.catalog.status.create');
+
+            Route::post('/edit/{id}', [App\Http\Controllers\Admin\Catalog\StatusController::class, 'edit'])->name('admin.catalog.status.edit');
+            Route::get('/edit/{id}', [App\Http\Controllers\Admin\Catalog\StatusController::class, 'edit'])->name('admin.catalog.status.edit');
+
+            Route::get('/delete/{id}', [App\Http\Controllers\Admin\Catalog\StatusController::class, 'delete'])->name('admin.catalog.status.delete');
         });
     });
 });
