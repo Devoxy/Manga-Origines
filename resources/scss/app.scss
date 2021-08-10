@@ -78,9 +78,14 @@ a {
     &__content {
         width: 70%;
         padding-right: 25px;
+
+        &.catalog {
+            padding-right: 0;
+            padding-left: 25px;
+        }
     }
     &__sidebar {
-        width: 30%;
+        width: 25%;
         box-shadow: 0px 0px 11px -2px #ababab;
         border-radius: 15px;
         overflow: hidden;

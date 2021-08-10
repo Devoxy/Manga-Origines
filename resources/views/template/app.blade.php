@@ -317,28 +317,36 @@
 						<b class="arrow"></b>
 					</li>
 
-					<li class="{{ request()->routeIs('admin.mangas*') ? 'active' : '' }} hover">
+					<li class="{{ request()->routeIs('admin.catalog*') ? 'active' : '' }} hover">
 						<a href="#" class="dropdown-toggle">
 							<i class="menu-icon fa fa-book"></i>
-							<span class="menu-text">Les mangas</span>
+							<span class="menu-text">Catalogue</span>
 							<b class="arrow fa fa-angle-down"></b>
 						</a>
 
 						<b class="arrow"></b>
 
 						<ul class="submenu">
-                            <li class="{{ request()->routeIs('admin.mangas.create') ? 'active' : '' }} hover">
+                            <li class="{{ request()->routeIs('admin.catalg.tags') ? 'active' : '' }} hover">
 								<a href="#">
 									<i class="menu-icon fa fa-caret-right"></i>
-									Créer un manga
+									Gestion des Tags
 								</a>
 
 								<b class="arrow"></b>
 							</li>
-							<li class="{{ request()->routeIs('admin.mangas.listing') ? 'active' : '' }} hover">
+							<li class="{{ request()->routeIs('admin.catalog.types') ? 'active' : '' }} hover">
 								<a href="#">
 									<i class="menu-icon fa fa-caret-right"></i>
-									Liste des mangas
+									Gestion des Types
+								</a>
+
+								<b class="arrow"></b>
+							</li>
+							<li class="{{ request()->routeIs('admin.catalog.status') ? 'active' : '' }} hover">
+								<a href="{{ route('admin.catalog.status') }}">
+									<i class="menu-icon fa fa-caret-right"></i>
+									Gestion des Status
 								</a>
 
 								<b class="arrow"></b>

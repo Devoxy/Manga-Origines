@@ -10,16 +10,35 @@
         }
     }
 
+    .form-group {
+
+        margin: 15px 0;
+        
+        label {
+            font-family: 'Josefin Sans';
+            font-size: 17px;
+            font-weight: 500;
+        }
+
+        select {
+            width: 100%;
+            padding: 8px;
+            font-family: "Josefin Sans";
+            border: 1px solid #ff750c;
+            border-radius: 5px;
+        }
+    }
+
     &__search {
         &__input {
             background: #f3f3f3;
-            padding: 10px;
+            padding: 15px;
             border-radius: 10px;
             overflow: hidden;
             position: relative;
             margin-top: 15px;
             display: inline-block;
-            margin-right: 40px;
+            width: 80%;
 
             .search-icon {
                 background-image: url("../../public/images/static/icons/search.svg");
@@ -33,7 +52,7 @@
                 background: none;
                 margin-left: 5px;
                 font-style: italic;
-                font-size: 15px;
+                font-size: 18px;
                 font-family: "Roboto", sans-serif;
                 font-weight: 400;
                 outline: none;
@@ -41,7 +60,7 @@
             }
             input::placeholder {
                 color: #212121;
-                font-size: 15px;
+                font-size: 18px;
                 font-family: "Roboto", sans-serif;
                 font-weight: 400;
                 font-style: italic;
