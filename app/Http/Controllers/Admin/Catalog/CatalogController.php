@@ -7,6 +7,8 @@ use Illuminate\Support\Facades\Cache;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Storage;
+use Zip;
+
 
 use App\Models\Manga;
 use App\Models\MStatus;
@@ -207,10 +209,53 @@ class CatalogController extends Controller
 
     public function upload(Request $request) {
 
-        dd($request->file('files[]'));
-        $file = $request->file('fotografije');
+        $file = $request->file('files')[0];
+        $unzipper  = new Unzip();
 
-    //Display File Name just for check or do a dd
-    echo 'File Name: '.$file[0]->getClientOriginalName();
+        $filename = time() . $file->getClientOriginalName();
+
+        Storage::disk('public')->putFileAs(
+            'uploads/',
+            $file,
+            $filename
+        );
+
+        echo $filename;
+
+        //$filenames = $unzipper->extract('uploads/' . $filename, 'uploads/');
+        return 'ok';
+    }
+
+    public function test() {
+
+        $zipFileName = 'Maidens In-Law.zip';
+        $folderFileName = explode('.', $zipFileName)[0];
+        
+        $zip = Zip::open(Storage::disk('public')->path('uploads/' . $zipFileName));
+        $zip->extract(Storage::disk('public')->path('uploads/' . $folderFileName));
+        $zip->close();
+        //Storage::disk('public')->delete('uploads/' . $zipFileName);
+
+        $chapters = Storage::disk('public')->directories('uploads/' . $folderFileName);
+
+        if(count($chapters) >= 1) {
+
+            foreach($chapters as $chapter) {
+
+                $chapterName = basename($chapter);
+                preg_match_all('!\d+!', $chapterName, $matches);
+                
+                if(count($matches) > 1) {
+
+                    // ERREUR (plusieeurs numéros détectés)
+                }
+
+                echo $matches[0][0];
+            }
+            // MULTI UPLOAD
+        } else {
+
+            // SIMPLE UPLOAD
+        }
     }
 }

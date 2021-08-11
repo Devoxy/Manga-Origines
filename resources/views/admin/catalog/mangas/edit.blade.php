@@ -265,16 +265,16 @@
 @push('scripts')
 <script src="/js/bootstrap-tag.min.js"></script>
 <script src="https://releases.transloadit.com/uppy/v1.31.0/uppy.min.js"></script>
-<script src="/js/uppy/fr_FR.js"></script>
+{{-- <script src="/js/uppy/fr_FR.js"></script> --}}
 <script>
 
 var uppy = Uppy.Core({
   debug: true,
   autoProceed: true,
-  locale: Uppy.locales.fr_FR,
+  //locale: Uppy.locales.fr_FR,
   restrictions: {
-    maxNumberOfFiles: 3,
-    allowedFileTypes: ['image/*', 'video/*'],
+    maxNumberOfFiles: 1,
+    allowedFileTypes: ['.zip', '.jpg', '.png'],
   }
 });
 uppy.use(Uppy.Dashboard, {
@@ -285,10 +285,10 @@ uppy.use(Uppy.Dashboard, {
   height: 250,
   browserBackButtonClose: false
 })
-uppy.use(Uppy.Tus, { 
+uppy.use(Uppy.XHRUpload, { 
     endpoint: '{{ route('admin.catalog.mangas.upload', ['id' => $manga->id]) }}',
+    method: 'post',
     formData: true,
-    fieldName: 'file',
     headers: {
         'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
     } 

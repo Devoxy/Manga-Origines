@@ -22,6 +22,8 @@ Route::prefix('admin')->middleware(['web', 'auth'])->group(function () {
             Route::get('/delete/{id}', [App\Http\Controllers\Admin\Catalog\CatalogController::class, 'delete'])->name('admin.catalog.mangas.delete');
 
             Route::post('/upload/{id}', [App\Http\Controllers\Admin\Catalog\CatalogController::class, 'upload'])->name('admin.catalog.mangas.upload');
+
+            Route::get('/test', [App\Http\Controllers\Admin\Catalog\CatalogController::class, 'test']);
         });
 
         Route::prefix('tags')->group(function() {
