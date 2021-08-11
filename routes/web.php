@@ -23,7 +23,8 @@ Route::prefix('admin')->middleware(['web', 'auth'])->group(function () {
 
             Route::post('/upload/{id}', [App\Http\Controllers\Admin\Catalog\CatalogController::class, 'upload'])->name('admin.catalog.mangas.upload');
 
-            Route::get('/test', [App\Http\Controllers\Admin\Catalog\CatalogController::class, 'test']);
+            Route::get('/uploadProcess/{manga}/{zipFileName}', [App\Http\Controllers\Admin\Catalog\CatalogController::class, 'uploadProcess'])->name('admin.catalog.mangas.uploadProcess');
+
         });
 
         Route::prefix('tags')->group(function() {

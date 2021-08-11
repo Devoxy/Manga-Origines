@@ -7,14 +7,17 @@ use Illuminate\Support\Facades\Cache;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Storage;
-use Zip;
+use App\AsyncJobs\MangaUpload;
 
+use Zip;
+use Spatie\Async\Pool;
 
 use App\Models\Manga;
 use App\Models\MStatus;
 use App\Models\MType;
 use App\Models\MTag;
 use App\Models\MangaTag;
+use App\Models\MangaChapter;
 
 class CatalogController extends Controller
 {
@@ -179,10 +182,15 @@ class CatalogController extends Controller
             return MTag::orderBy('id', 'DESC')->get();
         });
 
+        $chapters = Cache::remember('admin.mangas.chapters.' . $manga->id, 600, function () use($manga) {
+            return MangaChapter::where('manga_id', $manga->id)->orderBy('number', 'ASC')->get();
+        });
+
         return view('admin.catalog.mangas.edit')
             ->with('manga', $manga)
             ->with('types', $types)
             ->with('tags', $tags)
+            ->with('chapters', $chapters)
             ->with('status', $status);
     }
 
@@ -207,12 +215,10 @@ class CatalogController extends Controller
         return redirect()->back();
     }
 
-    public function upload(Request $request) {
+    public function upload(Request $request, $id) {
 
         $file = $request->file('files')[0];
-        $unzipper  = new Unzip();
-
-        $filename = time() . $file->getClientOriginalName();
+        $filename = $file->getClientOriginalName();
 
         Storage::disk('public')->putFileAs(
             'uploads/',
@@ -220,17 +226,13 @@ class CatalogController extends Controller
             $filename
         );
 
-        echo $filename;
+        $zipFileName = $file->getClientOriginalName();
 
-        //$filenames = $unzipper->extract('uploads/' . $filename, 'uploads/');
-        return 'ok';
+        return response(['manga_id' => $id, 'zipFileName' => $zipFileName], 200);
     }
 
-    public function test() {
+    public function uploadProcess(Manga $manga, $zipFileName) {
 
-        $manga = Manga::find(18);
-
-        $zipFileName = 'Maidens In-Law.zip';
         $folderFileName = explode('.', $zipFileName)[0];
         
         $zip = Zip::open(Storage::disk('public')->path('uploads/' . $zipFileName));
@@ -240,6 +242,8 @@ class CatalogController extends Controller
         $chapters = Storage::disk('public')->directories('uploads/' . $folderFileName);
 
         if(count($chapters) >= 1) {
+
+            dd($chapters);
 
             foreach($chapters as $chapter) {
 
@@ -253,18 +257,73 @@ class CatalogController extends Controller
 
                 $chapterNumber = $matches[0][0];
 
-                Storage::disk('cloud')->makeDirectory('catalog/' . $manga->slug . '/Chapitre ' . $chapterNumber);
+                Storage::disk('cloud')->makeDirectory('catalog/' . $manga->slug . '/Chapitre-' . $chapterNumber);
 
                 foreach(Storage::disk('public')->files('uploads/' . $folderFileName . '/' . $chapterName) as $file) {
-                    Storage::disk('cloud')->put('catalog/' . $manga->slug . '/Chapitre ' . $chapterNumber . '/' . basename($file), $file, 'public');
+
+                    $file = Storage::disk('cloud')->put('catalog/' . $manga->slug . '/Chapitre-' . $chapterNumber . '/' . basename($file), Storage::disk('public')->get($file));
                 }
+
+                $chapter = MangaChapter::where('manga_id', $manga->id)->where('number', $chapterNumber)->first();
+
+                if(!$chapter) {
+
+                    $chapter = MangaChapter::create([
+                        'manga_id' => $manga->id,
+                        'label' => 'Chapitre ' . $chapterNumber,
+                        'number' => $chapterNumber,
+                        'files' => count(Storage::disk('cloud')->files('catalog/' . $manga->slug . '/Chapitre-' . $chapterNumber))
+                    ]);
+                } else {
+
+                    $chapter->files = count(Storage::disk('cloud')->files('catalog/' . $manga->slug . '/Chapitre-' . $chapterNumber));
+                }
+
+                $chapter->save();
             }
             // MULTI UPLOAD
         } else {
 
             // SIMPLE UPLOAD
+
+            $chapterName = basename($folderFileName);
+            preg_match_all('!\d+!', $chapterName, $matches);
+                
+            if(count($matches) > 1) {
+
+                // ERREUR (plusieeurs numéros détectés)
+            }
+
+            $chapterNumber = $matches[0][0];
+
+            Storage::disk('cloud')->makeDirectory('catalog/' . $manga->slug . '/Chapitre-' . $chapterNumber);
+
+            foreach(Storage::disk('public')->files('uploads/' . $folderFileName) as $file) {
+
+                $file = Storage::disk('cloud')->put('catalog/' . $manga->slug . '/Chapitre-' . $chapterNumber . '/' . basename($file), Storage::disk('public')->get($file));
+            }
+
+            $chapter = MangaChapter::where('manga_id', $manga->id)->where('number', $chapterNumber)->first();
+
+            if(!$chapter) {
+
+                $chapter = MangaChapter::create([
+                    'manga_id' => $manga->id,
+                    'label' => 'Chapitre ' . $chapterNumber,
+                    'number' => $chapterNumber,
+                    'files' => count(Storage::disk('cloud')->files('catalog/' . $manga->slug . '/Chapitre-' . $chapterNumber))
+                ]);
+            } else {
+
+                $chapter->files = count(Storage::disk('cloud')->files('catalog/' . $manga->slug . '/Chapitre-' . $chapterNumber));
+            }
+
+            $chapter->save();
         }
 
-        //Storage::disk('public')->delete('uploads/' . $zipFileName);
+        Cache::forget('admin.mangas.chapters.' . $manga->id);
+
+        Storage::disk('public')->delete('uploads/' . $zipFileName);
+        Storage::disk('public')->delete('uploads/' . $folderFileName);
     }
 }

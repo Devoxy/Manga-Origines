@@ -178,7 +178,7 @@
                         </div>
 
                         <div class="widget-body">
-                            <div class="widget-main">
+                            <div class="widget-main" style="height: 400px; overflow: scroll;">
                                 <div class="row">
                                     <div class="col-md-6">
                                         <h4>Couverture :</h4>
@@ -214,7 +214,19 @@
                             <div class="widget-main">
                                 <div class="row">
                                     <div class="col-md-12">
-                                        <p>dfsd</p>
+                                        <ul class="list-unstyled">
+                                            <li>
+                                                Veillez à respecter le format d'achive attendue. Vous pouvez télécharger une archive à la fois seulement.
+                                            </li>
+                                        </ul>
+                                        <div class="alert alert-info" style="display: none;">
+											<button type="button" class="close" data-dismiss="alert">
+												<i class="ace-icon fa fa-times"></i>
+											</button>
+											Votre archive est en cours de traitement et sera bientôt disponible... Ne quittez pas cette page !
+                                            <br><br>
+                                            Temps écoulé : <b><span id="spend-time">0 seconde</span></b>
+										</div>
                                         <div id="drag-drop-area"></div>
                                     </div>
                                 </div>
@@ -224,6 +236,52 @@
                 </div>
 
                 <div class="col-md-12">
+                    <hr>
+                    <div class="widget-box">
+                        <div class="widget-header widget-header-flat">
+                            <h4 class="widget-title">Chapitres <small>({{ count($chapters) }} chapitre)</small></h4>
+                        </div>
+
+                        <div class="widget-body">
+                            <div class="widget-main">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <table id="simple-table" class="table  table-bordered table-hover">
+                                            <thead>
+                                                <tr>
+                                                    <th>#</th>
+                                                    <th>Nom</th>
+                                                    <th>Fichiers</th>
+                                                    <th></th>
+                                                </tr>
+                                            </thead>
+
+                                            <tbody>
+                                                @foreach($chapters as $chapter)
+                                                    <tr>
+                                                        <td>{{ $chapter->number }}</td>
+                                                        <td>{{ $chapter->label }}</td>
+                                                        <td>{{ $chapter->files }}</td>
+                                                        <td>
+                                                            <div class="hidden-sm hidden-xs btn-group">
+                                                                <a href="{{ route('admin.catalog.status.edit', ['id' => $chapter->id]) }}" class="btn btn-xs btn-info">
+                                                                    <i class="ace-icon fa fa-pencil bigger-120"></i>
+                                                                </a>
+
+                                                                <a href="{{ route('admin.catalog.status.delete', ['id' => $chapter->id]) }}" class="btn btn-xs btn-danger delete-confirm">
+                                                                    <i class="ace-icon fa fa-trash-o bigger-120"></i>
+                                                                </a>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                @endforeach
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     <div class="clearfix form-actions">
                         <div class="col-md-offset-3 col-md-9">
                             <button class="btn btn-info" type="submit">
@@ -265,16 +323,16 @@
 @push('scripts')
 <script src="/js/bootstrap-tag.min.js"></script>
 <script src="https://releases.transloadit.com/uppy/v1.31.0/uppy.min.js"></script>
-{{-- <script src="/js/uppy/fr_FR.js"></script> --}}
+<script src="/js/uppy/fr_FR.js"></script>
 <script>
 
 var uppy = Uppy.Core({
   debug: true,
   autoProceed: true,
-  //locale: Uppy.locales.fr_FR,
+  locale: Uppy.locales.fr_FR,
   restrictions: {
     maxNumberOfFiles: 1,
-    allowedFileTypes: ['.zip', '.jpg', '.png'],
+    allowedFileTypes: ['.zip'],
   }
 });
 uppy.use(Uppy.Dashboard, {
@@ -289,11 +347,37 @@ uppy.use(Uppy.XHRUpload, {
     endpoint: '{{ route('admin.catalog.mangas.upload', ['id' => $manga->id]) }}',
     method: 'post',
     formData: true,
+    timeout: 1000,
     headers: {
         'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
     } 
 });
+uppy.on('upload-success', (file, response) => {
+    var manga_id = response.body.manga_id;
+    var zipFileName = response.body.zipFileName;
 
+    var interval;
+    var seconds = 0;
+
+    request = $.ajax({
+        url: '/admin/catalog/mangas/uploadProcess/' + manga_id + '/' + zipFileName,
+        type: 'get',
+        beforeSend: function() {
+
+            $(".alert-info").fadeIn();
+
+            interval = setInterval(function(){ 
+                seconds++;
+
+                $("#spend-time").html(seconds + ' secondes');
+            }, 1000);
+            return true;
+        },
+        success: function() {
+            $(".alert-info").fadeOut();
+        }
+    });
+});
 
 $("#cover").ace_file_input({
     no_file:'Aucun fichier sélectionné',
