@@ -16,7 +16,7 @@ class Manga extends Model
     protected $primaryKey = 'id';
     public $timestamps = true;
 
-    protected $fillable = ['name', 'original_name', 'slug', 'type', 'access', 'adult', 'synopsis', 'status', 'team', 'exclusive'];
+    protected $fillable = ['name', 'original_name', 'slug', 'type', 'access', 'adult', 'synopsis', 'status', 'team', 'exclusive', 'artists', 'authors', 'cover_path', 'banner_path'];
 
     public function getTypeName() {
 
@@ -44,15 +44,44 @@ class Manga extends Model
         return 'Aucune';
     }
 
+    public function getAuthorsHtml() {
+
+        $html = '';
+        $authors = json_decode($this->authors, true);
+
+        foreach($authors as $author) {
+            $html .= '<span class="badge badge-danger">' . $author . '</span>';
+        }
+    
+        return $html;
+    }
+
+    public function getArtistsHtml() {
+
+        $html = '';
+        $artists = json_decode($this->artists, true);
+
+        foreach($artists as $artist) {
+            $html .= '<span class="badge badge-warning">' . $artist . '</span>';
+        }
+    
+        return $html;
+    }
+
     public function getAccessHtml() {
 
         $html = '';
 
-        if($this->access)
+        if(!$this->access)
             $html = '<span class="badge badge-info">Tous</span>';
         else
             $html = '<span class="badge badge-warning">VIP</span>';
 
         return $html;
+    }
+
+    public function hasTag($value) {
+
+        return MangaTag::where('tag_id', $value)->where('manga_id', $this->id)->first() ? true : false;
     }
 }

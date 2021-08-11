@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
-
+use Illuminate\Support\Facades\Storage;
 
 use App\Models\Manga;
 use App\Models\MStatus;
@@ -37,6 +37,7 @@ class CatalogController extends Controller
                 'artists' => 'required',
                 'authors' => 'required',
                 'cover' => 'image|mimes:jpeg,png,jpg',
+                'banner' => 'image|mimes:jpeg,png,jpg',
                 'tags' => 'required',
             ]);
 
@@ -49,6 +50,24 @@ class CatalogController extends Controller
             $slug = Str::slug($request->name, '-');
             $request->request->add(['slug' => $slug]);
 
+            $path = 'catalog/' . $slug;
+
+            Storage::disk('cloud')->makeDirectory($path);
+
+            if($request->hasFile('cover')) {
+
+                $path = $path . '/cover-' . $slug . '.' . $request->file('cover')->extension();
+                Storage::disk('cloud')->put($path, file_get_contents($request->file('cover')), 'public');
+                $request->request->add(['cover_path' => $path]);
+            }
+
+            if($request->hasFile('banner')) {
+
+                $path = $path . '/banner-' . $slug . '.' . $request->file('banner')->extension();
+                Storage::disk('cloud')->put($path, file_get_contents($request->file('banner')), 'public');
+                $request->request->add(['banner_' => $path]);
+            }
+
             $data = Manga::create($request->all());
             
 
@@ -59,7 +78,7 @@ class CatalogController extends Controller
                 ]);
             }
 
-            toastr()->success("Vous avez créé le manga : " . $data->name . " !");
+            toastr()->success("Vous avez créé l'oeuvre : " . $data->name . " !");
 
             Cache::forget('admin.mangas');
             
@@ -86,9 +105,9 @@ class CatalogController extends Controller
 
     public function edit(Request $request, $id) {
 
-        $data = MStatus::find($id);
+        $manga = Manga::find($id);
 
-        if(!$data) {
+        if(!$manga) {
 
             toastr()->warning("L'information demandée n'éxiste pas.");
             return redirect()->back();
@@ -97,25 +116,77 @@ class CatalogController extends Controller
         if($request->isMethod('post')) {
 
             $validator = $request->validate([
-                'label' => 'required|max:64',
-                'description' => 'required',
+                'synopsis' => 'required',
+                'artists' => 'required',
+                'authors' => 'required',
+                'tags' => 'required',
+                'cover' => 'image|mimes:jpeg,png,jpg',
+                'bannner' => 'image|mimes:jpeg,png,jpg',
             ]);
 
-            $data->update($request->all());
+            $authors = json_encode(explode(',', $request->authors));
+            $artists = json_encode(explode(',', $request->artists));
 
-            toastr()->success("Vous avez édité le status : " . $data->label . " !");
+            $request->request->add(['authors' => $authors]);
+            $request->request->add(['artists' => $artists]);
 
-            Cache::forget('admin.mangas_status');
+            $path = 'catalog/' . $manga->slug;
             
-            return redirect()->route('admin.catalog.status');
+            if($request->hasFile('cover')) {
+
+                $path = $path . '/cover-' . $manga->slug . '.' . $request->file('cover')->extension();
+                Storage::disk('cloud')->put($path, file_get_contents($request->file('cover')), 'public');
+                $request->request->add(['cover_path' => $path]);
+            }
+
+            if($request->hasFile('banner')) {
+
+                $path = $path . '/banner-' . $manga->slug . '.' . $request->file('banner')->extension();
+                Storage::disk('cloud')->put($path, file_get_contents($request->file('banner')), 'public');
+                $request->request->add(['banner_path' => $path]);
+            }
+
+            $manga->update($request->all());
+
+            MangaTag::where('manga_id', $manga->id)->delete();
+
+            foreach($request->tags as $tag) {
+                MangaTag::create([
+                    'manga_id' => $manga->id,
+                    'tag_id' => $tag
+                ]);
+            }
+            
+
+            toastr()->success("Vous avez édité l'oeuvre : " . $manga->name . " !");
+
+            Cache::forget('admin.mangas');
+            
+            return redirect()->back();
         }
 
-        return view('admin.catalog.status.edit')->with('data', $data);
+        $types = Cache::remember('admin.mangas_types', 600, function () {
+            return MType::orderBy('id', 'DESC')->get();
+        });
+
+        $status = Cache::remember('admin.mangas_status', 600, function () {
+            return MStatus::orderBy('id', 'DESC')->get();
+        });
+
+        $tags = Cache::remember('admin.mangas_tags', 600, function () {
+            return MTag::orderBy('id', 'DESC')->get();
+        });
+
+        return view('admin.catalog.mangas.edit')
+            ->with('manga', $manga)
+            ->with('types', $types)
+            ->with('tags', $tags)
+            ->with('status', $status);
     }
 
     public function delete($id) {
 
-        $data = MStatus::find($id);
+        $data = Manga::find($id);
 
         if(!$data) {
 
@@ -123,12 +194,23 @@ class CatalogController extends Controller
             return redirect()->back();
         }
 
-        toastr()->success("Vous avez supprimé le status : " . $data->label . ".");
+        toastr()->success("Vous avez supprimé l'oeuvre : " . $data->label . ".");
+
+        Storage::disk('cloud')->deleteDirectory('catalog/' . $data->slug);
 
         $data->delete();
 
-        Cache::forget('admin.mangas_status');
+        Cache::forget('admin.mangas');
 
         return redirect()->back();
+    }
+
+    public function upload(Request $request) {
+
+        dd($request->file('files[]'));
+        $file = $request->file('fotografije');
+
+    //Display File Name just for check or do a dd
+    echo 'File Name: '.$file[0]->getClientOriginalName();
     }
 }

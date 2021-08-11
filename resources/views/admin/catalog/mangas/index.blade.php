@@ -77,47 +77,13 @@
 
                                 <td>
                                     <div class="hidden-sm hidden-xs btn-group">
-                                        <a class="btn btn-xs btn-info">
+                                        <a href="{{ route('admin.catalog.mangas.edit', ['id' => $manga->id]) }}" class="btn btn-xs btn-info">
                                             <i class="ace-icon fa fa-pencil bigger-120"></i>
                                         </a>
 
-                                        <a class="btn btn-xs btn-danger">
+                                        <a href="{{ route('admin.catalog.mangas.delete', ['id' => $manga->id]) }}" class="btn btn-xs btn-danger delete-confirm">
                                             <i class="ace-icon fa fa-trash-o bigger-120"></i>
                                         </a>
-                                    </div>
-
-                                    <div class="hidden-md hidden-lg">
-                                        <div class="inline pos-rel">
-                                            <button class="btn btn-minier btn-primary dropdown-toggle" data-toggle="dropdown" data-position="auto">
-                                                <i class="ace-icon fa fa-cog icon-only bigger-110"></i>
-                                            </button>
-
-                                            <ul class="dropdown-menu dropdown-only-icon dropdown-yellow dropdown-menu-right dropdown-caret dropdown-close">
-                                                <li>
-                                                    <a href="#" class="tooltip-info" data-rel="tooltip" title="View">
-                                                        <span class="blue">
-                                                            <i class="ace-icon fa fa-search-plus bigger-120"></i>
-                                                        </span>
-                                                    </a>
-                                                </li>
-
-                                                <li>
-                                                    <a href="#" class="tooltip-success" data-rel="tooltip" title="Edit">
-                                                        <span class="green">
-                                                            <i class="ace-icon fa fa-pencil-square-o bigger-120"></i>
-                                                        </span>
-                                                    </a>
-                                                </li>
-
-                                                <li>
-                                                    <a href="#" class="tooltip-error" data-rel="tooltip" title="Delete">
-                                                        <span class="red">
-                                                            <i class="ace-icon fa fa-trash-o bigger-120"></i>
-                                                        </span>
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                        </div>
                                     </div>
                                 </td>
                             </tr>
@@ -128,7 +94,7 @@
                                         <div class="row">
                                             <div class="col-xs-12 col-sm-2">
                                                 <div class="text-center">
-                                                    <img height="150" class="thumbnail inline no-margin-bottom" alt="Domain Owner's Avatar" src="assets/images/avatars/profile-pic.jpg" />
+                                                    <img height="150" class="thumbnail img-responsive no-margin-bottom" alt="{{ $manga->name }}" src="{{ \Storage::disk('cloud')->url($manga->cover_path) }}" />
                                                 </div>
                                             </div>
 
@@ -247,10 +213,18 @@
                                                     </div>
 
                                                     <div class="profile-info-row">
-                                                        <div class="profile-info-name"> Synopsis </div>
+                                                        <div class="profile-info-name"> Auteur(s) </div>
 
                                                         <div class="profile-info-value">
-                                                            <span>{!! $manga->synopsis !!}</span>
+                                                            <span>{!! $manga->getAuthorsHtml() !!}</span>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="profile-info-row">
+                                                        <div class="profile-info-name"> Artiste(s) </div>
+
+                                                        <div class="profile-info-value">
+                                                            <span>{!! $manga->getArtistsHtml() !!}</span>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -276,7 +250,7 @@
         $href = $(this).attr('href');
 
         bootbox.dialog({
-            message: "<span class='bigger-110'>Voulez-vous vraiment supprimer ce status de manga ?</span>",
+            message: "<span class='bigger-110'>Voulez-vous vraiment supprimer cette oeuvre ?</span>",
             buttons:
             {
                 "danger" :

@@ -14,9 +14,10 @@
     <div class="col-md-12">
 
         <div class="row">
-            <form class="form-horizontal" method="post">
+            <form class="form-horizontal" method="post" enctype="multipart/form-data">
 
-            @csrf
+                @csrf
+
                 <div class="col-md-6">
                 
                     @if($errors->any())
@@ -73,7 +74,7 @@
                     	<label class="col-sm-3 control-label no-padding-right" for="authors">Auteur(s) <sup class="text-danger">*</sup></label>
 
                         <div class="col-sm-9">
-                            <input type="text" name="authors" class="form-control @error('authors') is-invalid @enderror" id="authors">
+                            <input type="text" name="authors" class="form-control @error('authors') is-invalid @enderror" id="authors" value="{{ old('authors') }}">
                         </div>
                     </div>
 
@@ -81,7 +82,7 @@
                     	<label class="col-sm-3 control-label no-padding-right" for="artists">Artiste(s) <sup class="text-danger">*</sup></label>
 
                         <div class="col-sm-9">
-                            <input type="text" name="artists" class="form-control @error('artists') is-invalid @enderror" id="artists">
+                            <input type="text" name="artists" class="form-control @error('artists') is-invalid @enderror" id="artists" value="{{ old('artists') }}">
                         </div>
                     </div>
 
@@ -143,7 +144,7 @@
                         <label class="col-sm-3 control-label no-padding-right" for="cover">Couverture <sup class="text-danger">*</sup></label>
 
                         <div class="col-sm-9">
-                            <input type="file" id="cover">
+                            <input type="file" id="cover" name="cover" value="{{ old('cover') }}">
                         </div>
                     </div>
 
@@ -151,14 +152,14 @@
                         <label class="col-sm-3 control-label no-padding-right" for="banner">Bannière</label>
 
                         <div class="col-sm-9">
-                            <input type="file" id="banner">
+                            <input type="file" id="banner" name="banner" value="{{ old('banner') }}">
                         </div>
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="widget-box">
                         <div class="widget-header widget-header-flat">
-                            <h4 class="widget-title">Prévualisations</h4>
+                            <h4 class="widget-title">Prévisualisations</h4>
                         </div>
 
                         <div class="widget-body">
@@ -237,20 +238,6 @@ $("#banner").ace_file_input({
 var tag_input = $('#authors, #artists');
 try{
     tag_input.tag(
-        {
-        placeholder:tag_input.attr('placeholder'),
-        //enable typeahead by specifying the source array
-        source: ace.vars['US_STATES'],//defined in ace.js >> ace.enable_search_ahead
-        /**
-        //or fetch data from database, fetch those that match "query"
-        source: function(query, process) {
-            $.ajax({url: 'remote_source.php?q='+encodeURIComponent(query)})
-            .done(function(result_items){
-            process(result_items);
-            });
-        }
-        */
-        }
     )
 
     /*programmatically add/remove a tag

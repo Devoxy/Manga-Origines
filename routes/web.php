@@ -20,6 +20,8 @@ Route::prefix('admin')->middleware(['web', 'auth'])->group(function () {
             Route::get('/edit/{id}', [App\Http\Controllers\Admin\Catalog\CatalogController::class, 'edit'])->name('admin.catalog.mangas.edit');
 
             Route::get('/delete/{id}', [App\Http\Controllers\Admin\Catalog\CatalogController::class, 'delete'])->name('admin.catalog.mangas.delete');
+
+            Route::post('/upload/{id}', [App\Http\Controllers\Admin\Catalog\CatalogController::class, 'upload'])->name('admin.catalog.mangas.upload');
         });
 
         Route::prefix('tags')->group(function() {
