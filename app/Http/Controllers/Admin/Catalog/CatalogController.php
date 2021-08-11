@@ -228,13 +228,14 @@ class CatalogController extends Controller
 
     public function test() {
 
+        $manga = Manga::find(18);
+
         $zipFileName = 'Maidens In-Law.zip';
         $folderFileName = explode('.', $zipFileName)[0];
         
         $zip = Zip::open(Storage::disk('public')->path('uploads/' . $zipFileName));
         $zip->extract(Storage::disk('public')->path('uploads/' . $folderFileName));
         $zip->close();
-        //Storage::disk('public')->delete('uploads/' . $zipFileName);
 
         $chapters = Storage::disk('public')->directories('uploads/' . $folderFileName);
 
@@ -250,12 +251,20 @@ class CatalogController extends Controller
                     // ERREUR (plusieeurs numéros détectés)
                 }
 
-                echo $matches[0][0];
+                $chapterNumber = $matches[0][0];
+
+                Storage::disk('cloud')->makeDirectory('catalog/' . $manga->slug . '/Chapitre ' . $chapterNumber);
+
+                foreach(Storage::disk('public')->files('uploads/' . $folderFileName . '/' . $chapterName) as $file) {
+                    Storage::disk('cloud')->put('catalog/' . $manga->slug . '/Chapitre ' . $chapterNumber . '/' . basename($file), $file, 'public');
+                }
             }
             // MULTI UPLOAD
         } else {
 
             // SIMPLE UPLOAD
         }
+
+        //Storage::disk('public')->delete('uploads/' . $zipFileName);
     }
 }
