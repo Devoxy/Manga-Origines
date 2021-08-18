@@ -7,10 +7,10 @@
     
     <div class="manga__banner">
         <div class="manga__banner__overlay"></div>
-        <img class="banner" src="{{ Storage::disk('cloud')->url($manga->banner_path) }}" alt="{{ $manga->name }}">
+        <img class="banner" src="{{ Storage::disk('cloud')->url($manga->banner_path) }}" alt="{{ $manga->name }}" loading="lazy">
         <div class="manga__banner__infos">
             <div class="manga__banner__infos__cover">
-                <img src="{{ Storage::disk('cloud')->url($manga->cover_path) }}" alt="{{ $manga->name }}">
+                <img src="{{ Storage::disk('cloud')->url($manga->cover_path) }}" alt="{{ $manga->name }}" loading="lazy">
             </div>
             <div class="manga__banner__infos__details">
                 <div class="manga__banner__infos__details__title">
@@ -59,8 +59,8 @@
                     </div>
                 </div>
                 <div class="manga__banner__infos__details__buttons">
-                    <a href="#" class="btn btn-warning">Commencer la lecture</a>
-                    <a href="#" class="primary-button">Lire le dernier chapitre</a>
+                    <a href="{{ route('catalog.manga.read', ['slug' => $manga->slug]) }}" class="btn btn-warning">Commencer la lecture</a>
+                    <a href="{{ route('catalog.manga.read', ['slug' => $manga->slug, 'chapter' => 'last']) }}" class="primary-button">Lire le dernier chapitre</a>
                 </div>
             </div>
         </div>
@@ -77,10 +77,10 @@
                     <div class="manga">
                         <div class="manga__chapters">
                             @foreach($chapters as $chapter)
-                                <a href="">#{{ $chapter->number }} {{ $chapter->label }}</a>
+                                <a href="{{ route('catalog.manga.read', ['slug' => $manga->slug, 'chapter' => $chapter->number]) }}" class="manga__chapters__chapter"><span class="manga__chapters__chapter__number">#{{ $chapter->number }} </span><span class="manga__chapters__chapter__label">{{ $chapter->label }}</span></a>
                             @endforeach
-                            {{ $chapters->links('vendor.pagination.default') }}
                         </div>
+                        {{ $chapters->links('vendor.pagination.default') }}
                     </div>
                 </div>
             </div>

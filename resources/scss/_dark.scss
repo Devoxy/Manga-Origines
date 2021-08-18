@@ -10,7 +10,7 @@ body {
         }
         
         input, textarea, select {
-            background: #000;
+            background: #000 !important;
             color: #FFF;
         }
 
@@ -28,6 +28,7 @@ body {
 
                     input {
                         color: #fff;
+                        background: none !important;
                     }
 
                     input::placeholder {
@@ -49,7 +50,7 @@ body {
             &__title {
 
                 h3 {
-                    background: #474747;
+                    background: #191919;
                 }
 
                 &__controls {
@@ -150,6 +151,65 @@ body {
                 &__list {
                     &__text {
                         color: #ffffff99;
+                    }
+                }
+            }
+        }
+
+        .catalog {
+            
+            &__search {
+                
+                &__input {
+
+                    input {
+                        background: none !important;
+                        color: #000;
+                    }
+                }
+            }
+        }
+
+        .manga {
+
+            &__banner {
+
+                &__infos {
+                    background: #191919;
+                    box-shadow: none;
+                }
+            }
+
+            &__read {
+
+                &__selection {
+                    
+                    .btn-selection {
+                        background: #191919;
+                        box-shadow: none;
+                    }
+                }
+            }
+
+            &__chapters {
+
+                &__chapter {
+                    box-shadow: none;
+                    background: #191919;
+                    border: 1px solid #191919;
+
+                    &:hover {
+                        border: 1px solid $secondary-color;
+                    }
+                }
+            }
+        }
+
+        .ladder {
+            ul {
+                li {
+                    &::before {
+                        color: #000;
                     }
                 }
             }

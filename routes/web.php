@@ -86,6 +86,8 @@ Route::prefix('static')->group(function() {
 Route::prefix('catalog')->group(function() {
     Route::get('/', [App\Http\Controllers\Front\CatalogController::class, 'catalog'])->name('catalog.index');
     Route::get('/{slug}', [App\Http\Controllers\Front\CatalogController::class, 'manga'])->name('catalog.manga');
+    Route::get('/{slug}/read', [App\Http\Controllers\Front\CatalogController::class, 'readManga'])->name('catalog.manga.read');
+    Route::get('/history/{manga)/{chapter}/{page}', [App\Http\Controllers\Front\CatalogController::class, 'readManga'])->name('catalog.manga.user.history');
 });
 
 Route::get('/cookie/change-mode/{mode}', [App\Http\Controllers\Front\CookieController::class, 'changeMode']);

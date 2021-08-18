@@ -641,9 +641,84 @@
   cursor: pointer;
 }
 
+.manga {
+  display: block;
+}
+.manga__read {
+  text-align: center;
+}
+.manga__read img {
+  width: 100%;
+}
+.manga__read__selection {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 10px;
+}
+.manga__read__selection .btn-selection {
+  box-shadow: 0px 0px 11px -2px #ababab;
+  background: #fff;
+  padding: 10px;
+  border-radius: 10px;
+  font-weight: 500;
+  color: #FF750C;
+}
+.manga__read__selection.bottom {
+  margin-top: 10px;
+  padding-bottom: 10px;
+}
+.manga__chapters__chapter {
+  box-shadow: 0px 0px 11px -2px #ababab;
+  padding: 10px 20px;
+  font-family: "Josefin Sans", sans-serif;
+  border-radius: 10px;
+  font-size: 18px;
+  margin: 5px;
+  display: inline-block;
+  width: 20%;
+  border: 1px solid #fff;
+}
+.manga__chapters__chapter:hover {
+  border: 1px solid #FF750C;
+}
+.manga__chapters__chapter__number {
+  display: inline-block;
+  width: 55px;
+  font-weight: bold;
+}
+.manga__chapters__chapter__label {
+  color: #FF750C;
+  float: right;
+}
 .manga__banner {
   position: relative;
-  height: 700px;
+  margin-bottom: 50px;
+}
+.manga__banner__title {
+  color: #FFF;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 35px;
+  margin: 0;
+  padding: 0;
+}
+.manga__banner__title a {
+  color: #FFF;
+}
+.manga__banner__subtitle {
+  color: #FF750C;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 20px;
+  margin: 0;
+  padding: 0;
+  margin-top: 45px;
 }
 .manga__banner img.banner {
   width: 100%;
@@ -652,13 +727,13 @@
 .manga__banner__overlay {
   width: 100%;
   height: 350px;
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.7);
   position: absolute;
 }
 .manga__banner__infos {
   background: #FFF;
   box-shadow: 0px 0px 11px -2px #ababab;
-  position: absolute;
+  position: relative;
   width: calc(100% - 400px);
   left: 50%;
   transform: translateX(-50%);
@@ -747,6 +822,7 @@
   font-size: 18px;
   text-transform: initial;
   font-family: "Josefin Sans", sans-serif;
+  margin-left: 15px;
 }
 
 body.dark {
@@ -757,7 +833,7 @@ body.dark a {
   color: #fff;
 }
 body.dark input, body.dark textarea, body.dark select {
-  background: #000;
+  background: #000 !important;
   color: #FFF;
 }
 body.dark .header {
@@ -771,6 +847,7 @@ body.dark .header__tools__search {
 }
 body.dark .header__tools__search input {
   color: #fff;
+  background: none !important;
 }
 body.dark .header__tools__search input::-moz-placeholder {
   color: #FFF;
@@ -788,7 +865,7 @@ body.dark .header__tools .change-mode {
   background-repeat: no-repeat;
 }
 body.dark .block__title h3 {
-  background: #474747;
+  background: #191919;
 }
 body.dark .block__title__controls__more {
   color: #FFF;
@@ -845,6 +922,29 @@ body.dark .vip-pricing__table {
 }
 body.dark .vip-pricing__table__list__text {
   color: #ffffff99;
+}
+body.dark .catalog__search__input input {
+  background: none !important;
+  color: #000;
+}
+body.dark .manga__banner__infos {
+  background: #191919;
+  box-shadow: none;
+}
+body.dark .manga__read__selection .btn-selection {
+  background: #191919;
+  box-shadow: none;
+}
+body.dark .manga__chapters__chapter {
+  box-shadow: none;
+  background: #191919;
+  border: 1px solid #191919;
+}
+body.dark .manga__chapters__chapter:hover {
+  border: 1px solid #FF750C;
+}
+body.dark .ladder ul li::before {
+  color: #000;
 }
 
 body {
@@ -1190,6 +1290,9 @@ a {
 .block__title.secure h3::before {
   background: url(/images/secure.png?0f1f1fdcc43706267c4980eb7092b4d0);
 }
+.block__title.chapters h3::before {
+  background: url(/images/chapters.png?1801b267134fa38948bf21e14609dc83);
+}
 
 .header-spacer {
   width: 100%;
@@ -1322,4 +1425,23 @@ a {
 }
 .home-slider__arrow-prev:hover, .home-slider__arrow-next:hover {
   box-shadow: 0px 3px 6px #00000029;
+}
+
+.pagination {
+  display: inline-block;
+  text-align: center;
+  margin-top: 20px;
+}
+.pagination li {
+  display: inline-block;
+  font-family: "Josefin Sans", sans-serif;
+  color: black;
+  float: left;
+  padding: 8px 16px;
+  text-decoration: none;
+}
+.pagination li.active {
+  background: #f06c08;
+  color: #fff;
+  border-radius: 5px;
 }

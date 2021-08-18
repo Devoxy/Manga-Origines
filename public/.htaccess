@@ -18,4 +18,12 @@
     RewriteCond %{REQUEST_FILENAME} !-d
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteRule ^ index.php [L]
+
+
+    # Allow blank referrers
+    RewriteCond %{HTTP_REFERER} !^$
+    # Sites allowed to link your images.
+    RewriteCond %{HTTP_REFERER} !^http(s)?://(www\.)?yourdomain.com [NC]
+    RewriteCond %{HTTP_REFERER} !^http(s)?://(www\.)?yourdomain2.com [NC]
+    RewriteRule \.(jpg|jpeg|png|gif)$ https://arjunphp.com/wp-content/themes/arjun/images/arjun_php_developer_blog.png [NC,R,L]
 </IfModule>

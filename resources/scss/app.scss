@@ -398,6 +398,9 @@ a {
         &.secure h3::before {
             background: url('../../public/images/static/icons/secure.png');
         }
+        &.chapters h3::before {
+            background: url('../../public/images/static/icons/chapters.png');
+        }
     }
 }
 
@@ -543,5 +546,27 @@ a {
     }
     &__arrow-prev:hover, &__arrow-next:hover {
         box-shadow: 0px 3px 6px #00000029;
+    }
+}
+
+.pagination {
+    display: inline-block;
+    text-align: center;
+    margin-top: 20px;
+
+    li {
+
+        &.active {
+            background: #f06c08;
+            color: #fff;
+            border-radius: 5px;
+        }
+
+        display: inline-block;
+        font-family: $title-family;
+        color: black;
+        float: left;
+        padding: 8px 16px;
+        text-decoration: none;
     }
 }
