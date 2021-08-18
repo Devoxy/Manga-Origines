@@ -43,9 +43,9 @@
             </div>
         </div>
         <div class="tendances__slider">
-            @for($i = 0; $i < 15; $i++) 
-                <div class="tendances__slider__slides" style="background: url('/images/front/cover.jpg');"></div>
-            @endfor
+            @foreach($tendances as $tendance) 
+                <div class="tendances__slider__slides" style="background: url('{{ Storage::disk('cloud')->url($tendance->cover_path) }}');"></div>
+            @endforeach
         </div>
     </div>
 
@@ -65,20 +65,20 @@
             </div>
         </div>
         <div class="recents__slider">
-            @for($i = 0; $i < 15; $i++) 
-                <div class="recents__slider__slides" style="background: url('/images/front/cover.jpg');">
+            @foreach($lasts as $last) 
+                <a href="{{ route('catalog.manga', ['slug' => $last->slug]) }}" class="recents__slider__slides" style="background: url('{{ Storage::disk('cloud')->url($last->cover_path) }}');">
 
                     <div class="recents__slider__slides__overlay"></div>
                     <div class="recents__slider__slides__text">
                         <div class="recents__slider__slides__text__title">
-                            Solo Leveling
+                            {{ $last->name }}
                         </div>
                         <div class="recents__slider__slides__text__chapter">
-                            Il y a {{ $i }} minutes
+                            {{ $last->created_at->diffForHumans() }}
                         </div>
                     </div>
-                </div>
-            @endfor
+                </a>
+            @endforeach
         </div>
     </div>
 
@@ -100,17 +100,17 @@
                     </div>
                 </div>
                 <div class="news__slider">
-                    @for($i = 0; $i < 15; $i++) 
-                        <div class="news__slider__slides" style="background: url('/images/front/cover.jpg');">
+                    @foreach($updateds as $updated) 
+                        <a href="#" class="news__slider__slides" style="background: url('{{ Storage::disk('cloud')->url($updated->cover_path) }}');">
 
                             <div class="news__slider__slides__overlay"></div>
                             <div class="news__slider__slides__text">
                                 <div class="news__slider__slides__text__title">
-                                    Solo Leveling
+                                    {{ $updated->name }}
                                 </div>
                             </div>
-                        </div>
-                    @endfor
+                        </a>
+                    @endforeach
                 </div>
             </div>
 
@@ -128,17 +128,17 @@
                     </div>
                 </div>
                 <div class="exclusives__slider">
-                    @for($i = 0; $i < 15; $i++) 
-                        <div class="exclusives__slider__slides" style="background: url('/images/front/cover.jpg');">
+                    @foreach($exclusives as $exclusive) 
+                        <a href="#" class="exclusives__slider__slides" style="background: url('{{ Storage::disk('cloud')->url($exclusive->cover_path) }}');">
 
                             <div class="exclusives__slider__slides__overlay"></div>
                             <div class="exclusives__slider__slides__text">
                                 <div class="exclusives__slider__slides__text__title">
-                                    Solo Leveling
+                                    {{ $exclusive->name }}
                                 </div>
                             </div>
-                        </div>
-                    @endfor
+                        </a>
+                    @endforeach
                 </div>
             </div>
         </div>

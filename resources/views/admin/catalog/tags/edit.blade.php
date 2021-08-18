@@ -59,12 +59,6 @@
                         <i class="ace-icon fa fa-check bigger-110"></i>
                         Valider
                     </button>
-
-                    &nbsp; &nbsp; &nbsp;
-                    <button class="btn" type="reset">
-                        <i class="ace-icon fa fa-undo bigger-110"></i>
-                        Reset
-                    </button>
                 </div>
             </div>
         </form>

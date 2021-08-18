@@ -227,6 +227,18 @@
                                             <br><br>
                                             Temps écoulé : <b><span id="spend-time">0 seconde</span></b>
 										</div>
+                                        <div class="alert alert-danger" style="display: none;">
+											<button type="button" class="close" data-dismiss="alert">
+												<i class="ace-icon fa fa-times"></i>
+											</button>
+											<p></p>
+										</div>
+                                        <div class="alert alert-success" style="display: none;">
+											<button type="button" class="close" data-dismiss="alert">
+												<i class="ace-icon fa fa-times"></i>
+											</button>
+											<p></p>
+										</div>
                                         <div id="drag-drop-area"></div>
                                     </div>
                                 </div>
@@ -264,11 +276,11 @@
                                                         <td>{{ $chapter->files }}</td>
                                                         <td>
                                                             <div class="hidden-sm hidden-xs btn-group">
-                                                                <a href="{{ route('admin.catalog.status.edit', ['id' => $chapter->id]) }}" class="btn btn-xs btn-info">
+                                                                <a href="{{ route('admin.catalog.mangas.chapter.edit', ['id' => $chapter->id]) }}" class="btn btn-xs btn-info">
                                                                     <i class="ace-icon fa fa-pencil bigger-120"></i>
                                                                 </a>
 
-                                                                <a href="{{ route('admin.catalog.status.delete', ['id' => $chapter->id]) }}" class="btn btn-xs btn-danger delete-confirm">
+                                                                <a href="{{ route('admin.catalog.mangas.chapter.delete', ['id' => $chapter->id]) }}" class="btn btn-xs btn-danger delete-confirm">
                                                                     <i class="ace-icon fa fa-trash-o bigger-120"></i>
                                                                 </a>
                                                             </div>
@@ -287,12 +299,6 @@
                             <button class="btn btn-info" type="submit">
                                 <i class="ace-icon fa fa-check bigger-110"></i>
                                 Valider
-                            </button>
-
-                            &nbsp; &nbsp; &nbsp;
-                            <button class="btn" type="reset">
-                                <i class="ace-icon fa fa-undo bigger-110"></i>
-                                Reset
                             </button>
                         </div>
                     </div>
@@ -327,8 +333,8 @@
 <script>
 
 var uppy = Uppy.Core({
-  debug: true,
-  autoProceed: true,
+  debug: false,
+  autoProceed: false,
   locale: Uppy.locales.fr_FR,
   restrictions: {
     maxNumberOfFiles: 1,
@@ -373,8 +379,21 @@ uppy.on('upload-success', (file, response) => {
             }, 1000);
             return true;
         },
-        success: function() {
+        success: function(response) {
             $(".alert-info").fadeOut();
+            $(".alert-danger").fadeOut();
+            $(".alert-success p").html(response);
+            $(".alert-success").fadeIn();
+            clearInterval(interval);
+            setTimeout(function(){
+                window.location.reload(1);
+            }, 2500);
+        },
+        error: function (jqXHR, exception) {
+            $(".alert-info").fadeOut();
+            $(".alert-danger p").html(jqXHR.responseText);
+            $(".alert-danger").fadeIn();
+            clearInterval(interval);
         }
     });
 });
@@ -427,6 +446,32 @@ catch(e) {
     tag_input.after('<textarea id="'+tag_input.attr('id')+'" name="'+tag_input.attr('name')+'" rows="3">'+tag_input.val()+'</textarea>').remove();
     //autosize($('#form-field-tags'));
 }
+
+$(".delete-confirm").on(ace.click_event, function() {
+
+    event.preventDefault();
+    $href = $(this).attr('href');
+
+    bootbox.dialog({
+        message: "<span class='bigger-110'>Voulez-vous vraiment supprimer ce chapitre ? <i>(Attention, la suppression peut prendre quelques secondes.)</i></span>",
+        buttons:
+        {
+            "danger" :
+            {
+                "label" : "Annuler",
+                "className" : "btn-sm btn-danger",
+            },
+            "success" :
+                {
+                "label" : "<i class='ace-icon fa fa-check'></i> Confirmer",
+                "className" : "btn-sm btn-success",
+                "callback": function() {
+                    window.location = $href;
+                }
+            }
+        }
+    });
+});
 </script>
 @endpush
 @endsection

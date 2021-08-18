@@ -25,6 +25,11 @@ Route::prefix('admin')->middleware(['web', 'auth'])->group(function () {
 
             Route::get('/uploadProcess/{manga}/{zipFileName}', [App\Http\Controllers\Admin\Catalog\CatalogController::class, 'uploadProcess'])->name('admin.catalog.mangas.uploadProcess');
 
+            Route::get('/chapter/edit/{id}', [App\Http\Controllers\Admin\Catalog\CatalogController::class, 'editChapter'])->name('admin.catalog.mangas.chapter.edit');
+            Route::get('/chapter/delete/{id}', [App\Http\Controllers\Admin\Catalog\CatalogController::class, 'deleteChapter'])->name('admin.catalog.mangas.chapter.delete');
+
+            Route::get('/chapter/image/delete/{id}', [App\Http\Controllers\Admin\Catalog\CatalogController::class, 'deleteImageChapter'])->name('admin.catalog.mangas.chapter.image.delete');
+
         });
 
         Route::prefix('tags')->group(function() {
@@ -66,10 +71,7 @@ Route::prefix('admin')->middleware(['web', 'auth'])->group(function () {
 });
 
 
-Route::get('/', function () {
-    return view('static.home');
-})->name('home');
-
+Route::get('/', [App\Http\Controllers\Front\HomeController::class, 'index'])->name('home');
 
 Route::prefix('static')->group(function() {
     Route::get('/vip', [App\Http\Controllers\Front\StaticController::class, 'vip'])->name('static.vip');
@@ -83,6 +85,7 @@ Route::prefix('static')->group(function() {
 
 Route::prefix('catalog')->group(function() {
     Route::get('/', [App\Http\Controllers\Front\CatalogController::class, 'catalog'])->name('catalog.index');
+    Route::get('/{slug}', [App\Http\Controllers\Front\CatalogController::class, 'manga'])->name('catalog.manga');
 });
 
 Route::get('/cookie/change-mode/{mode}', [App\Http\Controllers\Front\CookieController::class, 'changeMode']);

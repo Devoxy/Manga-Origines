@@ -1,0 +1,134 @@
+.manga {
+
+    &__banner {
+        position: relative;
+        height: 700px;
+        
+        img.banner {
+            width: 100%;
+            height: 350px;
+        }
+
+        &__overlay {
+            width: 100%;
+            height: 350px;
+            background: rgba(#000000, .5);
+            position: absolute;
+        }
+
+        &__infos {
+            background: #FFF;
+            box-shadow: 0px 0px 11px -2px #ababab;
+            position: absolute;
+            width: calc(100% - 400px);
+            left: 50%;
+            transform: translateX(-50%);
+            margin-top: -100px;
+            border-radius: 20px;
+            display: flex;
+
+            &__cover {
+                width: 25%;
+                padding-left: 20px;
+                padding-bottom: 20px;
+
+                img {
+                    width: 100%;
+                    border-radius: 10px;
+                    margin-top: -60px;
+                }
+            }
+
+            &__details {
+                padding-top: 20px;
+                margin-left: 25px;
+                width: 75%;
+                
+                &__title {
+                    display: flex;
+
+                    .manga-type {
+                        background: rgb(19, 194, 19);
+                        border-bottom: 1px solid #0ea50e;
+                        text-transform: uppercase;
+                        font-family: $title-family;
+                        color: #fff;
+                        font-weight: bold;
+                        margin-right: 10px;
+                        border-radius: 25px;
+                        line-height: 34px;
+                        font-size: 15px;
+                        padding: 0 30px;
+                        height: 30px;
+                        margin-top: 9px;
+                    }
+
+                    h2 {
+                        font-size: 18px;
+                        font-family: $title-family;
+
+                        &.manga-alternatif {
+                            font-size: 14px;
+
+                            &::after {
+                                content: '|';
+                                display: inline;
+                                margin: 0 10px;
+                            }
+                        }
+                    }
+                }
+
+                &__posts {
+                    margin-top: 15px;
+                    margin-bottom: 70px;
+
+                    &__item {
+                        display: flex;
+                        margin-bottom: 10px;
+
+                        &__title {
+                            width: 110px;
+                            font-weight: bold;
+                            font-family: $title-family;
+                            font-size: 18px;
+                            margin-top: 1px;
+                        }
+
+                        &__content {
+                            width: calc(100% - 110px);
+
+                            .tag {
+
+                                &::after {
+                                    content: '|';
+                                    display: inline-block;
+                                    margin-right: 5px;
+                                    margin-left: 10px;
+                                }
+
+                                &:last-child {
+                                    &::after {
+                                        display: none;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+
+                &__buttons {
+                    position: absolute;
+                    bottom: 35px;
+
+                    .primary-button {
+                        font-weight: 800;
+                        font-size: 18px;
+                        text-transform: initial;
+                        font-family: $title-family;
+                    }
+                }
+            }
+        }
+    }
+}

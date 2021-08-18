@@ -7,10 +7,8 @@ use Illuminate\Support\Facades\Cache;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Storage;
-use App\AsyncJobs\MangaUpload;
 
 use Zip;
-use Spatie\Async\Pool;
 
 use App\Models\Manga;
 use App\Models\MStatus;
@@ -31,7 +29,7 @@ class CatalogController extends Controller
         
         return view('admin.catalog.mangas.index')->with('mangas', $mangas);
     }
-
+    
     public function create(Request $request) {
 
         if($request->isMethod('post')) {
@@ -234,28 +232,34 @@ class CatalogController extends Controller
     public function uploadProcess(Manga $manga, $zipFileName) {
 
         $folderFileName = explode('.', $zipFileName)[0];
+
+        $count = 0;
         
         $zip = Zip::open(Storage::disk('public')->path('uploads/' . $zipFileName));
         $zip->extract(Storage::disk('public')->path('uploads/' . $folderFileName));
         $zip->close();
 
+        if(is_dir(Storage::disk('public')->path('uploads/' . $folderFileName .  '/__MACOSX')))
+            Storage::disk('public')->deleteDirectory('uploads/' . $folderFileName . '/__MACOSX');
+
+        if(file_exists(Storage::disk('public')->path('uploads/' . $folderFileName .  '/.DS_Store')))
+            Storage::disk('public')->delete('uploads/' . $folderFileName . '/.DS_Store');
+
         $chapters = Storage::disk('public')->directories('uploads/' . $folderFileName);
 
         if(count($chapters) >= 1) {
-
-            dd($chapters);
 
             foreach($chapters as $chapter) {
 
                 $chapterName = basename($chapter);
                 preg_match_all('!\d+!', $chapterName, $matches);
                 
-                if(count($matches) > 1) {
+                if(empty($matches[0]) || count($matches) > 1) {
 
-                    // ERREUR (plusieeurs numéros détectés)
+                    return response('Le contenu de l\'archive est incorrecte, merci de le vérifier.', 500);
                 }
 
-                $chapterNumber = $matches[0][0];
+                $chapterNumber = intval($matches[0][0]);
 
                 Storage::disk('cloud')->makeDirectory('catalog/' . $manga->slug . '/Chapitre-' . $chapterNumber);
 
@@ -280,6 +284,7 @@ class CatalogController extends Controller
                 }
 
                 $chapter->save();
+                $count++;
             }
             // MULTI UPLOAD
         } else {
@@ -291,10 +296,10 @@ class CatalogController extends Controller
                 
             if(count($matches) > 1) {
 
-                // ERREUR (plusieeurs numéros détectés)
+                return response('Le contenu de l\'archive est incorrecte, merci de le vérifier.', 500);
             }
 
-            $chapterNumber = $matches[0][0];
+            $chapterNumber = intval($matches[0][0]);
 
             Storage::disk('cloud')->makeDirectory('catalog/' . $manga->slug . '/Chapitre-' . $chapterNumber);
 
@@ -319,11 +324,102 @@ class CatalogController extends Controller
             }
 
             $chapter->save();
+            $count++;
         }
 
         Cache::forget('admin.mangas.chapters.' . $manga->id);
 
         Storage::disk('public')->delete('uploads/' . $zipFileName);
-        Storage::disk('public')->delete('uploads/' . $folderFileName);
+        Storage::disk('public')->deleteDirectory('uploads/' . $folderFileName);
+
+        return response('Votre archive a correctement été traitée, ' . $count . ($count > 1 ? ' chapitres ont été téléchargés.' : ' chapitre a été téléchargé.'), 200);
+    }
+
+    public function editChapter($id) {
+
+        $chapter = MangaChapter::find($id);
+
+        if(!$chapter) {
+
+            toastr()->warning("Le chapitre demandé n'éxiste pas.");
+            return redirect()->back();
+        }
+
+        $manga = Manga::find($chapter->manga_id);
+
+        if(!$manga) {
+
+            toastr()->warning("L'oeuve demandée n'éxiste pas.");
+            return redirect()->back();
+        }
+
+        $files = Storage::disk('cloud')->files('catalog/' . $manga->slug . '/Chapitre-' . $chapter->number);
+
+        return view('admin.catalog.mangas.chapter')
+            ->with('chapter', $chapter)
+            ->with('files', $files);
+    }
+
+    public function deleteChapter($id) {
+
+        $chapter = MangaChapter::find($id);
+
+        if(!$chapter) {
+
+            toastr()->warning("Le chapitre demandé n'éxiste pas.");
+            return redirect()->back();
+        }
+
+        $manga = Manga::find($chapter->manga_id);
+
+        if(!$manga) {
+
+            toastr()->warning("L'oeuve demandée n'éxiste pas.");
+            return redirect()->back();
+        }
+
+        $files = Storage::disk('cloud')->files('catalog/' . $manga->slug . '/Chapitre-' . $chapter->number);
+        Storage::disk('cloud')->delete($files);
+        Storage::disk('cloud')->deleteDirectory('catalog/' . $manga->slug . '/Chapitre-' . $chapter->number);
+
+        toastr()->success("Vous avez supprimé le chapitre " . $chapter->number . ".");
+
+        $chapter->delete();
+
+        Cache::forget('admin.mangas.chapters.' . $manga->id);
+
+        return redirect()->back();
+    }
+
+    public function deleteImageChapter(Request $request, $id) {
+
+        $path = urldecode($request->path);
+
+        $chapter = MangaChapter::find($id);
+
+        if(!$chapter) {
+
+            toastr()->warning("Le chapitre demandé n'éxiste pas.");
+            return redirect()->back();
+        }
+
+        $manga = Manga::find($chapter->manga_id);
+
+        if(!$manga) {
+
+            toastr()->warning("L'oeuve demandée n'éxiste pas.");
+            return redirect()->back();
+        }
+
+        toastr()->success("Vous avez supprimé l'image " . basename($path) . ".");
+
+        Storage::disk('cloud')->delete($path);
+
+        $chapter->files--;
+        $chapter->save();
+
+        Cache::forget('admin.mangas.chapters.' . $manga->id);
+
+        return redirect()->back();
     }
 }
