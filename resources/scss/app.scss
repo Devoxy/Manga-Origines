@@ -8,8 +8,9 @@
 @import "vip";
 @import "catalog";
 @import "manga";
+@import "icon";
+@import "helpers";
 
-@import "dark";
 
 body {
     background-color: $background;
@@ -411,49 +412,8 @@ a {
 }
 
 .home-categories {
-    height: 50px;
-    border-radius: 15px;
-    box-shadow: 0px 0px 11px -2px #ababab;
     margin-top: 40px;
-
-    ul {
-        display: flex;
-        justify-content: space-evenly;
-
-        li {
-            line-height: 50px;
-            text-align: center;
-            padding: 0 5px;
-            
-            a {
-                font-family: $title-family;
-                font-size: 17px;
-                font-weight: 700;
-                text-transform: uppercase;
-
-                .menu-icon {
-                    float: left;
-                    background-image: url('../../public/images/static/icons/menu.svg');
-                    width: 23px;
-                    height: 23px;
-                    margin-top: 11px;
-                    margin-right: 4px;
-                }
-                .hot-icon {
-                    float: left;
-                    background-image: url('../../public/images/static/icons/hot.svg');
-                    width: 23px;
-                    height: 23px;
-                    margin-top: 11px;
-                    margin-right: 4px;
-                }
-            }
-
-            &:hover {
-                background: #f0f0f0;
-            }
-        }
-    }
+    display: flex;
 }
 
 .home-slider {

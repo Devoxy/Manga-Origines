@@ -1,0 +1,56 @@
+.btn-third {
+    border: 2px solid #B62626;
+    box-shadow: 0px 0px 4px 4px rgba(255, 5, 5, 0.25);
+    border-radius: 35px;
+    background: transparent;
+    padding: 12px 50px;
+    font-size: 14px;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: $c-white;
+    display: flex;
+    align-items: center;
+    span {
+        float: left;
+        margin-right: 5px;
+    }
+}
+
+.btn-secondary {
+    border-radius: 7px;
+    text-align: center;
+    color: white;
+    font-weight: 700;
+    margin-right: 20px;
+    text-transform: uppercase;
+    padding: 7px 0px;
+    width: 100%;
+    &.webcomic {
+        background: linear-gradient(118.69deg, #2DFD80 13.59%, #1E472E 100%);
+    }
+    &.manhua {
+        background: linear-gradient(126.52deg, #5BF1BB 17.19%, #205743 113.98%);
+    }
+    &.manhwa {
+        background: linear-gradient(180deg, #4ECAD2 0%, #135256 100%);
+    }
+    &.romance {
+        background: linear-gradient(122.03deg, #ED5050 1.73%, #784242 69.24%);
+    }
+    &.shonen {
+        background: linear-gradient(130.65deg, #3871C8 26.9%, #1D3558 102.24%);
+    }
+    &.novel {
+        background: linear-gradient(110.9deg, #C0BF9E 34.15%, #737147 92.75%);
+    }
+    &.adult {
+        background: linear-gradient(180deg, #292929 0%, rgba(41, 41, 41, 0) 100%);
+    }
+    &.shojo {
+        background: linear-gradient(180deg, #F588EA 0%, #78176E 100%);
+    }
+    &.shonen-ai {
+        background: linear-gradient(180deg, #C03FE0 0%, #4A2054 100%);
+        margin-right: unset;
+    }
+}

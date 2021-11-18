@@ -19,87 +19,92 @@
 
 <body class="{{ Cookie::get('theme-mode') }}">
     <header class="header">
-        <div class="container">
-            <div class="header__logo">
-                <a href="{{ route('home') }}">
-                    <img src="/images/static/logo.png" alt="Manga Origine">
-                </a>
+        <div class="header__logo">
+            <a href="{{ route('home') }}">
+                <img src="{{ asset('images/front/header/logo.png') }}" alt="Manga Origine">
+            </a>
+        </div>
+        <nav class="header__menu">
+            <ul>
+                <li class="header__menu__link">
+                    <span class="header__menu__link__icon bg-home"></span>
+                    <a href="{{ route('home') }}">Accueil</a>
+                </li>
+                <li class="header__menu__link">
+                    <span class="header__menu__link__icon bg-library"></span>
+                    <a href="{{ route('catalog.index') }}">Catalogue</a>
+                </li>
+                <li class="header__menu__link">
+                    <span class="header__menu__link__icon bg-fastpass"></span>
+                    <a href="{{ route('static.vip') }}">Vip</a>
+                </li>
+                <li class="header__menu__link">
+                    <span class="header__menu__link__icon bg-team"></span>
+                    <a href="#">Teams</a>
+                </li>
+                <li class="header__menu__link">
+                    <span class="header__menu__link__icon bg-contact"></span>
+                    <a href="{{ route('static.contact') }}">Nous contacter</a>
+                </li>
+            </ul>
+        </nav>
+        <div class="header__tools">
+            <div class="header__tools__adult">
+                <button class="btn-third"><span class="bg-adult"></span> Adult : Off</button>
             </div>
-            <nav class="header__menu">
-                <ul>
-                    <li class="header__menu__link">
-                        <span class="header__menu__link__icon home"></span>
-                        <a href="{{ route('home') }}">Accueil</a>
-                    </li>
-                    <li class="header__menu__link">
-                        <span class="header__menu__link__icon menu"></span>
-                        <a href="{{ route('catalog.index') }}">Catalogue</a>
-                    </li>
-                    <li class="header__menu__link">
-                        <span class="header__menu__link__icon vip"></span>
-                        <a href="{{ route('static.vip') }}">Vip</a>
-                    </li>
-                    <li class="header__menu__link">
-                        <span class="header__menu__link__icon contact"></span>
-                        <a href="{{ route('static.contact') }}">Nous contacter</a>
-                    </li>
-                </ul>
-            </nav>
-            <div class="header__tools">
-                <div class="header__tools__search">
-                    <span class="search-icon"></span>
-                    <input type="text" placeholder="Tapez votre recherche...">
-                    <button type="submit" class="search-submit">Go</button>
-                </div>
-                <span id="change-mode" class="change-mode {{ Cookie::get('theme-mode') }}"></span>
-                <div class="header__tools__account">
-                    @if(Auth::guest())
-                        <a href="{{ route('login') }}">
-                            <img src="/images/static/login.png">
-                        </a>
-                    @else 
-                        <a id="account" href="#">
-                            <img src="/images/static/login.png">
-                        </a>
-                        <div class="account">
-                            <div class="account__profile">
-                                <img src="/images/static/login.png" class="account__profile__avatar" alt="{{ Auth::user()->username }}">
-                                <ul class="account__profile__infos">    
-                                    <li>{{ Auth::user()->username }}</li>
-                                    <li>Administrateur</li>
-                                </ul>
-                            </div>
-                            <ul class="account__menu">
-                                <li>
-                                    <a href="#">
-                                        <i class="fa fa-user"></i>
-                                        <span>Mon compte</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <i class="fa fa-bookmark"></i>
-                                        <span>Mes favoris</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <i class="fa fa-history"></i>
-                                        <span>Historique</span>
-                                    </a>
-                                </li>
-                                {{-- <li>
+            <div class="header__tools__search">
+                
+                <input type="text" placeholder="Tapez votre recherche...">
+                <button type="submit" class="search-submit"><span class="bg-search"></span></button>
+                
+            </div>
+            <!--<span id="change-mode" class="change-mode {{ Cookie::get('theme-mode') }}"></span>-->
+            <div class="header__tools__account">
+                @if (Auth::guest())
+                    <a href="{{ route('login') }}" class="bg-account"></a>
+                @else
+                    <a id="account" class="bg-account" href="#">
+                    </a>
+                    <div class="account">
+                        <div class="account__profile">
+                            <img src="/images/static/login.png" class="account__profile__avatar"
+                                alt="{{ Auth::user()->username }}">
+                            <ul class="account__profile__infos">
+                                <li>{{ Auth::user()->username }}</li>
+                                <li>Administrateur</li>
+                            </ul>
+                        </div>
+                        <ul class="account__menu">
+                            <li>
+                                <a href="#">
+                                    <i class="fa fa-user"></i>
+                                    <span>Mon compte</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <i class="fa fa-bookmark"></i>
+                                    <span>Mes favoris</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <i class="fa fa-history"></i>
+                                    <span>Historique</span>
+                                </a>
+                            </li>
+                            {{-- <li>
                                     <a href="#">
                                         <i class="fa fa-user"></i>
                                         <span>ACP</span>
                                     </a>
                                 </li> --}}
-                            </ul>
-                            <a href="{{ route('auth.logout') }}" class="account__logout"><i class="fa fa-lock"></i> Se déconnecter</a>
-                        </div>
-                    @endif
-                </div>
-            </div>  
+                        </ul>
+                        <a href="{{ route('auth.logout') }}" class="account__logout"><i class="fa fa-lock"></i>
+                            Se déconnecter</a>
+                    </div>
+                @endif
+            </div>
         </div>
     </header>
 
@@ -117,13 +122,15 @@
                 <li><a href="{{ route('static.legal.privacy') }}">Politique de confidentialité</a></li>
                 <li><a href="{{ route('static.discord') }}">Discord</a></li>
             </ul>
-            <p class="footer__infos__copyright">2021 | Origines Corporation - tout droits réservés. | Design by <a href="#">King</a> & Code by <a href="Discord::Nitram#1234">Nitram</a></p>
+            <p class="footer__infos__copyright">2021 | Origines Corporation - tout droits réservés. | Design by <a
+                    href="#">King</a> & Code by <a href="Discord::Nitram#1234">Nitram</a></p>
         </div>
     </footer>
 
     <script src="/js/jquery-2.1.4.min.js"></script>
     <script type="text/javascript">
-        if ('ontouchstart' in document.documentElement) document.write("<script src='/js/jquery.mobile.custom.min.js'>" + "<" + "/script>");
+        if ('ontouchstart' in document.documentElement) document.write("<script src='/js/jquery.mobile.custom.min.js'>" +
+            "<" + "/script>");
     </script>
     <script src="/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
@@ -139,7 +146,7 @@
             dots: false,
         });
 
-         $('.recents__slider').slick({
+        $('.recents__slider').slick({
             centerMode: true,
             infinite: true,
             slidesToShow: 6,
@@ -171,7 +178,7 @@
 
         $("#home-slider").slick({
             centerMode: true,
-             centerPadding: '0px',
+            centerPadding: '0px',
             infinite: true,
             slidesToShow: 1,
             slidesToScroll: 1,
@@ -187,7 +194,7 @@
         });
 
         $("#change-mode").click(function() {
-            
+
             var value = $("body").hasClass("light") ? "dark" : "light";
             $("body").toggleClass("dark");
             $.get("/cookie/change-mode/" + value);
