@@ -26,6 +26,32 @@
             <a href="#" class="btn-secondary shonen-ai">Shonen-AI</a>
         </div>
 
+        <div class="home-resume">
+            <div class="home-resume__title">
+                <h3 class="h--3"><span class="bg-resume"></span> Reprendre</h3>
+            </div>
+        </div>
+        <div class="home-news">
+            <div class="home-news__title">
+                <h3 class="h--3"><span class="bg-news_png"></span> News</h3>
+            </div>
+        </div>
+        <div class="home-origine">
+            <div class="home-origine__title">
+                <h3 class="h--3"><span class="bg-hearth_png"></span> ORIGINES TRAD EXCLUSIVITY</h3>
+            </div>
+        </div>
+        <div class="home-last">
+            <div class="home-last__title">
+                <h3 class="h--3"><span class="bg-last_updates_png"></span>Last updates</h3>
+            </div>
+        </div>
+
+        <div class="home-discover">
+            <div class="home-discover__title">
+                <h3 class="h--3"><span class="bg-discover_png"></span>Discover</h3>
+            </div>
+        </div>
         <div class="block tendances" id="tendances" style="margin-top: 50px;">
             <div class="block__title tendances">
                 <h3>Tendances</h3>

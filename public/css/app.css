@@ -307,8 +307,7 @@
   align-items: center;
   justify-content: center;
   padding-top: 130px;
-  background: #dadada;
-  background: linear-gradient(0deg, #dadada 24%, rgba(218, 218, 218, 0.5340511204) 57%, rgba(218, 218, 218, 0) 100%);
+  background: #FFFFFF0D;
   padding-bottom: 30px;
 }
 .footer__logo {
@@ -949,7 +948,7 @@
 }
 
 .btn-third {
-  border: 2px solid #B62626;
+  border: 2px solid #b62626;
   box-shadow: 0px 0px 4px 4px rgba(255, 5, 5, 0.25);
   border-radius: 35px;
   background: transparent;
@@ -977,35 +976,92 @@
   width: 100%;
 }
 .btn-secondary.webcomic {
-  background: linear-gradient(118.69deg, #2DFD80 13.59%, #1E472E 100%);
+  background: linear-gradient(118.69deg, #2dfd80 13.59%, #1e472e 100%);
+}
+.btn-secondary.webcomic:hover {
+  box-shadow: 0px 0px 4px 4px #2dfd8090;
 }
 .btn-secondary.manhua {
-  background: linear-gradient(126.52deg, #5BF1BB 17.19%, #205743 113.98%);
+  background: linear-gradient(126.52deg, #5bf1bb 17.19%, #205743 113.98%);
+}
+.btn-secondary.manhua:hover {
+  box-shadow: 0px 0px 4px 4px #5bf1bb90;
 }
 .btn-secondary.manhwa {
-  background: linear-gradient(180deg, #4ECAD2 0%, #135256 100%);
+  background: linear-gradient(180deg, #4ecad2 0%, #135256 100%);
+}
+.btn-secondary.manhwa:hover {
+  box-shadow: 0px 0px 4px 4px #4ecad290;
 }
 .btn-secondary.romance {
-  background: linear-gradient(122.03deg, #ED5050 1.73%, #784242 69.24%);
+  background: linear-gradient(122.03deg, #ed5050 1.73%, #784242 69.24%);
+}
+.btn-secondary.romance:hover {
+  box-shadow: 0px 0px 4px 4px #ed505090;
 }
 .btn-secondary.shonen {
-  background: linear-gradient(130.65deg, #3871C8 26.9%, #1D3558 102.24%);
+  background: linear-gradient(130.65deg, #3871c8 26.9%, #1d3558 102.24%);
+}
+.btn-secondary.shonen:hover {
+  box-shadow: 0px 0px 4px 4px #3871c890;
 }
 .btn-secondary.novel {
-  background: linear-gradient(110.9deg, #C0BF9E 34.15%, #737147 92.75%);
+  background: linear-gradient(110.9deg, #c0bf9e 34.15%, #737147 92.75%);
+}
+.btn-secondary.novel:hover {
+  box-shadow: 0px 0px 4px 4px #c0bf9e90;
 }
 .btn-secondary.adult {
   background: linear-gradient(180deg, #292929 0%, rgba(41, 41, 41, 0) 100%);
 }
+.btn-secondary.adult:hover {
+  box-shadow: 0px 0px 4px 4px #29292990;
+}
 .btn-secondary.shojo {
-  background: linear-gradient(180deg, #F588EA 0%, #78176E 100%);
+  background: linear-gradient(180deg, #f588ea 0%, #78176e 100%);
+}
+.btn-secondary.shojo:hover {
+  box-shadow: 0px 0px 4px 4px #f588ea90;
 }
 .btn-secondary.shonen-ai {
-  background: linear-gradient(180deg, #C03FE0 0%, #4A2054 100%);
+  background: linear-gradient(180deg, #c03fe0 0%, #4a2054 100%);
   margin-right: unset;
 }
-.btn-secondary:hover {
-  box-shadow: 0px 0px 4px 4px white;
+.btn-secondary.shonen-ai:hover {
+  box-shadow: 0px 0px 4px 4px #c03fe090;
+}
+
+.h--3 {
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 19px;
+  color: white;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+}
+.h--3 span {
+  margin-right: 15px;
+}
+
+.home-resume {
+  padding: 40px 0;
+}
+
+.home-origine {
+  padding: 40px 0;
+}
+
+.home-news {
+  padding: 40px 0;
+}
+
+.home-last {
+  padding: 40px 0;
+}
+
+.home-discover {
+  padding: 40px 0;
 }
 
 body {
